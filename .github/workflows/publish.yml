@@ -1,0 +1,29 @@
+name: Publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: git config
+        run: |
+          git config --global user.name GitHub Actions[Bot]
+          git config --global user.email <>
+
+      - name: Repository Prerequisites
+        run: |
+          git checkout main
+          git submodule update --init --recursive
+      - name: install requirements
+        run: |
+          pip3 install -r requirements.txt
+      - name: publish
+        run: |
+          make github

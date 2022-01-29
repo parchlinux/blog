@@ -1,0 +1,3 @@
+[submodule "blue-penguin"]
+	path = blue-penguin
+	url = https://github.com/jody-frankowski/blue-penguin
