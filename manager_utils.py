@@ -37,9 +37,11 @@ def format_authors_tags(items):
         count += 1
         if count > 1:
             # More than one author
-            s += f"    {item}\n"
+            s += f"{item}"
+            if item != items[-1]:
+                s+= ","
         else:
-            s += f"{item}\n"
+            s += f"{item}"
 
     return s.strip()
 
