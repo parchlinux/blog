@@ -2,7 +2,7 @@ title: README
 summary: Information about the project
 authors: mmdbalkhi
 date: January 29, 2022
-tags: archlinux,parch,pyabr
+tags: arch,parch
 slug: readme
 
 
