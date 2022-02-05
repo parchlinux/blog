@@ -1,7 +1,6 @@
 # Parch os website
 
-the Parch is an operating system based on Arch Linux and will use the [PyAbr](https://github.com/PyFarsi/pyabr) desktop in the future
-
+the Parch is an operating system based on Arch Linux
 ## Features
 
 currently nothing! Coming Soon
