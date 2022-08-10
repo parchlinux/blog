@@ -3,7 +3,7 @@
 
 AUTHOR = "Parch Foundation"
 SITENAME = "Parch os"
-SITEURL = "https://parch-os.github.io/"
+SITEURL = "https://parchlinux.ir"
 
 PATH = "content/blog"
 STATIC_PATHS = [
