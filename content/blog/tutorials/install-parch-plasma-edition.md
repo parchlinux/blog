@@ -8,7 +8,7 @@ slug: install-parch-plasma-edition
 
 # Parch os plasma Edition
 
-![screenshot](https://parch-os.github.io/img/plasma_screenshot.png)
+![screenshot](https://parchlinux.ir/img/plasma_screenshot.png)
 
 ## Installation
 

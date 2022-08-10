@@ -26,7 +26,7 @@ LINKS = (
     ("Pelican", "https://getpelican.com/"),
     ("Python.org", "https://www.python.org/"),
     ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-    ("RSS", "https://parch-os.github.com/feeds/all.atom.xml"),
+    ("RSS", "https://parchlinux.github.com/feeds/all.atom.xml"),
     ("You can modify those links in your config file", "#"),
 )
 
@@ -85,8 +85,8 @@ MENU_INTERNAL_PAGES = (
 
 # additional menu items
 MENUITEMS = (
-    ("GitHub", "https://github.com/parch-os"),
-    ("RSS", "https://parch-os.github.io/feeds/all.atom.xml"),
+    ("GitHub", "https://github.com/parchlinux"),
+    ("RSS", "https://parchlinux.ir/feeds/all.atom.xml"),
 )
 
 EXTRA_PATH_METADATA = {

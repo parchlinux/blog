@@ -11,7 +11,7 @@ sys.path.append(os.curdir)
 from pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
-SITEURL = "https://parch-os.github.io"
+SITEURL = "https://parchlinux.ir"
 RELATIVE_URLS = False
 
 # Feed Items
