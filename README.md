@@ -1,4 +1,4 @@
-# Parch os website
+# ParchLinux blog
 
 the Parch is an operating system based on Arch Linux
 ## Features

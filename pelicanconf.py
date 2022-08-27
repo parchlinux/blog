@@ -3,7 +3,7 @@
 
 AUTHOR = "Parch Foundation"
 SITENAME = "Parch os"
-SITEURL = "https://parchlinux.ir"
+SITEURL = "https://parchlinux.ir/blog"
 
 PATH = "content/blog"
 STATIC_PATHS = [
@@ -86,7 +86,7 @@ MENU_INTERNAL_PAGES = (
 # additional menu items
 MENUITEMS = (
     ("GitHub", "https://github.com/parchlinux"),
-    ("RSS", "https://parchlinux.ir/feeds/all.atom.xml"),
+    ("RSS", "https://parchlinux.ir/blog/feeds/all.atom.xml"),
 )
 
 EXTRA_PATH_METADATA = {
