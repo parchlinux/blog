@@ -6,7 +6,7 @@ tags: arch,parch
 slug: readme
 
 
-# Parch os 
+# Parch os
 
 ![logo](https://raw.githubusercontent.com/parchlinux/parch-plasma-iso/main/artwork/Parch.png)
 

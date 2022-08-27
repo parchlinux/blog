@@ -157,7 +157,7 @@
   text-decoration: none;
   color: var(--p-mobile-tabs-color);
   transition: color 0.5s;
-  font-size: 0.5rem; 
+  font-size: 0.5rem;
   padding: 0 20px;
   display: block;
 }

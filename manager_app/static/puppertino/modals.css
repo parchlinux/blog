@@ -24,7 +24,7 @@
   z-index: 5;
 }
 
-.p-modal { 
+.p-modal {
   background: var(--p-modal-bg);
   color: var(--p-modal-color);
   border-radius: 20px;

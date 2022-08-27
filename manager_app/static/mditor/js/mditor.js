@@ -49,7 +49,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var mokit = __webpack_require__(1);
 	var Toolbar = __webpack_require__(40);
 	var Editor = __webpack_require__(45);
@@ -57,17 +57,17 @@
 	var Finder = __webpack_require__(55);
 	var Shortcut = __webpack_require__(58);
 	var Parser = __webpack_require__(60);
-	
+
 	__webpack_require__(110);
 	__webpack_require__(117);
 	__webpack_require__(118);
 	__webpack_require__(119);
-	
+
 	var HIDDEN_CLASS_NAME = 'mditor-hidden';
-	
+
 	var Mditor = new mokit.Component({
 	  template: __webpack_require__(121),
-	
+
 	  /*istanbul ignore next*/onInit: function onInit() {
 	    this.PLATFORM = navigator.platform.toLowerCase();
 	    this.EOL = this.PLATFORM == 'win32' ? '\r\n' : '\n';
@@ -79,7 +79,7 @@
 	  },
 	  /*istanbul ignore next*/onReady: function onReady() {
 	    /*istanbul ignore next*/var _this = this;
-	
+
 	    this.shortcut.bind('tab', this.editor.addIndent.bind(this.editor));
 	    this.shortcut.bind('shift+tab', this.editor.removeIndent.bind(this.editor));
 	    this.shortcut.bind('enter', function (event) {
@@ -91,15 +91,15 @@
 	      /*istanbul ignore next*/_this.$emit('ready');
 	    }, 0);
 	  },
-	
-	
+
+
 	  components: {
 	    Toolbar: Toolbar,
 	    Editor: Editor,
 	    Viewer: Viewer,
 	    Finder: Finder
 	  },
-	
+
 	  props: {
 	    height: '400px',
 	    width: 'auto',
@@ -107,7 +107,7 @@
 	    split: true,
 	    fullscreen: false
 	  },
-	
+
 	  /*istanbul ignore next*/data: function data() {
 	    return {
 	      self: this,
@@ -210,7 +210,7 @@
 	    this.commands[name].handler.call(this, event);
 	  }
 	});
-	
+
 	Mditor.fromTextarea = function (textarea) {
 	  textarea.classList.add(HIDDEN_CLASS_NAME);
 	  var mditor = new Mditor();
@@ -232,9 +232,9 @@
 	  };
 	  return mditor;
 	};
-	
+
 	Mditor.Parser = Parser;
-	
+
 	module.exports = window.Mditor = Mditor;
 
 /***/ },
@@ -242,7 +242,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var info = __webpack_require__(2);
 	var utils = __webpack_require__(3);
 	var Class = __webpack_require__(4);
@@ -251,10 +251,10 @@
 	var Template = __webpack_require__(8);
 	var Component = __webpack_require__(35);
 	var EventEmitter = __webpack_require__(7);
-	
+
 	//持载模板相关对象
 	utils.copy(Template, Component);
-	
+
 	Component.version = info.version;
 	Component.Template = Template;
 	Component.Watcher = Watcher;
@@ -262,7 +262,7 @@
 	Component.EventEmitter = EventEmitter;
 	Component.utils = utils;
 	Component.Class = Class;
-	
+
 	//定义安装插件的方法
 	Component.use = function (plugin) {
 	  var install = plugin.install || plugin;
@@ -271,10 +271,10 @@
 	  }
 	  return install.call(plugin, this);
 	};
-	
+
 	//安装内置的路由插件
 	//Component.use(Router);
-	
+
 	module.exports = Component;
 
 /***/ },
@@ -291,12 +291,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (ntils) {
-	
+
 	  /**
 	   * 空函数
 	   */
 	  ntils.noop = function () { };
-	
+
 	  /**
 	   * 验证一个对象是否为NULL
 	   * @method isNull
@@ -307,7 +307,7 @@
 	  ntils.isNull = function (obj) {
 	    return obj === null || typeof obj === "undefined";
 	  };
-	
+
 	  /**
 	   * 除去字符串两端的空格
 	   * @method trim
@@ -323,7 +323,7 @@
 	      return str.replace(/(^[\\s]*)|([\\s]*$)/g, "");
 	    }
 	  };
-	
+
 	  /**
 	   * 替换所有
 	   * @method replace
@@ -336,7 +336,7 @@
 	    if (this.isNull(str)) return str;
 	    return str.replace(new RegExp(str1, 'g'), str2);
 	  };
-	
+
 	  /**
 	   * 从字符串开头匹配
 	   * @method startWith
@@ -349,7 +349,7 @@
 	    if (this.isNull(str1) || this.isNull(str2)) return false;
 	    return str1.indexOf(str2) === 0;
 	  };
-	
+
 	  /**
 	   * 是否包含
 	   * @method contains
@@ -363,7 +363,7 @@
 	    if (this.isNull(str1) || this.isNull(str2)) return false;
 	    return str1.indexOf(str2) > -1;
 	  };
-	
+
 	  /**
 	   * 从字符串结束匹配
 	   * @method endWidth
@@ -376,7 +376,7 @@
 	    if (this.isNull(str1) || this.isNull(str2)) return false;
 	    return str1.indexOf(str2) === (str1.length - str2.length);
 	  };
-	
+
 	  /**
 	   * 是否包含属性
 	   * @method hasProperty
@@ -389,7 +389,7 @@
 	    if (this.isNull(obj) || this.isNull(name)) return false;
 	    return (name in obj) || (obj.hasOwnProperty(name));
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Function
 	   * @method isFunction
@@ -401,7 +401,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === "function";
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为String
 	   * @method isString
@@ -413,7 +413,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === 'string' || obj instanceof String;
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Number
 	   * @method isNumber
@@ -425,7 +425,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === 'number' || obj instanceof Number;
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Boolean
 	   * @method isBoolean
@@ -437,7 +437,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === 'boolean' || obj instanceof Boolean;
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为HTML Element
 	   * @method isElement
@@ -453,7 +453,7 @@
 	      return (obj.tagName && obj.nodeType && obj.nodeName && obj.attributes && obj.ownerDocument);
 	    }
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为HTML Text Element
 	   * @method isText
@@ -465,7 +465,7 @@
 	    if (this.isNull(obj)) return false;
 	    return obj instanceof Text;
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Object
 	   * @method isObject
@@ -477,7 +477,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === "object";
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Array或伪Array
 	   * @method isArray
@@ -493,7 +493,7 @@
 	    var v4 = !this.isString(obj) && this.isNumber(obj.length) && obj[0];
 	    return v1 || v2 || v3 || v4;
 	  };
-	
+
 	  /**
 	   * 验证是不是一个日期对象
 	   * @method isDate
@@ -505,7 +505,7 @@
 	    if (this.isNull(val)) return false;
 	    return val instanceof Date;
 	  };
-	
+
 	  /**
 	   * 验证是不是一个正则对象
 	   * @method isDate
@@ -516,7 +516,7 @@
 	  ntils.isRegexp = function (val) {
 	    return val instanceof RegExp;
 	  };
-	
+
 	  /**
 	   * 转换为数组
 	   * @method toArray
@@ -528,7 +528,7 @@
 	    if (this.isNull(array)) return [];
 	    return Array.prototype.slice.call(array);
 	  };
-	
+
 	  /**
 	   * 转为日期格式
 	   * @method toDate
@@ -547,7 +547,7 @@
 	    else
 	      return null;
 	  };
-	
+
 	  /**
 	   * 遍历一个对像或数组
 	   * @method each
@@ -571,7 +571,7 @@
 	      }
 	    }
 	  };
-	
+
 	  /**
 	   * 格式化日期
 	   * @method formatDate
@@ -608,7 +608,7 @@
 	    }
 	    return format;
 	  };
-	
+
 	  /**
 	   * 拷贝对象
 	   * @method copy
@@ -633,7 +633,7 @@
 	    })
 	    return dst;
 	  };
-	
+
 	  /**
 	   * 深度克隆对象
 	   * @method clone
@@ -668,7 +668,7 @@
 	    }, this);
 	    return objClone;
 	  };
-	
+
 	  /**
 	   * 合并对象
 	   * @method mix
@@ -679,19 +679,19 @@
 	   * @param {Number} mode 模式
 	   */
 	  ntils.mix = function (dst, src, igonres, mode) {
-	    //根据模式来判断，默认是Obj to Obj的  
+	    //根据模式来判断，默认是Obj to Obj的
 	    if (mode) {
 	      switch (mode) {
-	        case 1: // proto to proto  
+	        case 1: // proto to proto
 	          return ntils.mix(dst.prototype, src.prototype, igonres, 0);
-	        case 2: // object to object and proto to proto  
+	        case 2: // object to object and proto to proto
 	          ntils.mix(dst.prototype, src.prototype, igonres, 0);
-	          break; // pass through  
-	        case 3: // proto to static  
+	          break; // pass through
+	        case 3: // proto to static
 	          return ntils.mix(dst, src.prototype, igonres, 0);
-	        case 4: // static to proto  
+	        case 4: // static to proto
 	          return ntils.mix(dst.prototype, src, igonres, 0);
-	        default: // object to object is what happens below  
+	        default: // object to object is what happens below
 	      }
 	    }
 	    //---
@@ -710,7 +710,7 @@
 	    }, this);
 	    return dst;
 	  };
-	
+
 	  /**
 	   * 定义不可遍历的属性
 	   **/
@@ -726,9 +726,9 @@
 	      obj[name] = value;
 	    }
 	  };
-	
+
 	  /**
-	   * 获取所有 key 
+	   * 获取所有 key
 	   */
 	  ntils.keys = function (obj) {
 	    if (Object.keys) return Object.keys(obj);
@@ -738,7 +738,7 @@
 	    });
 	    return keys;
 	  };
-	
+
 	  /**
 	   * 创建一个对象
 	   */
@@ -750,7 +750,7 @@
 	    if (props) this.copy(props, obj);
 	    return obj;
 	  };
-	
+
 	  /**
 	   * 设置 proto
 	   * 在不支持 setPrototypeOf 也不支持 __proto__ 的浏览器
@@ -764,7 +764,7 @@
 	      obj.__proto__ = proto;
 	    }
 	  };
-	
+
 	  /**
 	   * 获取 proto
 	   */
@@ -773,7 +773,7 @@
 	    if (Object.getPrototypeOf) return Object.getPrototypeOf(obj);
 	    if (obj.constructor) return obj.constructor.prototype;
 	  };
-	
+
 	  /**
 	   * 是否深度相等
 	   */
@@ -793,7 +793,7 @@
 	    }, this);
 	    return result;
 	  };
-	
+
 	  /**
 	   * 从一个数值循环到别一个数
 	   * @param {number} fromNum 开始数值
@@ -811,7 +811,7 @@
 	      for (var i = fromNum; i >= toNum; i -= step) handler(i);
 	    }
 	  };
-	
+
 	  /**
 	   * 生成一个Guid
 	   * @method newGuid
@@ -824,7 +824,7 @@
 	    };
 	    return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 	  };
-	
+
 	  /**
 	   * 对象变换
 	   **/
@@ -835,7 +835,7 @@
 	    });
 	    return buffer;
 	  };
-	
+
 	  /**
 	   * 通过路径设置属性值
 	   */
@@ -856,7 +856,7 @@
 	      }
 	    }, this);
 	  };
-	
+
 	  /**
 	   * 通过路径获取属性值
 	   */
@@ -873,7 +873,7 @@
 	    }, this);
 	    return obj;
 	  };
-	
+
 	  /**
 	   * 数组去重
 	   **/
@@ -886,7 +886,7 @@
 	    });
 	    return newArray;
 	  };
-	
+
 	  /**
 	   * 解析 function 的参数列表
 	   **/
@@ -900,7 +900,7 @@
 	      return name != 'function';
 	    });
 	  };
-	
+
 	  /**
 	   * 缩短字符串
 	   */
@@ -911,7 +911,7 @@
 	    var trimLength = maxLength / 2;
 	    return strLength > maxLength ? str.substr(0, trimLength) + '...' + str.substr(strLength - trimLength) : str;
 	  };
-	
+
 	  /**
 	   * 首字母大写
 	   */
@@ -920,11 +920,11 @@
 	    str[0] = str[0].toLowerCase();
 	    return str;
 	  };
-	
+
 	  /**
-	   * 解析字符串为 dom 
+	   * 解析字符串为 dom
 	   * @param {string} str 字符串
-	   * @returns {HTMLNode} 解析后的 DOM 
+	   * @returns {HTMLNode} 解析后的 DOM
 	   */
 	  ntils.parseDom = function (str) {
 	    this._PDD_ = this._PDD_ || document.createElement('div');
@@ -936,7 +936,7 @@
 	    this._PDD_.innerHTML = '';
 	    return firstNode;
 	  };
-	
+
 	})(( false) ? (window.ntils = {}) : exports);
 
 /***/ },
@@ -944,7 +944,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const utils = __webpack_require__(3);
-	
+
 	function ClassFactory(options) {
 	  //处理 options
 	  options = options || utils.create(null);
@@ -1007,13 +1007,13 @@
 	  //--
 	  return Class;
 	}
-	
+
 	//定义扩展方法
 	ClassFactory.$extend = function (options) {
 	  options.$extends = this;
 	  return new ClassFactory(options);
 	};
-	
+
 	ClassFactory.Class = ClassFactory;
 	module.exports = ClassFactory;
 
@@ -1022,16 +1022,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Class = __webpack_require__(4);
 	var utils = __webpack_require__(3);
-	
+
 	/**
 	 * Watcher 类
 	 * 通过「计算函数」、「执行函数」可以创建一个 Watcher 实例
 	 */
 	var Watcher = new Class({
-	
+
 	  /**
 	   * 通过「计算函数」、「执行函数」构建一个 Watcher 实例
 	   * @param {function} calcor 计算函数
@@ -1047,7 +1047,7 @@
 	    this.handler = handler;
 	    if (first) this.calc(true);
 	  },
-	
+
 	  /**
 	   * 执行计算
 	   * @param {boolean} force 是否强制触发「计算函数」
@@ -1060,9 +1060,9 @@
 	    }
 	    this.value = utils.clone(newValue);
 	  }
-	
+
 	});
-	
+
 	module.exports = Watcher;
 
 /***/ },
@@ -1070,16 +1070,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Class = __webpack_require__(4);
 	var utils = __webpack_require__(3);
 	var EventEmitter = __webpack_require__(7);
-	
+
 	var OBSERVER_PROP_NAME = '_observer_';
 	var CHANGE_EVENT_NAME = 'change';
 	var EVENT_MAX_DISPATCH_LAYER = 10;
 	var IGNORE_REGEXPS = [/^\_(.*)\_$/i, /^\_\_/i];
-	
+
 	/**
 	 * 对象观察类，可以监控对象变化
 	 * 目前方案问题:
@@ -1088,17 +1088,17 @@
 	 * 其它方法一:
 	 *   将「关系」放入全局数组中，然后将 ob.parents 变成一个「属性」从全局数组件中 filter 出来，
 	 *   基本和目前方法类似，但是关系在外部存领教，所以 clearReference 可清除。
-	 * 其它方案二: 
+	 * 其它方案二:
 	 *   构造时添加到全局数组，每一个 observer change 时都让放到全局的 observer 遍历自身的，
 	 *   检果事件源是不是自已的子对象，如果是则触发自身 change 事件，这样 ob 对象本身没有相关引用
 	 *   clearReference 时只从全局清除掉就行了，并且 delete 操作也不会影响，但效率稍差。
-	 * 其它方案三: 
+	 * 其它方案三:
 	 *   给构造函数添加一个 deep 属性，只有 deep 的 ob 对象，才放入到全局数组中，检查时逻辑同方案二
 	 *   但是因为要检查的对象会少很多，效率会更高一点。
 	 */
 	var Observer = new Class({
 	  $extends: EventEmitter,
-	
+
 	  /**
 	   * 通过目标对象构造一个观察对象
 	   * @param {Object} target 目标对象
@@ -1129,7 +1129,7 @@
 	    utils.defineFreezeProp(target, OBSERVER_PROP_NAME, this);
 	    this.apply();
 	  },
-	
+
 	  /**
 	   * 添加一个属性，动态添中的属性，无法被观察，
 	   * 但是通过 set 方法添加的属性可能被观察。
@@ -1166,7 +1166,7 @@
 	    });
 	    this.target[name] = value;
 	  },
-	
+
 	  /**
 	   * 自动应用所有动态添加的属性
 	   * @returns {void} 无返回
@@ -1182,7 +1182,7 @@
 	      this.set(name, this.target[name]);
 	    }, this);
 	  },
-	
+
 	  /**
 	   * 清除所有父子引用
 	   * @returns {void} 无返回
@@ -1194,7 +1194,7 @@
 	      if (child) this.removeChild(child);
 	    }, this);
 	  },
-	
+
 	  /**
 	   * 派发一个事件，事件会向父级对象冒泡
 	   * @param {string} eventName 事件名称
@@ -1217,7 +1217,7 @@
 	      item.parent.dispatch(eventName, parentEvent);
 	    }, this);
 	  },
-	
+
 	  /**
 	   * 添子观察者对象
 	   * @param {Object} child 父对象
@@ -1231,7 +1231,7 @@
 	    if (child.options.root) return;
 	    child.parents.push({ parent: this, name: name });
 	  },
-	
+
 	  /**
 	   * 移除子对象
 	   * @param {Object} child 父对象
@@ -1252,7 +1252,7 @@
 	      child.parents.splice(foundIndex, 1);
 	    }
 	  },
-	
+
 	  /**
 	   * 触发 change 事件
 	   * @param {Object} event 事件对象
@@ -1261,7 +1261,7 @@
 	  emitChange: function /*istanbul ignore next*/emitChange(event) {
 	    this.dispatch(CHANGE_EVENT_NAME, event);
 	  },
-	
+
 	  /**
 	   * 获取所有成员名称列表
 	   * @returns {Array} 所有成员名称列表
@@ -1274,7 +1274,7 @@
 	      return name !== OBSERVER_PROP_NAME;
 	    });
 	  },
-	
+
 	  /**
 	   * 包裹数组
 	   * @param {array} array 源数组
@@ -1326,9 +1326,9 @@
 	      this[OBSERVER_PROP_NAME].set(index, value);
 	    });
 	  }
-	
+
 	});
-	
+
 	/**
 	 * 观察一个对象
 	 * @param {Object} target 目标对象
@@ -1337,7 +1337,7 @@
 	Observer.observe = function (target) {
 	  return new Observer(target);
 	};
-	
+
 	/**
 	 * 检查是不是忽略的属性名
 	 * @param {string} word 待检查的字符串
@@ -1348,7 +1348,7 @@
 	    return re.test(word);
 	  });
 	};
-	
+
 	module.exports = Observer;
 
 /***/ },
@@ -1356,16 +1356,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var utils = __webpack_require__(3);
 	var Class = __webpack_require__(4);
-	
+
 	/**
 	 * 事件触发器基类
 	 */
 	var EventEmitter = new Class({
 	  $extends: Function,
-	
+
 	  /**
 	   * 构建一个一个事修的触发器对象
 	   * @param {object} target 将代理的目标对象可以省略
@@ -1383,7 +1383,7 @@
 	    this.off = this.$off = this.$removeListener = this.removeListener;
 	    this.$emit = this.emit;
 	  },
-	
+
 	  /**
 	   * 检查是否原生支持事件
 	   * @param {object} obj 对象
@@ -1392,7 +1392,7 @@
 	  _isNativeObject: function /*istanbul ignore next*/_isNativeObject(obj) {
 	    return obj.addEventListener && obj.removeEventListener && obj.dispatchEvent;
 	  },
-	
+
 	  /**
 	   * 添加一个事件监听函数
 	   * @param {string} name 事件名称
@@ -1410,7 +1410,7 @@
 	      throw new Error('The `' + name + '` event listener is not more than 10');
 	    }
 	  },
-	
+
 	  /**
 	   * 移除「一个/一组/所有」事件监听函数
 	   * @param {string} name 事件名称
@@ -1440,7 +1440,7 @@
 	      this._listeners_ = {};
 	    }
 	  },
-	
+
 	  /**
 	   * 触发自身的一个事件
 	   * @param {string} name 事件名称
@@ -1461,7 +1461,7 @@
 	    }, this);
 	    return stopPropagation;
 	  },
-	
+
 	  /**
 	   * 添加 DOM 元素事件
 	   * @param {string} name 事件名称
@@ -1478,7 +1478,7 @@
 	      descriptor.addListener(this, name, listener, capture);
 	    }
 	  },
-	
+
 	  /**
 	   * 移除 DOM 元素事件
 	   * @param {string} name 事件名称
@@ -1495,7 +1495,7 @@
 	      descriptor.removeListener(this, name, listener, capture);
 	    }
 	  },
-	
+
 	  /**
 	   * 触发 DOM 元素事件
 	   * @param {string} name 事件名称
@@ -1511,15 +1511,15 @@
 	    event.data = data;
 	    return this._target_.dispatchEvent(event);
 	  }
-	
+
 	});
-	
+
 	//最多添加多少个 listener
 	EventEmitter._maxListeners = 10;
-	
+
 	//所有自定义事件
 	EventEmitter._events = [];
-	
+
 	/**
 	 * 注册自定义事件(只在代理 dom 对象时有效)
 	 * @param {object} descriptor 事件定义
@@ -1533,7 +1533,7 @@
 	    this._events[name] = descriptor;
 	  }, this);
 	};
-	
+
 	module.exports = EventEmitter;
 
 /***/ },
@@ -1541,19 +1541,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Compiler = __webpack_require__(9);
 	var Directive = __webpack_require__(10);
 	var Expression = __webpack_require__(11);
 	var Template = __webpack_require__(34);
 	var directives = __webpack_require__(12);
-	
+
 	Template.Template = Template;
 	Template.Compiler = Compiler;
 	Template.Directive = Directive;
 	Template.directives = directives;
 	Template.Expression = Expression;
-	
+
 	module.exports = Template;
 
 /***/ },
@@ -1561,21 +1561,21 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Class = __webpack_require__(4);
 	var Directive = __webpack_require__(10);
 	var utils = __webpack_require__(3);
 	var Expression = __webpack_require__(11);
 	var commonDirectives = __webpack_require__(12);
-	
+
 	var DEFAULT_PREFIX = 'm';
-	
+
 	/**
 	 * 模板编译器
 	 * 可以通过指定「前缀」或「指令集」构建实例
 	 */
 	var Compiler = new Class({
-	
+
 	  /**
 	   * 构造一个编译器
 	   * @param {Object} options 选项
@@ -1589,10 +1589,10 @@
 	    this.registerDirectives(commonDirectives);
 	    this.registerDirectives(options.directives);
 	  },
-	
+
 	  /**
 	   * 添加指令
-	   * @param {Object} directives 指令集 
+	   * @param {Object} directives 指令集
 	   * @returns {void} 无返回
 	   */
 	  registerDirectives: function /*istanbul ignore next*/registerDirectives(directives) {
@@ -1607,7 +1607,7 @@
 	      }
 	    }, this);
 	  },
-	
+
 	  /**
 	   * 解析要 attr 指令信息
 	   * @param {string} attrName 要解析的名称字符串
@@ -1625,7 +1625,7 @@
 	    }
 	    return info;
 	  },
-	
+
 	  /**
 	   * 创建一个指令实例
 	   * @param {Directive} Directive 指令类
@@ -1637,7 +1637,7 @@
 	    options.prefix = this.prefix;
 	    return new Directive(options);
 	  },
-	
+
 	  /**
 	   * 初始化一个编译完成的 handler
 	   * @param {function} handler 编译后的的模板函数
@@ -1665,7 +1665,7 @@
 	    }, this);
 	    handler.directives = boundDirectives;
 	  },
-	
+
 	  /**
 	   * 编译一个元素本身
 	   * @param {function} handler 当前模板函数
@@ -1680,9 +1680,9 @@
 	      node: node
 	    }));
 	  },
-	
+
 	  /**
-	   * 编译一个元素所有 attributes 
+	   * 编译一个元素所有 attributes
 	   * @param {function} handler 当前模板函数
 	   * @param {HTMLNode} node 当前 HTML 结点
 	   * @returns {void} 无返回
@@ -1702,7 +1702,7 @@
 	      }));
 	    }, this);
 	  },
-	
+
 	  /**
 	   * 编译所有子结点
 	   * @param {function} handler 当前模板函数
@@ -1718,7 +1718,7 @@
 	      handler.children.push(childHandler);
 	    }, this);
 	  },
-	
+
 	  /**
 	   * 编译一个模板
 	   * @param {HTMLNode} node 模板根元素
@@ -1752,7 +1752,7 @@
 	      }, this);
 	    };
 	    handler.node = node;
-	    //定义 children & directives 
+	    //定义 children & directives
 	    handler.directives = [];
 	    handler.children = [];
 	    //编译相关指令
@@ -1763,9 +1763,9 @@
 	    //返回编译后函数
 	    return handler;
 	  }
-	
+
 	});
-	
+
 	module.exports = Compiler;
 
 /***/ },
@@ -1773,11 +1773,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Class = __webpack_require__(4);
 	var utils = __webpack_require__(3);
 	var Expression = __webpack_require__(11);
-	
+
 	/**
 	 * 指令定义工场函数
 	 * @param {Object} classOptions 选项
@@ -1788,10 +1788,10 @@
 	  classOptions = classOptions || {};
 	  classOptions.type = classOptions.type || Directive.TA;
 	  classOptions.level = classOptions.level || Directive.LG;
-	
+
 	  //生成指令类
 	  var DirectiveClass = new Class({
-	
+
 	    $extends: classOptions,
 	    //指令构建函数
 	    constructor: function /*istanbul ignore next*/constructor(instanceOptions) {
@@ -1823,11 +1823,11 @@
 	  utils.setPrototypeOf(DirectiveClass, classOptions);
 	  return DirectiveClass;
 	}
-	
+
 	//指令类型
 	Directive.TA = 'A';
 	Directive.TE = 'E';
-	
+
 	//指令级别
 	Directive.LP = 3000; //prevent
 	Directive.LS = 2000; //statement
@@ -1835,7 +1835,7 @@
 	Directive.LG = 0; //general
 	Directive.LA = -1000; //any attribute
 	Directive.LC = -2000; //cloak
-	
+
 	module.exports = Directive;
 
 /***/ },
@@ -1843,15 +1843,15 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Class = __webpack_require__(4);
 	var utils = __webpack_require__(3);
-	
+
 	/**
 	 * 表达式类型，将字符串构析为可执行表达式实例
 	 */
 	var Expression = new Class({
-	
+
 	  /**
 	   * 通过字符串构造一个表达式实例
 	   * @param {string} code 代码字符串
@@ -1861,7 +1861,7 @@
 	  constructor: function /*istanbul ignore next*/constructor(code, mix) {
 	    this.func = mix ? this._compileMixedCode(code) : this._compileCode(code);
 	  },
-	
+
 	  /**
 	   * 编译普通表达式代码
 	   * @param {string} code 代码字符串
@@ -1871,7 +1871,7 @@
 	    code = this._escapeEOL(this._wrapCode(code));
 	    return this._createFunction(code);
 	  },
-	
+
 	  /**
 	   * 编辑混合的表达式代码
 	   * @param {string} code 代码字符串
@@ -1882,7 +1882,7 @@
 	    code = this._escapeEOL(statements.join('+'));
 	    return this._createFunction(code);
 	  },
-	
+
 	  /**
 	   * 通过符串代码创建一个可执行函数
 	   * @param {string} code 代码字符串
@@ -1892,7 +1892,7 @@
 	    var func = new Function('utils', 'scope', 'with(scope){return ' + code + '}');
 	    return func.bind(null, utils);
 	  },
-	
+
 	  /**
 	   * 解析混合代码字符串
 	   * @param {string} code 混合代码字符串
@@ -1933,7 +1933,7 @@
 	    }
 	    return tokens;
 	  },
-	
+
 	  /**
 	   * 转义处理代码字符串
 	   * @param {string} code 源字符串
@@ -1942,7 +1942,7 @@
 	  _escapeCode: function /*istanbul ignore next*/_escapeCode(code) {
 	    return code.replace(/"/, '\\"').replace('\r\n', '\\r\\n').replace('\n', '\\n');
 	  },
-	
+
 	  /**
 	   * 转义换行符
 	   * @param {string} code 源字符串
@@ -1951,7 +1951,7 @@
 	  _escapeEOL: function /*istanbul ignore next*/_escapeEOL(code) {
 	    return code.replace(/\n/gm, '\\\n');
 	  },
-	
+
 	  /**
 	   * 通过闭包和 try/cache 包裹代码
 	   * 将模板中错误的代码直接显示在「模板中用到的位置」，更易于定位错误。
@@ -1961,7 +1961,7 @@
 	  _wrapCode: function /*istanbul ignore next*/_wrapCode(code) {
 	    return '((function(){try{return (' + code + ')}catch(err){console.error(err);return err;}})())';
 	  },
-	
+
 	  /**
 	   * 通过 scope 对象执行表达式
 	   * @param {Object} scope 上下文对象
@@ -1973,9 +1973,9 @@
 	    }
 	    return this.func.call(scope, scope);
 	  }
-	
+
 	});
-	
+
 	module.exports = Expression;
 
 /***/ },
@@ -1983,7 +1983,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	module.exports = {
 	  '#text': __webpack_require__(13),
 	  'each': __webpack_require__(14),
@@ -2006,14 +2006,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
 	var Expression = __webpack_require__(11);
-	
+
 	module.exports = new Directive({
 	  type: Directive.TE,
 	  prefix: false,
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
@@ -2022,7 +2022,7 @@
 	    this.expr = new Expression(this.node.nodeValue, true);
 	    this.node.nodeValue = '';
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    this.scope = scope;
 	    var newValue = this.expr.execute(scope);
@@ -2030,7 +2030,7 @@
 	      this.node.nodeValue = newValue;
 	    }
 	  }
-	
+
 	});
 
 /***/ },
@@ -2038,16 +2038,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
 	var utils = __webpack_require__(3);
 	var Scope = __webpack_require__(15);
-	
+
 	module.exports = new Directive({
 	  level: Directive.LS + 1, //比 if 要高一个权重
 	  final: true,
 	  literal: true,
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
@@ -2062,7 +2062,7 @@
 	    this.parseExpr();
 	    this.eachItems = {};
 	  },
-	
+
 	  parseExpr: function /*istanbul ignore next*/parseExpr() {
 	    this.eachType = this.attribute.value.indexOf(' in ') > -1 ? 'in' : 'of';
 	    var tokens = this.attribute.value.split(' ' + this.eachType + ' ');
@@ -2079,10 +2079,10 @@
 	      this.valueName = names[0];
 	    }
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    /*istanbul ignore next*/var _this = this;
-	
+
 	    var currentEachKeys = [];
 	    var itemsFragment = document.createDocumentFragment();
 	    var self = this;
@@ -2136,7 +2136,7 @@
 	      this.mountNode.parentNode.insertBefore(itemsFragment, this.mountNode);
 	    }
 	  }
-	
+
 	});
 
 /***/ },
@@ -2144,13 +2144,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var utils = __webpack_require__(3);
-	
+
 	var Scope = function Scope(parent, props) {
-	  //新的 scope 因为「继承」了 _observer_ 
+	  //新的 scope 因为「继承」了 _observer_
 	  //所以在新 scope 上进行双向绑定时，将将值成功回写
-	  //如果有天不须用 utils.cteate 继承法，需要注意 _observer_ 
+	  //如果有天不须用 utils.cteate 继承法，需要注意 _observer_
 	  //或在新 scope 上 defineProperty 代理 parentScope
 	  var scope = utils.create(parent);
 	  utils.copy(props, scope);
@@ -2161,7 +2161,7 @@
 	  });
 	  return scope;
 	};
-	
+
 	module.exports = Scope;
 
 /***/ },
@@ -2169,13 +2169,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	module.exports = new Directive({
 	  level: Directive.LS,
 	  final: true,
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
@@ -2188,11 +2188,11 @@
 	    this.node.removeAttribute(this.attribute.name);
 	    this.node.parentNode.removeChild(this.node);
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    var newValue = this.expression.execute(scope);
 	    if (newValue) {
-	      //如果新计算的结果为 true 才执行 
+	      //如果新计算的结果为 true 才执行
 	      this._handler = this._handler || this.compiler.compile(this.node);
 	      this._handler(scope);
 	      var node = this.node.$substitute || this.node;
@@ -2204,7 +2204,7 @@
 	      if (_node.parentNode) _node.parentNode.removeChild(_node);
 	    }
 	  }
-	
+
 	});
 
 /***/ },
@@ -2212,9 +2212,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	module.exports = new Directive({
 	  update: function /*istanbul ignore next*/update(value) {
 	    var target = this.node.$target || this.node;
@@ -2233,9 +2233,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	module.exports = new Directive({
 	  update: function /*istanbul ignore next*/update(value) {
 	    var target = this.node.$target || this.node;
@@ -2252,14 +2252,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
 	var EventEmitter = __webpack_require__(7);
 	var Scope = __webpack_require__(15);
-	
+
 	module.exports = new Directive({
 	  literal: true,
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
@@ -2279,15 +2279,15 @@
 	      }));
 	    }.bind(this), false);
 	  },
-	
+
 	  unbind: function /*istanbul ignore next*/unbind() {
 	    this.emiter.removeListener();
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    this.scope = scope;
 	  }
-	
+
 	});
 
 /***/ },
@@ -2295,9 +2295,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	module.exports = new Directive({
 	  update: function /*istanbul ignore next*/update(newValue) {
 	    this.node.innerHTML = newValue;
@@ -2309,9 +2309,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	module.exports = new Directive({
 	  update: function /*istanbul ignore next*/update(newValue) {
 	    this.node.innerText = newValue;
@@ -2323,9 +2323,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	module.exports = new Directive({
 	  level: Directive.LP,
 	  final: true
@@ -2336,19 +2336,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	module.exports = new Directive({
 	  literal: true,
-	
+
 	  update: function /*istanbul ignore next*/update(id) {
 	    if (id in this.scope) {
 	      throw new Error('Conflicting component id `' + id + '`');
 	    }
 	    this.scope[id] = this.node.$target || this.node;
 	  }
-	
+
 	});
 
 /***/ },
@@ -2356,18 +2356,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	module.exports = new Directive({
 	  level: Directive.LC,
 	  literal: true,
 	  prefix: false,
-	
+
 	  bind: function /*istanbul ignore next*/bind() {
 	    this.node.removeAttribute(this.attribute.name);
 	  }
-	
+
 	});
 
 /***/ },
@@ -2375,9 +2375,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	module.exports = new Directive({
 	  update: function /*istanbul ignore next*/update(value) {
 	    this.node.style.display = value ? '' : 'none';
@@ -2389,14 +2389,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var SelectDirective = __webpack_require__(27);
 	var EditableDirective = __webpack_require__(28);
 	var InputDirective = __webpack_require__(29);
 	var RadioDirective = __webpack_require__(30);
 	var CheckboxDirective = __webpack_require__(31);
 	var PropDirective = __webpack_require__(32);
-	
+
 	var Directive = function Directive(options) {
 	  var node = options.node;
 	  var tagName = node.tagName;
@@ -2421,12 +2421,12 @@
 	    throw new Error( /*istanbul ignore next*/'Directive `model` cannot be used on `' + tagName + '`');
 	  }
 	};
-	
+
 	//手动添加 classOptions
 	Directive.options = {
 	  level: Directive.LA
 	};
-	
+
 	module.exports = Directive;
 
 /***/ },
@@ -2434,14 +2434,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
 	var EventEmitter = __webpack_require__(7);
 	var Scope = __webpack_require__(15);
-	
+
 	module.exports = new Directive({
 	  final: true,
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
@@ -2462,11 +2462,11 @@
 	      }));
 	    }.bind(this), false);
 	  },
-	
+
 	  unbind: function /*istanbul ignore next*/unbind() {
 	    this.emiter.removeListener();
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    this.scope = scope;
 	    this._handler(scope);
@@ -2476,7 +2476,7 @@
 	      option.selected = value.indexOf(option.value) > -1;
 	    }, this);
 	  }
-	
+
 	});
 
 /***/ },
@@ -2484,13 +2484,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
 	var EventEmitter = __webpack_require__(7);
 	var Scope = __webpack_require__(15);
-	
+
 	module.exports = new Directive({
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
@@ -2505,18 +2505,18 @@
 	      }));
 	    }.bind(this), false);
 	  },
-	
+
 	  unbind: function /*istanbul ignore next*/unbind() {
 	    this.emiter.removeListener();
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    var value = this.expression.execute(scope);
 	    if (this.node.innerHTML !== value) {
 	      this.node.innerHTML = value;
 	    }
 	  }
-	
+
 	});
 
 /***/ },
@@ -2524,13 +2524,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
 	var EventEmitter = __webpack_require__(7);
 	var Scope = __webpack_require__(15);
-	
+
 	module.exports = new Directive({
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
@@ -2545,18 +2545,18 @@
 	      }));
 	    }.bind(this), false);
 	  },
-	
+
 	  unbind: function /*istanbul ignore next*/unbind() {
 	    this.emiter.removeListener();
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    var value = this.expression.execute(scope);
 	    if (this.node.value !== value) {
 	      this.node.value = value;
 	    }
 	  }
-	
+
 	});
 
 /***/ },
@@ -2564,11 +2564,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
 	var EventEmitter = __webpack_require__(7);
 	var Scope = __webpack_require__(15);
-	
+
 	module.exports = new Directive({
 	  /**
 	   * 初始化指令
@@ -2584,17 +2584,17 @@
 	      }));
 	    }.bind(this), false);
 	  },
-	
+
 	  unbind: function /*istanbul ignore next*/unbind() {
 	    this.emiter.removeListener();
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    this.scope = scope;
 	    var value = this.expression.execute(scope);
 	    this.node.checked = value == this.node.value;
 	  }
-	
+
 	});
 
 /***/ },
@@ -2602,13 +2602,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
 	var EventEmitter = __webpack_require__(7);
 	var Scope = __webpack_require__(15);
-	
+
 	module.exports = new Directive({
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
@@ -2631,11 +2631,11 @@
 	      }
 	    }.bind(this), false);
 	  },
-	
+
 	  unbind: function /*istanbul ignore next*/unbind() {
 	    this.emiter.removeListener();
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    this.scope = scope;
 	    var value = this.expression.execute(scope);
@@ -2645,7 +2645,7 @@
 	      this.node.checked = value;
 	    }
 	  }
-	
+
 	});
 
 /***/ },
@@ -2653,19 +2653,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
 	var Scope = __webpack_require__(15);
-	
+
 	module.exports = new Directive({
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
 	   */
 	  bind: function /*istanbul ignore next*/bind() {
 	    /*istanbul ignore next*/var _this = this;
-	
+
 	    this.target = this.node.$target;
 	    this.backExpr = new this.Expression( /*istanbul ignore next*/this.attribute.value + '=_value_');
 	    this.bindProp = this.decorates[0];
@@ -2679,15 +2679,15 @@
 	      }));
 	    });
 	  },
-	
+
 	  unbind: function /*istanbul ignore next*/unbind() {
 	    this.target.$unWatch(this.watcher);
 	  },
-	
+
 	  update: function /*istanbul ignore next*/update(value) {
 	    this.target[this.bindProp] = value;
 	  }
-	
+
 	});
 
 /***/ },
@@ -2695,9 +2695,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Directive = __webpack_require__(10);
-	
+
 	/**
 	 * 通用的 attribute 指令
 	 * 用于所有 attribute 的处理
@@ -2710,7 +2710,7 @@
 	  prefix: false,
 	  literal: true,
 	  remove: false,
-	
+
 	  /**
 	   * 初始化指令
 	   * @returns {void} 无返回
@@ -2721,7 +2721,7 @@
 	    this.nameExpr = new this.Expression(this.attribute.name, true);
 	    this.valueExpr = new this.Expression(this.attribute.value, true);
 	  },
-	
+
 	  execute: function /*istanbul ignore next*/execute(scope) {
 	    var target = this.node.$target || this.node;
 	    var newComputedName = this.nameExpr.execute(scope);
@@ -2748,7 +2748,7 @@
 	      }
 	    }
 	  }
-	
+
 	});
 
 /***/ },
@@ -2756,20 +2756,20 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Class = __webpack_require__(4);
 	var Observer = __webpack_require__(6);
 	var EventEmitter = __webpack_require__(7);
 	var Compiler = __webpack_require__(9);
-	
+
 	/**
 	 * 模板类
 	 * 可能通过 element 作为参数，创建一个模板实例
 	 */
 	var Template = new Class({
-	
+
 	  $extends: EventEmitter,
-	
+
 	  /**
 	   * 构建一个模板板实例
 	   * @param {HTMLNode} element HTML 元素
@@ -2787,7 +2787,7 @@
 	    this._update = this._update.bind(this);
 	    this._updateTimer = 0;
 	  },
-	
+
 	  /**
 	   * 更新当前模板 (会过滤不必要的更新)
 	   * @returns {void} 无返回
@@ -2799,9 +2799,9 @@
 	    }
 	    this._updateTimer = setTimeout(this._update, 0);
 	  },
-	
+
 	  /**
-	   * 更新当前模板内部方法 
+	   * 更新当前模板内部方法
 	   * @returns {void} 无返回
 	   */
 	  _update: function /*istanbul ignore next*/_update() {
@@ -2810,7 +2810,7 @@
 	    this.render(this.observer.target);
 	    this._onBind();
 	  },
-	
+
 	  /**
 	   * 在绑定成功时
 	   * @returns {void} 无返回
@@ -2820,7 +2820,7 @@
 	    this._bound = true;
 	    this.emit('bind', this);
 	  },
-	
+
 	  /**
 	   * 将模板绑定到一个 scope
 	   * @param {Object} scope 绑定的上下文对象
@@ -2841,7 +2841,7 @@
 	      this.update();
 	    }
 	  },
-	
+
 	  /**
 	   * 解绑定
 	   * @returns {void} 无返回
@@ -2852,7 +2852,7 @@
 	    this.observer.clearReference();
 	    this.observer = null;
 	  },
-	
+
 	  /**
 	   * 释放
 	   * @returns {void} 无返回
@@ -2861,9 +2861,9 @@
 	    this.unbind();
 	    this.render.dispose();
 	  }
-	
+
 	});
-	
+
 	module.exports = Template;
 
 /***/ },
@@ -2871,24 +2871,24 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Component = __webpack_require__(36);
 	var components = __webpack_require__(38);
 	var directives = __webpack_require__(8).directives;
-	
+
 	Component.components = components;
 	Component.Component = Component;
-	
+
 	Component.component = function (name, component) {
 	  if (!component) return components[name];
 	  components[name] = component;
 	};
-	
+
 	Component.directive = function (name, directive) {
 	  if (!directive) return directives[name];
 	  directives[name] = directive;
 	};
-	
+
 	module.exports = Component;
 
 /***/ },
@@ -2896,7 +2896,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Class = __webpack_require__(4);
 	var Template = __webpack_require__(8);
 	var Watcher = __webpack_require__(5);
@@ -2904,7 +2904,7 @@
 	var EventEmitter = __webpack_require__(7);
 	var Observer = __webpack_require__(6);
 	var ComponentDirective = __webpack_require__(37);
-	
+
 	/**
 	 * 组件类
 	 * 用于定义一个新的组件
@@ -2912,10 +2912,10 @@
 	 * @returns {Component} 组件类
 	 */
 	function Component(classOpts) {
-	
+
 	  //处理组件选项
 	  classOpts = classOpts || {};
-	
+
 	  //处理「继承」，目前的机制，只能用「合并类选项」
 	  var mixes = classOpts.mixes;
 	  delete classOpts.mixes;
@@ -2938,14 +2938,14 @@
 	    utils.mix(mixedClassOpts, mixItem);
 	  });
 	  classOpts = mixedClassOpts;
-	
+
 	  /**
 	   * 定义组件类
 	   * 可以通过 new ComponentClass() 创建组件实例
 	   */
 	  var ComponentClass = new Class({
 	    $extends: extendComponent,
-	
+
 	    /**
 	     * 组件类构造函数
 	     * @param {object} instanceOpts 实例选项
@@ -2953,7 +2953,7 @@
 	     */
 	    constructor: function /*istanbul ignore next*/constructor(instanceOpts) {
 	      /*istanbul ignore next*/var _this = this;
-	
+
 	      if (this == window) return new this.$class(instanceOpts);
 	      EventEmitter.call(this);
 	      instanceOpts = instanceOpts || {};
@@ -2984,7 +2984,7 @@
 	        this.$compile();
 	      }
 	    },
-	
+
 	    /**
 	     * 设定父组件
 	     * @param {Object} parent 父组件
@@ -2999,7 +2999,7 @@
 	        parent.$addChild(this);
 	      }
 	    },
-	
+
 	    /**
 	     * 添加子组件
 	     * @param {Object} child 子组件
@@ -3011,7 +3011,7 @@
 	      utils.defineFreezeProp(child, '$parent', this);
 	      utils.defineFreezeProp(child, '$root', this.$root || this);
 	    },
-	
+
 	    /**
 	     * 移除子组件
 	     * @param {Object} child 子组件
@@ -3023,7 +3023,7 @@
 	      utils.defineFreezeProp(child, '$parent', null);
 	      //utils.defineFreezeProp(child, '$root', null);
 	    },
-	
+
 	    /**
 	     * 获取根组件, 为了能通过 polyfill 处理 IE8 暂不用这种方式
 	     */
@@ -3034,7 +3034,7 @@
 	        return this;
 	      }
 	    },
-	
+
 	    /**
 	     * 导入用到的子组件类
 	     * @param {Object} components 引入的组件
@@ -3051,7 +3051,7 @@
 	        });
 	      }, this);
 	    },
-	
+
 	    /**
 	     * 导入一个用到的指令
 	     * @param {Object} directives 引入的指令
@@ -3063,7 +3063,7 @@
 	        this.$directives[name] = directive;
 	      }, this);
 	    },
-	
+
 	    /**
 	     * 调用生命周期 hook
 	     * @param {string} name 调用的 hook 名称
@@ -3074,7 +3074,7 @@
 	      if (!utils.isFunction(this[name])) return;
 	      this[name].apply(this, args || []);
 	    },
-	
+
 	    /**
 	     * 创建数据对象
 	     * @param {Object} data 组件数据对象
@@ -3101,7 +3101,7 @@
 	        });
 	      }, this);
 	    },
-	
+
 	    /**
 	     * 创建组件属性
 	     * @param {Object} properties 属性定义对象
@@ -3161,7 +3161,7 @@
 	        this.$properties[name] = descriptor;
 	      }, this);
 	    },
-	
+
 	    /**
 	     * 创建监控
 	     * 为什么用 watches 而不是 watchers 或其它？
@@ -3175,7 +3175,7 @@
 	        this.$watch(name, handler);
 	      }, this);
 	    },
-	
+
 	    /**
 	     * 在模板发生更新时
 	     * @returns {void} 无返回
@@ -3185,7 +3185,7 @@
 	        watcher.calc();
 	      }, this);
 	    },
-	
+
 	    /**
 	     * 添加一个监控
 	     * @param {string|function} path 计算函数或路径
@@ -3204,7 +3204,7 @@
 	      this._watchers_.push(watcher);
 	      return watcher;
 	    },
-	
+
 	    /**
 	     * 取消一个 watcher 对象
 	     * @param {object} watcher 监控对象实例
@@ -3216,7 +3216,7 @@
 	      });
 	      this._watchers_.splice(index, 1);
 	    },
-	
+
 	    /**
 	     * 创建元素
 	     * @returns {void} 无返回
@@ -3231,7 +3231,7 @@
 	      }
 	      this.$callHook('onCreated');
 	    },
-	
+
 	    /**
 	     * 编译自身模板并完成绑定
 	     * @returns {void} 无返回
@@ -3250,12 +3250,12 @@
 	        if (!this.deferReady) this.$callHook('onReady');
 	      }.bind(this));
 	    },
-	
+
 	    /**
 	     * 向 DOM tree 中挂截组件
 	     * @param {HTMLNode} mountNode 挂载点元素
 	     * @param {append} append 是否 append 到挂载元素内
-	     * @returns {void} 无返回 
+	     * @returns {void} 无返回
 	     */
 	    $mount: function /*istanbul ignore next*/$mount(mountNode, append) {
 	      if (this._mounted_) return;
@@ -3274,16 +3274,16 @@
 	      this._removed_ = false;
 	      this.$callHook('onMounted');
 	    },
-	
+
 	    /**
 	     * 将组件添加到指定容器元素内
 	     * @param {HTMLNode} node 容器元素
-	     * @returns {void} 无返回 
+	     * @returns {void} 无返回
 	     */
 	    $appendTo: function /*istanbul ignore next*/$appendTo(node) {
 	      this.$mount(node, true);
 	    },
-	
+
 	    /**
 	     * 移除组件
 	     * @returns {void} 无返回
@@ -3298,7 +3298,7 @@
 	      this._mounted_ = false;
 	      this.$callHook('onRemoved');
 	    },
-	
+
 	    /**
 	     * 触发自身的一个事件并向上冒泡
 	     * @param {string} name 事件名称
@@ -3311,7 +3311,7 @@
 	        this.$parent.$dispatch(name, data);
 	      }
 	    },
-	
+
 	    /**
 	     * 触发自身的一个事件并向下广播
 	     * @param {string} name 事件名称
@@ -3326,7 +3326,7 @@
 	        }, this);
 	      }
 	    },
-	
+
 	    /**
 	     * 释放组件
 	     * @returns {void} 无返回
@@ -3354,44 +3354,44 @@
 	      }, this);
 	      utils.setPrototypeOf(this, null);
 	    }
-	
+
 	  });
-	
+
 	  //保存类选项
 	  ComponentClass.$options = classOpts;
 	  ComponentClass.$template = utils.parseDom(classOpts.template);
-	
+
 	  //向 ComponentClass.prototype 上拷贝成员
 	  utils.copy(classOpts, ComponentClass.prototype);
 	  utils.copy(classOpts.methods, ComponentClass.prototype);
-	
-	  //使 ComponentClass instanceof Component === true 
+
+	  //使 ComponentClass instanceof Component === true
 	  //IE9/10 下为 false，并且动态为 Component.prototype 添加的成员不会在 ComponentClass 上生效
 	  utils.setPrototypeOf(ComponentClass, Component.prototype);
-	
+
 	  return ComponentClass;
 	}
-	
+
 	//继承自 EventEmitter
 	Component.prototype = utils.create(EventEmitter.prototype);
-	
+
 	//组件扩展方法，简单封装 extends
 	Component.extend = function (classOpts) {
 	  return new Component(classOpts);
 	};
-	
+
 	//定义扩展方法
 	Component.prototype.extend = function (classOpts) {
 	  classOpts = classOpts || {};
 	  classOpts.extend = this;
 	  return new Component(classOpts);
 	};
-	
+
 	//创建实例的方法
 	Component.prototype.create = function (instanceOpts) {
 	  return new this(instanceOpts);
 	};
-	
+
 	//针对包括 element 组件类的启动方法
 	Component.prototype.start = function (instanceOpts) {
 	  if (!this.$options || !this.$options.element) {
@@ -3399,7 +3399,7 @@
 	  }
 	  return this.create(instanceOpts);
 	};
-	
+
 	module.exports = Component;
 
 /***/ },
@@ -3407,23 +3407,23 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Template = __webpack_require__(8);
 	var Directive = Template.Directive;
-	
+
 	/**
 	 * 创建一个组件指令
 	 * @param {object} options 选项
 	 * @returns {object} 组件指令
 	 */
 	function ComponentDirective(options) {
-	
+
 	  return new Directive({
 	    type: Directive.TE,
 	    literal: true,
 	    final: true,
 	    level: Directive.LE,
-	
+
 	    bind: function /*istanbul ignore next*/bind() {
 	      this.component = new options.component({
 	        deferReady: true,
@@ -3441,7 +3441,7 @@
 	        this.node.parentNode.removeChild(this.node);
 	      }
 	    },
-	
+
 	    handleAttrs: function /*istanbul ignore next*/handleAttrs() {
 	      this.attrs = [].slice.call(this.node.attributes);
 	      var directiveRegexp = new RegExp('^' + this.prefix + ':', 'i');
@@ -3452,7 +3452,7 @@
 	        this.node.removeAttribute(attr.name);
 	      }, this);
 	    },
-	
+
 	    handleContents: function /*istanbul ignore next*/handleContents() {
 	      this.placeHandlers = [];
 	      var places = [].slice.call(this.component.$element.querySelectorAll('[' + this.prefix + '\\:content]'));
@@ -3475,7 +3475,7 @@
 	        this.placeHandlers.push(handler);
 	      }, this);
 	    },
-	
+
 	    execute: function /*istanbul ignore next*/execute(scope) {
 	      this.handler(scope);
 	      if (!this._ready_) {
@@ -3486,10 +3486,10 @@
 	        handler(scope);
 	      }, this);
 	    }
-	
+
 	  });
 	}
-	
+
 	module.exports = ComponentDirective;
 
 /***/ },
@@ -3497,7 +3497,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	module.exports = {
 	  View: __webpack_require__(39)
 	};
@@ -3507,20 +3507,20 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Component = __webpack_require__(36);
 	var utils = __webpack_require__(3);
-	
+
 	/**
 	 * 内置视图组件
 	 * 可以加载并显示其它组件，并可以指定「转场效果」
 	 */
 	var View = new Component({
-	
+
 	  template: '<div></div>',
-	
+
 	  properties: {
-	
+
 	    /**
 	     * 显示到视图中的组件
 	     */
@@ -3532,7 +3532,7 @@
 	      set: function /*istanbul ignore next*/set(component) {
 	        if (this._transitioning) return;
 	        this._transitioning = true;
-	        //如果 value 是字符串则尝试从 $parent.components 中获取组件类 
+	        //如果 value 是字符串则尝试从 $parent.components 中获取组件类
 	        if (utils.isString(component)) {
 	          if (this.$parent && this.$parent.$components) {
 	            this.component = this.$parent.$components[component];
@@ -3575,7 +3575,7 @@
 	        return this._Component;
 	      }
 	    },
-	
+
 	    /**
 	     * 视图的转场控制对象
 	     */
@@ -3599,7 +3599,7 @@
 	      }
 	    }
 	  },
-	
+
 	  /**
 	   * 切换到指定的组件
 	   * @param {Component} component 组件
@@ -3612,16 +3612,16 @@
 	    }
 	    this.component = component;
 	  }
-	
+
 	});
-	
+
 	/**
 	 * 默认转场设置
 	 */
 	View.transition = {
 	  //init: function () { },
 	  //clean: function () { },
-	
+
 	  /**
 	   * 转场开始前的准备
 	   * @param {Component} newComponent 新组件
@@ -3631,7 +3631,7 @@
 	  prep: function /*istanbul ignore next*/prep(newComponent, oldComponent) {
 	    if (oldComponent) oldComponent.$element.style.display = 'none';
 	  },
-	
+
 	  /**
 	   * 执行转场动画
 	   * @param {Component} newComponent 新组件
@@ -3643,7 +3643,7 @@
 	    done();
 	  }
 	};
-	
+
 	module.exports = View;
 
 /***/ },
@@ -3651,18 +3651,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var mokit = __webpack_require__(1);
 	var items = __webpack_require__(41);
-	
+
 	__webpack_require__(42);
-	
+
 	var Toolbar = new mokit.Component({
 	  template: __webpack_require__(44),
 	  props: {
 	    mditor: null
 	  },
-	
+
 	  /*istanbul ignore next*/data: function data() {
 	    return {
 	      items: items.slice(0)
@@ -3671,17 +3671,17 @@
 	  /*istanbul ignore next*/onReady: function onReady() {
 	    this.bindCommands();
 	  },
-	
-	
+
+
 	  watch: {
 	    /*istanbul ignore next*/items: function items() {
 	      this.bindCommands();
 	    }
 	  },
-	
+
 	  /*istanbul ignore next*/bindCommands: function bindCommands() {
 	    /*istanbul ignore next*/var _this = this;
-	
+
 	    if (!this.mditor) return;
 	    this.items.forEach(function (item) {
 	      /*istanbul ignore next*/_this.mditor.removeCommand(item.name);
@@ -3718,7 +3718,7 @@
 	    return oldItem;
 	  }
 	});
-	
+
 	module.exports = Toolbar;
 
 /***/ },
@@ -3726,7 +3726,7 @@
 /***/ function(module, exports) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	module.exports = [{
 	  name: 'bold',
 	  title: 'Bold',
@@ -3952,32 +3952,32 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var mokit = __webpack_require__(1);
 	var EventEmitter = mokit.EventEmitter;
 	var utils = __webpack_require__(46);
 	var Stack = __webpack_require__(47);
 	var commands = __webpack_require__(49);
-	
+
 	__webpack_require__(50);
-	
+
 	var ua = window.navigator.userAgent.toLowerCase();
 	var isIE = !!ua.match(/msie|trident\/7|edge/);
 	var isWinPhone = ua.indexOf('windows phone') !== -1;
 	var isIOS = !isWinPhone && !!ua.match(/ipad|iphone|ipod/);
-	
+
 	module.exports = new mokit.Component({
 	  template: __webpack_require__(51),
-	
+
 	  props: {
 	    mditor: null,
 	    value: null,
 	    markExp: null
 	  },
-	
+
 	  /*istanbul ignore next*/onReady: function onReady() {
 	    /*istanbul ignore next*/var _this = this;
-	
+
 	    this.stack = new Stack();
 	    setTimeout(function () {
 	      /*istanbul ignore next*/_this.textareaEmitter = new EventEmitter( /*istanbul ignore next*/_this.textarea);
@@ -3989,7 +3989,7 @@
 	  },
 	  /*istanbul ignore next*/_bindCommands: function _bindCommands() {
 	    /*istanbul ignore next*/var _this2 = this;
-	
+
 	    commands.forEach(function (item) {
 	      /*istanbul ignore next*/_this2.mditor.removeCommand(item.name);
 	      /*istanbul ignore next*/_this2.mditor.addCommand(item);
@@ -4000,7 +4000,7 @@
 	  },
 	  /*istanbul ignore next*/onCompositionEnd: function onCompositionEnd() {
 	    /*istanbul ignore next*/var _this3 = this;
-	
+
 	    this._compositionLock = false;
 	    setTimeout(function () /*istanbul ignore next*/{
 	      return (/*istanbul ignore next*/_this3.onInput()
@@ -4019,7 +4019,7 @@
 	  },
 	  /*istanbul ignore next*/onInput: function onInput() {
 	    /*istanbul ignore next*/var _this4 = this;
-	
+
 	    this.$emit('input');
 	    if (this._changedTimer) {
 	      clearTimeout(this._changedTimer);
@@ -4037,7 +4037,7 @@
 	  },
 	  /*istanbul ignore next*/undo: function undo() {
 	    /*istanbul ignore next*/var _this5 = this;
-	
+
 	    var last = this.stack.last();
 	    var item = this.stack.undo();
 	    if (utils.isNull(item) || utils.isNull(item.value)) return;
@@ -4053,7 +4053,7 @@
 	  },
 	  /*istanbul ignore next*/redo: function redo() {
 	    /*istanbul ignore next*/var _this6 = this;
-	
+
 	    var item = this.stack.redo();
 	    if (utils.isNull(item) || utils.isNull(item.value)) return;
 	    this.value = item.value;
@@ -4086,7 +4086,7 @@
 	  },
 	  /*istanbul ignore next*/syncScroll: function syncScroll(disTwice) {
 	    /*istanbul ignore next*/var _this7 = this;
-	
+
 	    this.marks.scrollTop = this.textarea.scrollTop;
 	    this.marks.scrollLeft = this.textarea.scrollLeft;
 	    if (disTwice) return;
@@ -4156,7 +4156,7 @@
 	  },
 	  /*istanbul ignore next*/setSelectText: function setSelectText(text) {
 	    /*istanbul ignore next*/var _this8 = this;
-	
+
 	    var box = this.getActiveElement();
 	    var range = this.getSelectRange();
 	    box.setRangeText(text);
@@ -4202,7 +4202,7 @@
 	  },
 	  /*istanbul ignore next*/getBeforeWord: function getBeforeWord() {
 	    /*istanbul ignore next*/var _this9 = this;
-	
+
 	    var chars = [' ', '\t', this.mditor.EOL];
 	    var start = 0;
 	    chars.forEach(function (char) {
@@ -4236,7 +4236,7 @@
 	  },
 	  /*istanbul ignore next*/addIndent: function addIndent() {
 	    /*istanbul ignore next*/var _this10 = this;
-	
+
 	    var selectText = this.getSelectText();
 	    if (selectText.length < 1) {
 	      this.insertBeforeText(this.mditor.INDENT);
@@ -4255,7 +4255,7 @@
 	  },
 	  /*istanbul ignore next*/removeIndent: function removeIndent() {
 	    /*istanbul ignore next*/var _this11 = this;
-	
+
 	    var indentRegExp = new RegExp('^' + this.mditor.INDENT);
 	    var selectText = this.getSelectText();
 	    if (selectText.length < 1) {
@@ -4287,12 +4287,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (ntils) {
-	
+
 	  /**
 	   * 空函数
 	   */
 	  ntils.noop = function () { };
-	
+
 	  /**
 	   * 验证一个对象是否为NULL
 	   * @method isNull
@@ -4303,7 +4303,7 @@
 	  ntils.isNull = function (obj) {
 	    return obj === null || typeof obj === "undefined";
 	  };
-	
+
 	  /**
 	   * 除去字符串两端的空格
 	   * @method trim
@@ -4319,7 +4319,7 @@
 	      return str.replace(/(^[\\s]*)|([\\s]*$)/g, "");
 	    }
 	  };
-	
+
 	  /**
 	   * 替换所有
 	   * @method replace
@@ -4332,7 +4332,7 @@
 	    if (this.isNull(str)) return str;
 	    return str.replace(new RegExp(str1, 'g'), str2);
 	  };
-	
+
 	  /**
 	   * 从字符串开头匹配
 	   * @method startWith
@@ -4345,7 +4345,7 @@
 	    if (this.isNull(str1) || this.isNull(str2)) return false;
 	    return str1.indexOf(str2) === 0;
 	  };
-	
+
 	  /**
 	   * 是否包含
 	   * @method contains
@@ -4359,7 +4359,7 @@
 	    if (this.isNull(str1) || this.isNull(str2)) return false;
 	    return str1.indexOf(str2) > -1;
 	  };
-	
+
 	  /**
 	   * 从字符串结束匹配
 	   * @method endWidth
@@ -4372,7 +4372,7 @@
 	    if (this.isNull(str1) || this.isNull(str2)) return false;
 	    return str1.indexOf(str2) === (str1.length - str2.length);
 	  };
-	
+
 	  /**
 	   * 是否包含属性
 	   * @method hasProperty
@@ -4385,7 +4385,7 @@
 	    if (this.isNull(obj) || this.isNull(name)) return false;
 	    return (name in obj) || (obj.hasOwnProperty(name));
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Function
 	   * @method isFunction
@@ -4397,7 +4397,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === "function";
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为String
 	   * @method isString
@@ -4409,7 +4409,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === 'string' || obj instanceof String;
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Number
 	   * @method isNumber
@@ -4421,7 +4421,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === 'number' || obj instanceof Number;
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Boolean
 	   * @method isBoolean
@@ -4433,7 +4433,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === 'boolean' || obj instanceof Boolean;
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为HTML Element
 	   * @method isElement
@@ -4449,7 +4449,7 @@
 	      return (obj.tagName && obj.nodeType && obj.nodeName && obj.attributes && obj.ownerDocument);
 	    }
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为HTML Text Element
 	   * @method isText
@@ -4461,7 +4461,7 @@
 	    if (this.isNull(obj)) return false;
 	    return obj instanceof Text;
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Object
 	   * @method isObject
@@ -4473,7 +4473,7 @@
 	    if (this.isNull(obj)) return false;
 	    return typeof obj === "object";
 	  };
-	
+
 	  /**
 	   * 验证一个对象是否为Array或伪Array
 	   * @method isArray
@@ -4489,7 +4489,7 @@
 	    var v4 = !this.isString(obj) && this.isNumber(obj.length) && obj[0];
 	    return v1 || v2 || v3 || v4;
 	  };
-	
+
 	  /**
 	   * 验证是不是一个日期对象
 	   * @method isDate
@@ -4501,7 +4501,7 @@
 	    if (this.isNull(val)) return false;
 	    return val instanceof Date;
 	  };
-	
+
 	  /**
 	   * 验证是不是一个正则对象
 	   * @method isDate
@@ -4512,7 +4512,7 @@
 	  ntils.isRegexp = function (val) {
 	    return val instanceof RegExp;
 	  };
-	
+
 	  /**
 	   * 转换为数组
 	   * @method toArray
@@ -4524,7 +4524,7 @@
 	    if (this.isNull(array)) return [];
 	    return Array.prototype.slice.call(array);
 	  };
-	
+
 	  /**
 	   * 转为日期格式
 	   * @method toDate
@@ -4543,7 +4543,7 @@
 	    else
 	      return null;
 	  };
-	
+
 	  /**
 	   * 遍历一个对像或数组
 	   * @method each
@@ -4567,7 +4567,7 @@
 	      }
 	    }
 	  };
-	
+
 	  /**
 	   * 格式化日期
 	   * @method formatDate
@@ -4604,7 +4604,7 @@
 	    }
 	    return format;
 	  };
-	
+
 	  /**
 	   * 拷贝对象
 	   * @method copy
@@ -4629,7 +4629,7 @@
 	    })
 	    return dst;
 	  };
-	
+
 	  /**
 	   * 深度克隆对象
 	   * @method clone
@@ -4664,7 +4664,7 @@
 	    }, this);
 	    return objClone;
 	  };
-	
+
 	  /**
 	   * 合并对象
 	   * @method mix
@@ -4675,19 +4675,19 @@
 	   * @param {Number} mode 模式
 	   */
 	  ntils.mix = function (dst, src, igonres, mode) {
-	    //根据模式来判断，默认是Obj to Obj的  
+	    //根据模式来判断，默认是Obj to Obj的
 	    if (mode) {
 	      switch (mode) {
-	        case 1: // proto to proto  
+	        case 1: // proto to proto
 	          return ntils.mix(dst.prototype, src.prototype, igonres, 0);
-	        case 2: // object to object and proto to proto  
+	        case 2: // object to object and proto to proto
 	          ntils.mix(dst.prototype, src.prototype, igonres, 0);
-	          break; // pass through  
-	        case 3: // proto to static  
+	          break; // pass through
+	        case 3: // proto to static
 	          return ntils.mix(dst, src.prototype, igonres, 0);
-	        case 4: // static to proto  
+	        case 4: // static to proto
 	          return ntils.mix(dst.prototype, src, igonres, 0);
-	        default: // object to object is what happens below  
+	        default: // object to object is what happens below
 	      }
 	    }
 	    //---
@@ -4706,7 +4706,7 @@
 	    }, this);
 	    return dst;
 	  };
-	
+
 	  /**
 	   * 定义不可遍历的属性
 	   **/
@@ -4722,9 +4722,9 @@
 	      obj[name] = value;
 	    }
 	  };
-	
+
 	  /**
-	   * 获取所有 key 
+	   * 获取所有 key
 	   */
 	  ntils.keys = function (obj) {
 	    if (Object.keys) return Object.keys(obj);
@@ -4734,7 +4734,7 @@
 	    });
 	    return keys;
 	  };
-	
+
 	  /**
 	   * 创建一个对象
 	   */
@@ -4746,7 +4746,7 @@
 	    if (props) this.copy(props, obj);
 	    return obj;
 	  };
-	
+
 	  /**
 	   * 设置 proto
 	   * 在不支持 setPrototypeOf 也不支持 __proto__ 的浏览器
@@ -4760,7 +4760,7 @@
 	      obj.__proto__ = proto;
 	    }
 	  };
-	
+
 	  /**
 	   * 获取 proto
 	   */
@@ -4769,7 +4769,7 @@
 	    if (Object.getPrototypeOf) return Object.getPrototypeOf(obj);
 	    if (obj.constructor) return obj.constructor.prototype;
 	  };
-	
+
 	  /**
 	   * 是否深度相等
 	   */
@@ -4789,7 +4789,7 @@
 	    }, this);
 	    return result;
 	  };
-	
+
 	  /**
 	   * 从一个数值循环到别一个数
 	   * @param {number} fromNum 开始数值
@@ -4807,7 +4807,7 @@
 	      for (var i = fromNum; i >= toNum; i -= step) handler(i);
 	    }
 	  };
-	
+
 	  /**
 	   * 生成一个Guid
 	   * @method newGuid
@@ -4820,7 +4820,7 @@
 	    };
 	    return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 	  };
-	
+
 	  /**
 	   * 对象变换
 	   **/
@@ -4831,7 +4831,7 @@
 	    });
 	    return buffer;
 	  };
-	
+
 	  /**
 	   * 通过路径设置属性值
 	   */
@@ -4852,7 +4852,7 @@
 	      }
 	    }, this);
 	  };
-	
+
 	  /**
 	   * 通过路径获取属性值
 	   */
@@ -4869,7 +4869,7 @@
 	    }, this);
 	    return obj;
 	  };
-	
+
 	  /**
 	   * 数组去重
 	   **/
@@ -4882,7 +4882,7 @@
 	    });
 	    return newArray;
 	  };
-	
+
 	  /**
 	   * 解析 function 的参数列表
 	   **/
@@ -4896,7 +4896,7 @@
 	      return name != 'function';
 	    });
 	  };
-	
+
 	  /**
 	   * 缩短字符串
 	   */
@@ -4907,7 +4907,7 @@
 	    var trimLength = maxLength / 2;
 	    return strLength > maxLength ? str.substr(0, trimLength) + '...' + str.substr(strLength - trimLength) : str;
 	  };
-	
+
 	  /**
 	   * 首字母大写
 	   */
@@ -4916,18 +4916,18 @@
 	    str[0] = str[0].toLowerCase();
 	    return str;
 	  };
-	
+
 	  /**
 	   * 编码正则字符串
 	   */
 	  ntils.escapeRegExp = function (str) {
 	    return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 	  };
-	
+
 	  /**
-	   * 解析字符串为 dom 
+	   * 解析字符串为 dom
 	   * @param {string} str 字符串
-	   * @returns {HTMLNode} 解析后的 DOM 
+	   * @returns {HTMLNode} 解析后的 DOM
 	   */
 	  ntils.parseDom = function (str) {
 	    this._PDD_ = this._PDD_ || document.createElement('div');
@@ -4939,7 +4939,7 @@
 	    this._PDD_.innerHTML = '';
 	    return firstNode;
 	  };
-	
+
 	})(( false) ? (window.ntils = {}) : exports);
 
 /***/ },
@@ -4947,10 +4947,10 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var Class = __webpack_require__(48).Class;
 	var utils = __webpack_require__(46);
-	
+
 	var Stack = new Class({
 	  /*istanbul ignore next*/constructor: function constructor(item) {
 	    this.init(item);
@@ -4983,7 +4983,7 @@
 	    return item;
 	  }
 	});
-	
+
 	module.exports = Stack;
 
 /***/ },
@@ -4991,7 +4991,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const utils = __webpack_require__(46);
-	
+
 	function ClassFactory(options) {
 	  //处理 options
 	  options = options || utils.create(null);
@@ -5054,13 +5054,13 @@
 	  //--
 	  return Class;
 	}
-	
+
 	//定义扩展方法
 	ClassFactory.$extend = function (options) {
 	  options.$extends = this;
 	  return new ClassFactory(options);
 	};
-	
+
 	ClassFactory.Class = ClassFactory;
 	module.exports = ClassFactory;
 
@@ -5069,7 +5069,7 @@
 /***/ function(module, exports) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	module.exports = [{
 	  name: 'undo',
 	  key: '{cmd}+z',
@@ -5125,22 +5125,22 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var mokit = __webpack_require__(1);
-	
+
 	__webpack_require__(53);
-	
+
 	var Viewer = new mokit.Component({
 	  template: __webpack_require__(54),
-	
+
 	  /*istanbul ignore next*/data: function data() {
 	    return {
 	      html: '',
 	      alert: 'Preview area'
 	    };
 	  },
-	
-	
+
+
 	  props: {
 	    mditor: null,
 	    value: {
@@ -5149,7 +5149,7 @@
 	      },
 	      /*istanbul ignore next*/set: function set(value) {
 	        /*istanbul ignore next*/var _this = this;
-	
+
 	        this._value = value;
 	        this.mditor.parser.parse(this._value, function (err, result) {
 	          /*istanbul ignore next*/_this.html = result || err;
@@ -5157,7 +5157,7 @@
 	      }
 	    }
 	  },
-	
+
 	  /*istanbul ignore next*/onClick: function onClick(event) {
 	    event.preventDefault();
 	    var tag = event.target;
@@ -5167,7 +5167,7 @@
 	    }
 	  }
 	});
-	
+
 	module.exports = Viewer;
 
 /***/ },
@@ -5187,14 +5187,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var mokit = __webpack_require__(1);
 	var utils = __webpack_require__(46);
-	
+
 	__webpack_require__(56);
-	
+
 	var CHECK_REGEXP = /^\/[\s\S]+\/(i|g|m)*$/;
-	
+
 	var Finder = new mokit.Component({
 	  template: __webpack_require__(57),
 	  props: {
@@ -5227,7 +5227,7 @@
 	  },
 	  /*istanbul ignore next*/show: function show(text) {
 	    /*istanbul ignore next*/var _this = this;
-	
+
 	    this.active = true;
 	    this.findWord = text || this.mditor.editor.getSelectText();
 	    if (this.active) {
@@ -5237,11 +5237,11 @@
 	    }
 	    this.mditor.editor.syncScroll();
 	  },
-	
+
 	  watch: {
 	    /*istanbul ignore next*/findWord: function findWord() {
 	      /*istanbul ignore next*/var _this2 = this;
-	
+
 	      if (!this.mditor || !this.mditor.editor) return;
 	      if (!this.findWord) {
 	        this.mditor.editor.markExp = null;
@@ -5285,7 +5285,7 @@
 	    event.target.focus();
 	  }
 	});
-	
+
 	module.exports = Finder;
 
 /***/ },
@@ -5305,28 +5305,28 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var shortcuts = __webpack_require__(59);
 	var utils = __webpack_require__(46);
-	
+
 	shortcuts.filter = function (event) {
 	  return !!event.target;
 	};
-	
+
 	var Shortcut = module.exports = function (mditor) {
 	  utils.defineFreezeProp(this, 'mditor', mditor);
 	};
-	
+
 	Shortcut.prototype._inRegion = function (target, owner) {
 	  if (!target) return false;
 	  owner = owner || this.mditor.editor.$element;
 	  if (utils.isFunction(owner)) owner = owner(this.mditor);
 	  return target === owner || this._inRegion(target.parentNode, owner);
 	};
-	
+
 	Shortcut.prototype.bind = function (key, cmd, allowDefault, owner) {
 	  /*istanbul ignore next*/var _this = this;
-	
+
 	  var mditor = this.mditor;
 	  //检查参数
 	  if (!key || !cmd) return;
@@ -5347,7 +5347,7 @@
 	    }, 0);
 	  });
 	};
-	
+
 	Shortcut.prototype.unbind = function (key) {
 	  shortcuts.unbind(key);
 	};
@@ -5415,9 +5415,9 @@
 	      return _MAP[x] || x.toUpperCase().charCodeAt(0);
 	    },
 	    _downKeys = [];
-	
+
 	  for (k = 1; k < 20; k++) _MAP['f' + k] = 111 + k;
-	
+
 	  // IE doesn't support Array#indexOf, so have a simple replacement
 	  function index(array, item) {
 	    var i = array.length;
@@ -5425,7 +5425,7 @@
 	      if (array[i] === item) return i;
 	    return -1;
 	  }
-	
+
 	  // for comparing mods before unassignment
 	  function compareArray(a1, a2) {
 	    if (a1.length != a2.length) return false;
@@ -5434,27 +5434,27 @@
 	    }
 	    return true;
 	  }
-	
+
 	  var modifierMap = {
 	    16: 'shiftKey',
 	    18: 'altKey',
 	    17: 'ctrlKey',
 	    91: 'metaKey'
 	  };
-	
+
 	  function updateModifierKey(event) {
 	    for (k in _mods) _mods[k] = event[modifierMap[k]];
 	  };
-	
+
 	  // handle keydown event
 	  function dispatch(event) {
 	    var key, handler, k, i, modifiersMatch, scope;
 	    key = event.keyCode;
-	
+
 	    if (index(_downKeys, key) == -1) {
 	      _downKeys.push(key);
 	    }
-	
+
 	    // if a modifier key, set the key.<modifierkeyname> property to true and return
 	    if (key == 93 || key == 224) key = 91; // right command on webkit, command on Gecko
 	    if (key in _mods) {
@@ -5465,20 +5465,20 @@
 	      return;
 	    }
 	    updateModifierKey(event);
-	
+
 	    // see if we need to ignore the keypress (filter() can can be overridden)
 	    // by default ignore key presses if a select, textarea, or input is focused
 	    if (!assignKey.filter.call(this, event)) return;
-	
+
 	    // abort if no potentially matching shortcuts found
 	    if (!(key in _handlers)) return;
-	
+
 	    scope = getScope();
-	
+
 	    // for each potential shortcut
 	    for (i = 0; i < _handlers[key].length; i++) {
 	      handler = _handlers[key][i];
-	
+
 	      // see if it's in the current scope
 	      if (handler.scope == scope || handler.scope == 'all') {
 	        // check if modifiers match if any
@@ -5498,18 +5498,18 @@
 	      }
 	    }
 	  };
-	
+
 	  // unset modifier keys on keyup
 	  function clearModifier(event) {
 	    var key = event.keyCode,
 	      k,
 	      i = index(_downKeys, key);
-	
+
 	    // remove key from _downKeys
 	    if (i >= 0) {
 	      _downKeys.splice(i, 1);
 	    }
-	
+
 	    if (key == 93 || key == 224) key = 91;
 	    if (key in _mods) {
 	      _mods[key] = false;
@@ -5517,12 +5517,12 @@
 	        if (_MODIFIERS[k] == key) assignKey[k] = false;
 	    }
 	  };
-	
+
 	  function resetModifiers() {
 	    for (k in _mods) _mods[k] = false;
 	    for (k in _MODIFIERS) assignKey[k] = false;
 	  };
-	
+
 	  // parse and assign shortcut
 	  function assignKey(key, scope, method) {
 	    var keys, mods;
@@ -5531,7 +5531,7 @@
 	      method = scope;
 	      scope = 'all';
 	    }
-	
+
 	    // for each shortcut
 	    for (var i = 0; i < keys.length; i++) {
 	      // set modifier keys if any
@@ -5555,25 +5555,25 @@
 	      });
 	    }
 	  };
-	
+
 	  // unbind all handlers for given key in current scope
 	  function unbindKey(key, scope) {
 	    var multipleKeys, keys,
 	      mods = [],
 	      i, j, obj;
-	
+
 	    multipleKeys = getKeys(key);
-	
+
 	    for (j = 0; j < multipleKeys.length; j++) {
 	      keys = multipleKeys[j].split('+');
-	
+
 	      if (keys.length > 1) {
 	        mods = getMods(keys);
 	        key = keys[keys.length - 1];
 	      }
-	
+
 	      key = code(key);
-	
+
 	      if (scope === undefined) {
 	        scope = getScope();
 	      }
@@ -5589,7 +5589,7 @@
 	      }
 	    }
 	  };
-	
+
 	  // Returns true if the key with code 'keyCode' is currently down
 	  // Converts strings into key codes.
 	  function isPressed(keyCode) {
@@ -5598,33 +5598,33 @@
 	    }
 	    return index(_downKeys, keyCode) != -1;
 	  }
-	
+
 	  function getPressedKeyCodes() {
 	    return _downKeys.slice(0);
 	  }
-	
+
 	  function filter(event) {
 	    var tagName = (event.target || event.srcElement).tagName;
 	    // ignore keypressed in any elements that support keyboard data input
 	    return !(tagName == 'INPUT' || tagName == 'SELECT' || tagName == 'TEXTAREA');
 	  }
-	
+
 	  // initialize key.<modifier> to false
 	  for (k in _MODIFIERS) assignKey[k] = false;
-	
+
 	  // set current scope (default 'all')
 	  function setScope(scope) {
 	    _scope = scope || 'all'
 	  };
-	
+
 	  function getScope() {
 	    return _scope || 'all'
 	  };
-	
+
 	  // delete all handlers for a given scope
 	  function deleteScope(scope) {
 	    var key, handlers, i;
-	
+
 	    for (key in _handlers) {
 	      handlers = _handlers[key];
 	      for (i = 0; i < handlers.length;) {
@@ -5633,7 +5633,7 @@
 	      }
 	    }
 	  };
-	
+
 	  // abstract key logic for assign and unassign
 	  function getKeys(key) {
 	    var keys;
@@ -5644,7 +5644,7 @@
 	    }
 	    return keys;
 	  }
-	
+
 	  // abstract mods logic for assign and unassign
 	  function getMods(key) {
 	    var mods = key.slice(0, key.length - 1);
@@ -5652,7 +5652,7 @@
 	      mods[mi] = _MODIFIERS[mods[mi]];
 	    return mods;
 	  }
-	
+
 	  // cross-browser events
 	  function addEvent(object, event, method) {
 	    if (object.addEventListener)
@@ -5662,26 +5662,26 @@
 	        method(window.event)
 	      });
 	  };
-	
+
 	  // set the handlers globally on document
 	  addEvent(document, 'keydown', function (event) {
 	    dispatch(event)
 	  }); // Passing _scope to a callback to ensure it remains the same by execution. Fixes #48
 	  addEvent(document, 'keyup', clearModifier);
-	
+
 	  // reset modifiers to false whenever the window is (re)focused.
 	  addEvent(window, 'focus', resetModifiers);
-	
+
 	  // store previously defined key
 	  var previousKey = global.key;
-	
+
 	  // restore previously defined key and return reference to our key object
 	  function noConflict() {
 	    var k = global.key;
 	    global.key = previousKey;
 	    return k;
 	  }
-	
+
 	  // set window.key and window.key.set/get/deleteScope, and the default filter
 	  global.key = assignKey;
 	  global.key.setScope = setScope;
@@ -5692,9 +5692,9 @@
 	  global.key.getPressedKeyCodes = getPressedKeyCodes;
 	  global.key.noConflict = noConflict;
 	  global.key.unbind = unbindKey;
-	
+
 	  if (true) module.exports = key;
-	
+
 	})(window);
 
 /***/ },
@@ -5702,11 +5702,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*istanbul ignore next*/'use strict';
-	
+
 	var marked = __webpack_require__(61);
 	var Prism = __webpack_require__(62);
-	
-	//language  
+
+	//language
 	__webpack_require__(63);
 	__webpack_require__(64);
 	__webpack_require__(65);
@@ -5754,7 +5754,7 @@
 	__webpack_require__(107);
 	__webpack_require__(108);
 	__webpack_require__(109);
-	
+
 	//alias
 	Prism.languages.js = Prism.languages.javascript;
 	Prism.languages['c#'] = Prism.languages.csharp;
@@ -5764,7 +5764,7 @@
 	Prism.languages.py = Prism.languages.python;
 	Prism.languages.yml = Prism.languages.yaml;
 	Prism.languages.rb = Prism.languages.ruby;
-	
+
 	/**
 	 * 定义解析类型
 	 **/
@@ -5772,15 +5772,15 @@
 		options = options || {};
 		this.options = options;
 	};
-	
+
 	Parser.highlights = {};
 	Parser.marked = marked;
 	Parser.Prism = Prism;
-	
+
 	//使标题解析 # 号可以无空格
 	marked.Lexer.rules.gfm.heading = marked.Lexer.rules.heading;
 	marked.Lexer.rules.tables.heading = marked.Lexer.rules.heading;
-	
+
 	var renderer = new marked.Renderer();
 	marked.setOptions({
 		renderer: renderer,
@@ -5804,14 +5804,14 @@
 			}
 		}
 	});
-	
+
 	/**
 	 * 解析方法
 	 **/
 	Parser.prototype.parse = function (mdText, callback) {
 		return marked(mdText, callback);
 	};
-	
+
 	module.exports = Parser;
 
 /***/ },
@@ -5823,13 +5823,13 @@
 	 * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
 	 * https://github.com/chjj/marked
 	 */
-	
+
 	;(function() {
-	
+
 	/**
 	 * Block-Level Grammar
 	 */
-	
+
 	var block = {
 	  newline: /^\n+/,
 	  code: /^( {4}[^\n]+\n*)+/,
@@ -5846,35 +5846,35 @@
 	  paragraph: /^((?:[^\n]+\n?(?!hr|heading|lheading|blockquote|tag|def))+)\n*/,
 	  text: /^[^\n]+/
 	};
-	
+
 	block.bullet = /(?:[*+-]|\d+\.)/;
 	block.item = /^( *)(bull) [^\n]*(?:\n(?!\1bull )[^\n]*)*/;
 	block.item = replace(block.item, 'gm')
 	  (/bull/g, block.bullet)
 	  ();
-	
+
 	block.list = replace(block.list)
 	  (/bull/g, block.bullet)
 	  ('hr', '\\n+(?=\\1?(?:[-*_] *){3,}(?:\\n+|$))')
 	  ('def', '\\n+(?=' + block.def.source + ')')
 	  ();
-	
+
 	block.blockquote = replace(block.blockquote)
 	  ('def', block.def)
 	  ();
-	
+
 	block._tag = '(?!(?:'
 	  + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code'
 	  + '|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo'
 	  + '|span|br|wbr|ins|del|img)\\b)\\w+(?!:/|[^\\w\\s@]*@)\\b';
-	
+
 	block.html = replace(block.html)
 	  ('comment', /<!--[\s\S]*?-->/)
 	  ('closed', /<(tag)[\s\S]+?<\/\1>/)
 	  ('closing', /<tag(?:"[^"]*"|'[^']*'|[^'">])*?>/)
 	  (/tag/g, block._tag)
 	  ();
-	
+
 	block.paragraph = replace(block.paragraph)
 	  ('hr', block.hr)
 	  ('heading', block.heading)
@@ -5883,48 +5883,48 @@
 	  ('tag', '<' + block._tag)
 	  ('def', block.def)
 	  ();
-	
+
 	/**
 	 * Normal Block Grammar
 	 */
-	
+
 	block.normal = merge({}, block);
-	
+
 	/**
 	 * GFM Block Grammar
 	 */
-	
+
 	block.gfm = merge({}, block.normal, {
 	  fences: /^ *(`{3,}|~{3,})[ \.]*(\S+)? *\n([\s\S]*?)\s*\1 *(?:\n+|$)/,
 	  paragraph: /^/,
 	  heading: /^ *(#{1,6}) +([^\n]+?) *#* *(?:\n+|$)/
 	});
-	
+
 	block.gfm.paragraph = replace(block.paragraph)
 	  ('(?!', '(?!'
 	    + block.gfm.fences.source.replace('\\1', '\\2') + '|'
 	    + block.list.source.replace('\\1', '\\3') + '|')
 	  ();
-	
+
 	/**
 	 * GFM + Tables Block Grammar
 	 */
-	
+
 	block.tables = merge({}, block.gfm, {
 	  nptable: /^ *(\S.*\|.*)\n *([-:]+ *\|[-| :]*)\n((?:.*\|.*(?:\n|$))*)\n*/,
 	  table: /^ *\|(.+)\n *\|( *[-:]+[-| :]*)\n((?: *\|.*(?:\n|$))*)\n*/
 	});
-	
+
 	/**
 	 * Block Lexer
 	 */
-	
+
 	function Lexer(options) {
 	  this.tokens = [];
 	  this.tokens.links = {};
 	  this.options = options || marked.defaults;
 	  this.rules = block.normal;
-	
+
 	  if (this.options.gfm) {
 	    if (this.options.tables) {
 	      this.rules = block.tables;
@@ -5933,40 +5933,40 @@
 	    }
 	  }
 	}
-	
+
 	/**
 	 * Expose Block Rules
 	 */
-	
+
 	Lexer.rules = block;
-	
+
 	/**
 	 * Static Lex Method
 	 */
-	
+
 	Lexer.lex = function(src, options) {
 	  var lexer = new Lexer(options);
 	  return lexer.lex(src);
 	};
-	
+
 	/**
 	 * Preprocessing
 	 */
-	
+
 	Lexer.prototype.lex = function(src) {
 	  src = src
 	    .replace(/\r\n|\r/g, '\n')
 	    .replace(/\t/g, '    ')
 	    .replace(/\u00a0/g, ' ')
 	    .replace(/\u2424/g, '\n');
-	
+
 	  return this.token(src, true);
 	};
-	
+
 	/**
 	 * Lexing
 	 */
-	
+
 	Lexer.prototype.token = function(src, top, bq) {
 	  var src = src.replace(/^ +$/gm, '')
 	    , next
@@ -5978,7 +5978,7 @@
 	    , space
 	    , i
 	    , l;
-	
+
 	  while (src) {
 	    // newline
 	    if (cap = this.rules.newline.exec(src)) {
@@ -5989,7 +5989,7 @@
 	        });
 	      }
 	    }
-	
+
 	    // code
 	    if (cap = this.rules.code.exec(src)) {
 	      src = src.substring(cap[0].length);
@@ -6002,7 +6002,7 @@
 	      });
 	      continue;
 	    }
-	
+
 	    // fences (gfm)
 	    if (cap = this.rules.fences.exec(src)) {
 	      src = src.substring(cap[0].length);
@@ -6013,7 +6013,7 @@
 	      });
 	      continue;
 	    }
-	
+
 	    // heading
 	    if (cap = this.rules.heading.exec(src)) {
 	      src = src.substring(cap[0].length);
@@ -6024,18 +6024,18 @@
 	      });
 	      continue;
 	    }
-	
+
 	    // table no leading pipe (gfm)
 	    if (top && (cap = this.rules.nptable.exec(src))) {
 	      src = src.substring(cap[0].length);
-	
+
 	      item = {
 	        type: 'table',
 	        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
 	        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
 	        cells: cap[3].replace(/\n$/, '').split('\n')
 	      };
-	
+
 	      for (i = 0; i < item.align.length; i++) {
 	        if (/^ *-+: *$/.test(item.align[i])) {
 	          item.align[i] = 'right';
@@ -6047,16 +6047,16 @@
 	          item.align[i] = null;
 	        }
 	      }
-	
+
 	      for (i = 0; i < item.cells.length; i++) {
 	        item.cells[i] = item.cells[i].split(/ *\| */);
 	      }
-	
+
 	      this.tokens.push(item);
-	
+
 	      continue;
 	    }
-	
+
 	    // lheading
 	    if (cap = this.rules.lheading.exec(src)) {
 	      src = src.substring(cap[0].length);
@@ -6067,7 +6067,7 @@
 	      });
 	      continue;
 	    }
-	
+
 	    // hr
 	    if (cap = this.rules.hr.exec(src)) {
 	      src = src.substring(cap[0].length);
@@ -6076,54 +6076,54 @@
 	      });
 	      continue;
 	    }
-	
+
 	    // blockquote
 	    if (cap = this.rules.blockquote.exec(src)) {
 	      src = src.substring(cap[0].length);
-	
+
 	      this.tokens.push({
 	        type: 'blockquote_start'
 	      });
-	
+
 	      cap = cap[0].replace(/^ *> ?/gm, '');
-	
+
 	      // Pass `top` to keep the current
 	      // "toplevel" state. This is exactly
 	      // how markdown.pl works.
 	      this.token(cap, top, true);
-	
+
 	      this.tokens.push({
 	        type: 'blockquote_end'
 	      });
-	
+
 	      continue;
 	    }
-	
+
 	    // list
 	    if (cap = this.rules.list.exec(src)) {
 	      src = src.substring(cap[0].length);
 	      bull = cap[2];
-	
+
 	      this.tokens.push({
 	        type: 'list_start',
 	        ordered: bull.length > 1
 	      });
-	
+
 	      // Get each top-level item.
 	      cap = cap[0].match(this.rules.item);
-	
+
 	      next = false;
 	      l = cap.length;
 	      i = 0;
-	
+
 	      for (; i < l; i++) {
 	        item = cap[i];
-	
+
 	        // Remove the list item's bullet
 	        // so it is seen as the next token.
 	        space = item.length;
 	        item = item.replace(/^ *([*+-]|\d+\.) +/, '');
-	
+
 	        // Outdent whatever the
 	        // list item contains. Hacky.
 	        if (~item.indexOf('\n ')) {
@@ -6132,7 +6132,7 @@
 	            ? item.replace(new RegExp('^ {1,' + space + '}', 'gm'), '')
 	            : item.replace(/^ {1,4}/gm, '');
 	        }
-	
+
 	        // Determine whether the next list item belongs here.
 	        // Backpedal if it does not belong in this list.
 	        if (this.options.smartLists && i !== l - 1) {
@@ -6142,7 +6142,7 @@
 	            i = l - 1;
 	          }
 	        }
-	
+
 	        // Determine whether item is loose or not.
 	        // Use: /(^|\n)(?! )[^\n]+\n\n(?!\s*$)/
 	        // for discount behavior.
@@ -6151,28 +6151,28 @@
 	          next = item.charAt(item.length - 1) === '\n';
 	          if (!loose) loose = next;
 	        }
-	
+
 	        this.tokens.push({
 	          type: loose
 	            ? 'loose_item_start'
 	            : 'list_item_start'
 	        });
-	
+
 	        // Recurse.
 	        this.token(item, false, bq);
-	
+
 	        this.tokens.push({
 	          type: 'list_item_end'
 	        });
 	      }
-	
+
 	      this.tokens.push({
 	        type: 'list_end'
 	      });
-	
+
 	      continue;
 	    }
-	
+
 	    // html
 	    if (cap = this.rules.html.exec(src)) {
 	      src = src.substring(cap[0].length);
@@ -6186,7 +6186,7 @@
 	      });
 	      continue;
 	    }
-	
+
 	    // def
 	    if ((!bq && top) && (cap = this.rules.def.exec(src))) {
 	      src = src.substring(cap[0].length);
@@ -6196,18 +6196,18 @@
 	      };
 	      continue;
 	    }
-	
+
 	    // table (gfm)
 	    if (top && (cap = this.rules.table.exec(src))) {
 	      src = src.substring(cap[0].length);
-	
+
 	      item = {
 	        type: 'table',
 	        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
 	        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
 	        cells: cap[3].replace(/(?: *\| *)?\n$/, '').split('\n')
 	      };
-	
+
 	      for (i = 0; i < item.align.length; i++) {
 	        if (/^ *-+: *$/.test(item.align[i])) {
 	          item.align[i] = 'right';
@@ -6219,18 +6219,18 @@
 	          item.align[i] = null;
 	        }
 	      }
-	
+
 	      for (i = 0; i < item.cells.length; i++) {
 	        item.cells[i] = item.cells[i]
 	          .replace(/^ *\| *| *\| *$/g, '')
 	          .split(/ *\| */);
 	      }
-	
+
 	      this.tokens.push(item);
-	
+
 	      continue;
 	    }
-	
+
 	    // top-level paragraph
 	    if (top && (cap = this.rules.paragraph.exec(src))) {
 	      src = src.substring(cap[0].length);
@@ -6242,7 +6242,7 @@
 	      });
 	      continue;
 	    }
-	
+
 	    // text
 	    if (cap = this.rules.text.exec(src)) {
 	      // Top-level should never reach here.
@@ -6253,20 +6253,20 @@
 	      });
 	      continue;
 	    }
-	
+
 	    if (src) {
 	      throw new
 	        Error('Infinite loop on byte: ' + src.charCodeAt(0));
 	    }
 	  }
-	
+
 	  return this.tokens;
 	};
-	
+
 	/**
 	 * Inline-Level Grammar
 	 */
-	
+
 	var inline = {
 	  escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
 	  autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
@@ -6282,38 +6282,38 @@
 	  del: noop,
 	  text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/
 	};
-	
+
 	inline._inside = /(?:\[[^\]]*\]|[^\[\]]|\](?=[^\[]*\]))*/;
 	inline._href = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
-	
+
 	inline.link = replace(inline.link)
 	  ('inside', inline._inside)
 	  ('href', inline._href)
 	  ();
-	
+
 	inline.reflink = replace(inline.reflink)
 	  ('inside', inline._inside)
 	  ();
-	
+
 	/**
 	 * Normal Inline Grammar
 	 */
-	
+
 	inline.normal = merge({}, inline);
-	
+
 	/**
 	 * Pedantic Inline Grammar
 	 */
-	
+
 	inline.pedantic = merge({}, inline.normal, {
 	  strong: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
 	  em: /^_(?=\S)([\s\S]*?\S)_(?!_)|^\*(?=\S)([\s\S]*?\S)\*(?!\*)/
 	});
-	
+
 	/**
 	 * GFM Inline Grammar
 	 */
-	
+
 	inline.gfm = merge({}, inline.normal, {
 	  escape: replace(inline.escape)('])', '~|])')(),
 	  url: /^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/,
@@ -6323,32 +6323,32 @@
 	    ('|', '|https?://|')
 	    ()
 	});
-	
+
 	/**
 	 * GFM + Line Breaks Inline Grammar
 	 */
-	
+
 	inline.breaks = merge({}, inline.gfm, {
 	  br: replace(inline.br)('{2,}', '*')(),
 	  text: replace(inline.gfm.text)('{2,}', '*')()
 	});
-	
+
 	/**
 	 * Inline Lexer & Compiler
 	 */
-	
+
 	function InlineLexer(links, options) {
 	  this.options = options || marked.defaults;
 	  this.links = links;
 	  this.rules = inline.normal;
 	  this.renderer = this.options.renderer || new Renderer;
 	  this.renderer.options = this.options;
-	
+
 	  if (!this.links) {
 	    throw new
 	      Error('Tokens array requires a `links` property.');
 	  }
-	
+
 	  if (this.options.gfm) {
 	    if (this.options.breaks) {
 	      this.rules = inline.breaks;
@@ -6359,33 +6359,33 @@
 	    this.rules = inline.pedantic;
 	  }
 	}
-	
+
 	/**
 	 * Expose Inline Rules
 	 */
-	
+
 	InlineLexer.rules = inline;
-	
+
 	/**
 	 * Static Lexing/Compiling Method
 	 */
-	
+
 	InlineLexer.output = function(src, links, options) {
 	  var inline = new InlineLexer(links, options);
 	  return inline.output(src);
 	};
-	
+
 	/**
 	 * Lexing/Compiling
 	 */
-	
+
 	InlineLexer.prototype.output = function(src) {
 	  var out = ''
 	    , link
 	    , text
 	    , href
 	    , cap;
-	
+
 	  while (src) {
 	    // escape
 	    if (cap = this.rules.escape.exec(src)) {
@@ -6393,7 +6393,7 @@
 	      out += cap[1];
 	      continue;
 	    }
-	
+
 	    // autolink
 	    if (cap = this.rules.autolink.exec(src)) {
 	      src = src.substring(cap[0].length);
@@ -6409,7 +6409,7 @@
 	      out += this.renderer.link(href, null, text);
 	      continue;
 	    }
-	
+
 	    // url (gfm)
 	    if (!this.inLink && (cap = this.rules.url.exec(src))) {
 	      src = src.substring(cap[0].length);
@@ -6418,7 +6418,7 @@
 	      out += this.renderer.link(href, null, text);
 	      continue;
 	    }
-	
+
 	    // tag
 	    if (cap = this.rules.tag.exec(src)) {
 	      if (!this.inLink && /^<a /i.test(cap[0])) {
@@ -6434,7 +6434,7 @@
 	        : cap[0]
 	      continue;
 	    }
-	
+
 	    // link
 	    if (cap = this.rules.link.exec(src)) {
 	      src = src.substring(cap[0].length);
@@ -6446,7 +6446,7 @@
 	      this.inLink = false;
 	      continue;
 	    }
-	
+
 	    // reflink, nolink
 	    if ((cap = this.rules.reflink.exec(src))
 	        || (cap = this.rules.nolink.exec(src))) {
@@ -6463,75 +6463,75 @@
 	      this.inLink = false;
 	      continue;
 	    }
-	
+
 	    // strong
 	    if (cap = this.rules.strong.exec(src)) {
 	      src = src.substring(cap[0].length);
 	      out += this.renderer.strong(this.output(cap[2] || cap[1]));
 	      continue;
 	    }
-	
+
 	    // em
 	    if (cap = this.rules.em.exec(src)) {
 	      src = src.substring(cap[0].length);
 	      out += this.renderer.em(this.output(cap[2] || cap[1]));
 	      continue;
 	    }
-	
+
 	    // code
 	    if (cap = this.rules.code.exec(src)) {
 	      src = src.substring(cap[0].length);
 	      out += this.renderer.codespan(escape(cap[2], true));
 	      continue;
 	    }
-	
+
 	    // br
 	    if (cap = this.rules.br.exec(src)) {
 	      src = src.substring(cap[0].length);
 	      out += this.renderer.br();
 	      continue;
 	    }
-	
+
 	    // del (gfm)
 	    if (cap = this.rules.del.exec(src)) {
 	      src = src.substring(cap[0].length);
 	      out += this.renderer.del(this.output(cap[1]));
 	      continue;
 	    }
-	
+
 	    // text
 	    if (cap = this.rules.text.exec(src)) {
 	      src = src.substring(cap[0].length);
 	      out += this.renderer.text(escape(this.smartypants(cap[0])));
 	      continue;
 	    }
-	
+
 	    if (src) {
 	      throw new
 	        Error('Infinite loop on byte: ' + src.charCodeAt(0));
 	    }
 	  }
-	
+
 	  return out;
 	};
-	
+
 	/**
 	 * Compile Link
 	 */
-	
+
 	InlineLexer.prototype.outputLink = function(cap, link) {
 	  var href = escape(link.href)
 	    , title = link.title ? escape(link.title) : null;
-	
+
 	  return cap[0].charAt(0) !== '!'
 	    ? this.renderer.link(href, title, this.output(cap[1]))
 	    : this.renderer.image(href, title, escape(cap[1]));
 	};
-	
+
 	/**
 	 * Smartypants Transformations
 	 */
-	
+
 	InlineLexer.prototype.smartypants = function(text) {
 	  if (!this.options.smartypants) return text;
 	  return text
@@ -6550,18 +6550,18 @@
 	    // ellipses
 	    .replace(/\.{3}/g, '\u2026');
 	};
-	
+
 	/**
 	 * Mangle Links
 	 */
-	
+
 	InlineLexer.prototype.mangle = function(text) {
 	  if (!this.options.mangle) return text;
 	  var out = ''
 	    , l = text.length
 	    , i = 0
 	    , ch;
-	
+
 	  for (; i < l; i++) {
 	    ch = text.charCodeAt(i);
 	    if (Math.random() > 0.5) {
@@ -6569,18 +6569,18 @@
 	    }
 	    out += '&#' + ch + ';';
 	  }
-	
+
 	  return out;
 	};
-	
+
 	/**
 	 * Renderer
 	 */
-	
+
 	function Renderer(options) {
 	  this.options = options || {};
 	}
-	
+
 	Renderer.prototype.code = function(code, lang, escaped) {
 	  if (this.options.highlight) {
 	    var out = this.options.highlight(code, lang);
@@ -6589,13 +6589,13 @@
 	      code = out;
 	    }
 	  }
-	
+
 	  if (!lang) {
 	    return '<pre><code>'
 	      + (escaped ? code : escape(code, true))
 	      + '\n</code></pre>';
 	  }
-	
+
 	  return '<pre><code class="'
 	    + this.options.langPrefix
 	    + escape(lang, true)
@@ -6603,15 +6603,15 @@
 	    + (escaped ? code : escape(code, true))
 	    + '\n</code></pre>\n';
 	};
-	
+
 	Renderer.prototype.blockquote = function(quote) {
 	  return '<blockquote>\n' + quote + '</blockquote>\n';
 	};
-	
+
 	Renderer.prototype.html = function(html) {
 	  return html;
 	};
-	
+
 	Renderer.prototype.heading = function(text, level, raw) {
 	  return '<h'
 	    + level
@@ -6624,24 +6624,24 @@
 	    + level
 	    + '>\n';
 	};
-	
+
 	Renderer.prototype.hr = function() {
 	  return this.options.xhtml ? '<hr/>\n' : '<hr>\n';
 	};
-	
+
 	Renderer.prototype.list = function(body, ordered) {
 	  var type = ordered ? 'ol' : 'ul';
 	  return '<' + type + '>\n' + body + '</' + type + '>\n';
 	};
-	
+
 	Renderer.prototype.listitem = function(text) {
 	  return '<li>' + text + '</li>\n';
 	};
-	
+
 	Renderer.prototype.paragraph = function(text) {
 	  return '<p>' + text + '</p>\n';
 	};
-	
+
 	Renderer.prototype.table = function(header, body) {
 	  return '<table>\n'
 	    + '<thead>\n'
@@ -6652,11 +6652,11 @@
 	    + '</tbody>\n'
 	    + '</table>\n';
 	};
-	
+
 	Renderer.prototype.tablerow = function(content) {
 	  return '<tr>\n' + content + '</tr>\n';
 	};
-	
+
 	Renderer.prototype.tablecell = function(content, flags) {
 	  var type = flags.header ? 'th' : 'td';
 	  var tag = flags.align
@@ -6664,28 +6664,28 @@
 	    : '<' + type + '>';
 	  return tag + content + '</' + type + '>\n';
 	};
-	
+
 	// span level renderer
 	Renderer.prototype.strong = function(text) {
 	  return '<strong>' + text + '</strong>';
 	};
-	
+
 	Renderer.prototype.em = function(text) {
 	  return '<em>' + text + '</em>';
 	};
-	
+
 	Renderer.prototype.codespan = function(text) {
 	  return '<code>' + text + '</code>';
 	};
-	
+
 	Renderer.prototype.br = function() {
 	  return this.options.xhtml ? '<br/>' : '<br>';
 	};
-	
+
 	Renderer.prototype.del = function(text) {
 	  return '<del>' + text + '</del>';
 	};
-	
+
 	Renderer.prototype.link = function(href, title, text) {
 	  if (this.options.sanitize) {
 	    try {
@@ -6706,7 +6706,7 @@
 	  out += '>' + text + '</a>';
 	  return out;
 	};
-	
+
 	Renderer.prototype.image = function(href, title, text) {
 	  var out = '<img src="' + href + '" alt="' + text + '"';
 	  if (title) {
@@ -6715,15 +6715,15 @@
 	  out += this.options.xhtml ? '/>' : '>';
 	  return out;
 	};
-	
+
 	Renderer.prototype.text = function(text) {
 	  return text;
 	};
-	
+
 	/**
 	 * Parsing & Compiling
 	 */
-	
+
 	function Parser(options) {
 	  this.tokens = [];
 	  this.token = null;
@@ -6732,66 +6732,66 @@
 	  this.renderer = this.options.renderer;
 	  this.renderer.options = this.options;
 	}
-	
+
 	/**
 	 * Static Parse Method
 	 */
-	
+
 	Parser.parse = function(src, options, renderer) {
 	  var parser = new Parser(options, renderer);
 	  return parser.parse(src);
 	};
-	
+
 	/**
 	 * Parse Loop
 	 */
-	
+
 	Parser.prototype.parse = function(src) {
 	  this.inline = new InlineLexer(src.links, this.options, this.renderer);
 	  this.tokens = src.reverse();
-	
+
 	  var out = '';
 	  while (this.next()) {
 	    out += this.tok();
 	  }
-	
+
 	  return out;
 	};
-	
+
 	/**
 	 * Next Token
 	 */
-	
+
 	Parser.prototype.next = function() {
 	  return this.token = this.tokens.pop();
 	};
-	
+
 	/**
 	 * Preview Next Token
 	 */
-	
+
 	Parser.prototype.peek = function() {
 	  return this.tokens[this.tokens.length - 1] || 0;
 	};
-	
+
 	/**
 	 * Parse Text Tokens
 	 */
-	
+
 	Parser.prototype.parseText = function() {
 	  var body = this.token.text;
-	
+
 	  while (this.peek().type === 'text') {
 	    body += '\n' + this.next().text;
 	  }
-	
+
 	  return this.inline.output(body);
 	};
-	
+
 	/**
 	 * Parse Current Token
 	 */
-	
+
 	Parser.prototype.tok = function() {
 	  switch (this.token.type) {
 	    case 'space': {
@@ -6819,7 +6819,7 @@
 	        , cell
 	        , flags
 	        , j;
-	
+
 	      // header
 	      cell = '';
 	      for (i = 0; i < this.token.header.length; i++) {
@@ -6830,10 +6830,10 @@
 	        );
 	      }
 	      header += this.renderer.tablerow(cell);
-	
+
 	      for (i = 0; i < this.token.cells.length; i++) {
 	        row = this.token.cells[i];
-	
+
 	        cell = '';
 	        for (j = 0; j < row.length; j++) {
 	          cell += this.renderer.tablecell(
@@ -6841,48 +6841,48 @@
 	            { header: false, align: this.token.align[j] }
 	          );
 	        }
-	
+
 	        body += this.renderer.tablerow(cell);
 	      }
 	      return this.renderer.table(header, body);
 	    }
 	    case 'blockquote_start': {
 	      var body = '';
-	
+
 	      while (this.next().type !== 'blockquote_end') {
 	        body += this.tok();
 	      }
-	
+
 	      return this.renderer.blockquote(body);
 	    }
 	    case 'list_start': {
 	      var body = ''
 	        , ordered = this.token.ordered;
-	
+
 	      while (this.next().type !== 'list_end') {
 	        body += this.tok();
 	      }
-	
+
 	      return this.renderer.list(body, ordered);
 	    }
 	    case 'list_item_start': {
 	      var body = '';
-	
+
 	      while (this.next().type !== 'list_item_end') {
 	        body += this.token.type === 'text'
 	          ? this.parseText()
 	          : this.tok();
 	      }
-	
+
 	      return this.renderer.listitem(body);
 	    }
 	    case 'loose_item_start': {
 	      var body = '';
-	
+
 	      while (this.next().type !== 'list_item_end') {
 	        body += this.tok();
 	      }
-	
+
 	      return this.renderer.listitem(body);
 	    }
 	    case 'html': {
@@ -6899,11 +6899,11 @@
 	    }
 	  }
 	};
-	
+
 	/**
 	 * Helpers
 	 */
-	
+
 	function escape(html, encode) {
 	  return html
 	    .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
@@ -6912,9 +6912,9 @@
 	    .replace(/"/g, '&quot;')
 	    .replace(/'/g, '&#39;');
 	}
-	
+
 	function unescape(html) {
-		// explicitly match decimal, hex, and named HTML entities 
+		// explicitly match decimal, hex, and named HTML entities
 	  return html.replace(/&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/g, function(_, n) {
 	    n = n.toLowerCase();
 	    if (n === 'colon') return ':';
@@ -6926,7 +6926,7 @@
 	    return '';
 	  });
 	}
-	
+
 	function replace(regex, opt) {
 	  regex = regex.source;
 	  opt = opt || '';
@@ -6938,15 +6938,15 @@
 	    return self;
 	  };
 	}
-	
+
 	function noop() {}
 	noop.exec = noop;
-	
+
 	function merge(obj) {
 	  var i = 1
 	    , target
 	    , key;
-	
+
 	  for (; i < arguments.length; i++) {
 	    target = arguments[i];
 	    for (key in target) {
@@ -6955,66 +6955,66 @@
 	      }
 	    }
 	  }
-	
+
 	  return obj;
 	}
-	
-	
+
+
 	/**
 	 * Marked
 	 */
-	
+
 	function marked(src, opt, callback) {
 	  if (callback || typeof opt === 'function') {
 	    if (!callback) {
 	      callback = opt;
 	      opt = null;
 	    }
-	
+
 	    opt = merge({}, marked.defaults, opt || {});
-	
+
 	    var highlight = opt.highlight
 	      , tokens
 	      , pending
 	      , i = 0;
-	
+
 	    try {
 	      tokens = Lexer.lex(src, opt)
 	    } catch (e) {
 	      return callback(e);
 	    }
-	
+
 	    pending = tokens.length;
-	
+
 	    var done = function(err) {
 	      if (err) {
 	        opt.highlight = highlight;
 	        return callback(err);
 	      }
-	
+
 	      var out;
-	
+
 	      try {
 	        out = Parser.parse(tokens, opt);
 	      } catch (e) {
 	        err = e;
 	      }
-	
+
 	      opt.highlight = highlight;
-	
+
 	      return err
 	        ? callback(err)
 	        : callback(null, out);
 	    };
-	
+
 	    if (!highlight || highlight.length < 3) {
 	      return done();
 	    }
-	
+
 	    delete opt.highlight;
-	
+
 	    if (!pending) return done();
-	
+
 	    for (; i < tokens.length; i++) {
 	      (function(token) {
 	        if (token.type !== 'code') {
@@ -7031,7 +7031,7 @@
 	        });
 	      })(tokens[i]);
 	    }
-	
+
 	    return;
 	  }
 	  try {
@@ -7047,17 +7047,17 @@
 	    throw e;
 	  }
 	}
-	
+
 	/**
 	 * Options
 	 */
-	
+
 	marked.options =
 	marked.setOptions = function(opt) {
 	  merge(marked.defaults, opt);
 	  return marked;
 	};
-	
+
 	marked.defaults = {
 	  gfm: true,
 	  tables: true,
@@ -7075,24 +7075,24 @@
 	  renderer: new Renderer,
 	  xhtml: false
 	};
-	
+
 	/**
 	 * Expose
 	 */
-	
+
 	marked.Parser = Parser;
 	marked.parser = Parser.parse;
-	
+
 	marked.Renderer = Renderer;
-	
+
 	marked.Lexer = Lexer;
 	marked.lexer = Lexer.lex;
-	
+
 	marked.InlineLexer = InlineLexer;
 	marked.inlineLexer = InlineLexer.output;
-	
+
 	marked.parse = marked;
-	
+
 	if (true) {
 	  module.exports = marked;
 	} else if (typeof define === 'function' && define.amd) {
@@ -7100,11 +7100,11 @@
 	} else {
 	  this.marked = marked;
 	}
-	
+
 	}).call(function() {
 	  return this || (typeof window !== 'undefined' ? window : global);
 	}());
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
@@ -7115,7 +7115,7 @@
 	/* **********************************************
 	     Begin prism-core.js
 	********************************************** */
-	
+
 	var _self = (typeof window !== 'undefined')
 		? window   // if in browser
 		: (
@@ -7123,19 +7123,19 @@
 			? self // if in worker
 			: {}   // if in node js
 		);
-	
+
 	/**
 	 * Prism: Lightweight, robust, elegant syntax highlighting
 	 * MIT license http://www.opensource.org/licenses/mit-license.php/
 	 * @author Lea Verou http://lea.verou.me
 	 */
-	
+
 	var Prism = (function(){
-	
+
 	// Private helper vars
 	var lang = /\blang(?:uage)?-(\w+)\b/i;
 	var uniqueId = 0;
-	
+
 	var _ = _self.Prism = {
 		util: {
 			encode: function (tokens) {
@@ -7147,54 +7147,54 @@
 					return tokens.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\u00a0/g, ' ');
 				}
 			},
-	
+
 			type: function (o) {
 				return Object.prototype.toString.call(o).match(/\[object (\w+)\]/)[1];
 			},
-	
+
 			objId: function (obj) {
 				if (!obj['__id']) {
 					Object.defineProperty(obj, '__id', { value: ++uniqueId });
 				}
 				return obj['__id'];
 			},
-	
+
 			// Deep clone a language definition (e.g. to extend it)
 			clone: function (o) {
 				var type = _.util.type(o);
-	
+
 				switch (type) {
 					case 'Object':
 						var clone = {};
-	
+
 						for (var key in o) {
 							if (o.hasOwnProperty(key)) {
 								clone[key] = _.util.clone(o[key]);
 							}
 						}
-	
+
 						return clone;
-	
+
 					case 'Array':
 						// Check for existence for IE8
 						return o.map && o.map(function(v) { return _.util.clone(v); });
 				}
-	
+
 				return o;
 			}
 		},
-	
+
 		languages: {
 			extend: function (id, redef) {
 				var lang = _.util.clone(_.languages[id]);
-	
+
 				for (var key in redef) {
 					lang[key] = redef[key];
 				}
-	
+
 				return lang;
 			},
-	
+
 			/**
 			 * Insert a token before another token in a language literal
 			 * As this needs to recreate the object (we cannot actually insert before keys in object literals),
@@ -7207,56 +7207,56 @@
 			insertBefore: function (inside, before, insert, root) {
 				root = root || _.languages;
 				var grammar = root[inside];
-	
+
 				if (arguments.length == 2) {
 					insert = arguments[1];
-	
+
 					for (var newToken in insert) {
 						if (insert.hasOwnProperty(newToken)) {
 							grammar[newToken] = insert[newToken];
 						}
 					}
-	
+
 					return grammar;
 				}
-	
+
 				var ret = {};
-	
+
 				for (var token in grammar) {
-	
+
 					if (grammar.hasOwnProperty(token)) {
-	
+
 						if (token == before) {
-	
+
 							for (var newToken in insert) {
-	
+
 								if (insert.hasOwnProperty(newToken)) {
 									ret[newToken] = insert[newToken];
 								}
 							}
 						}
-	
+
 						ret[token] = grammar[token];
 					}
 				}
-	
+
 				// Update references in other language definitions
 				_.languages.DFS(_.languages, function(key, value) {
 					if (value === root[inside] && key != inside) {
 						this[key] = ret;
 					}
 				});
-	
+
 				return root[inside] = ret;
 			},
-	
+
 			// Traverse a language definition with Depth First Search
 			DFS: function(o, callback, type, visited) {
 				visited = visited || {};
 				for (var i in o) {
 					if (o.hasOwnProperty(i)) {
 						callback.call(o, i, o[i], type || i);
-	
+
 						if (_.util.type(o[i]) === 'Object' && !visited[_.util.objId(o[i])]) {
 							visited[_.util.objId(o[i])] = true;
 							_.languages.DFS(o[i], callback, null, visited);
@@ -7270,56 +7270,56 @@
 			}
 		},
 		plugins: {},
-	
+
 		highlightAll: function(async, callback) {
 			var env = {
 				callback: callback,
 				selector: 'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'
 			};
-	
+
 			_.hooks.run("before-highlightall", env);
-	
+
 			var elements = env.elements || document.querySelectorAll(env.selector);
-	
+
 			for (var i=0, element; element = elements[i++];) {
 				_.highlightElement(element, async === true, env.callback);
 			}
 		},
-	
+
 		highlightElement: function(element, async, callback) {
 			// Find language
 			var language, grammar, parent = element;
-	
+
 			while (parent && !lang.test(parent.className)) {
 				parent = parent.parentNode;
 			}
-	
+
 			if (parent) {
 				language = (parent.className.match(lang) || [,''])[1].toLowerCase();
 				grammar = _.languages[language];
 			}
-	
+
 			// Set language on the element, if not present
 			element.className = element.className.replace(lang, '').replace(/\s+/g, ' ') + ' language-' + language;
-	
+
 			// Set language on the parent, for styling
 			parent = element.parentNode;
-	
+
 			if (/pre/i.test(parent.nodeName)) {
 				parent.className = parent.className.replace(lang, '').replace(/\s+/g, ' ') + ' language-' + language;
 			}
-	
+
 			var code = element.textContent;
-	
+
 			var env = {
 				element: element,
 				language: language,
 				grammar: grammar,
 				code: code
 			};
-	
+
 			_.hooks.run('before-sanity-check', env);
-	
+
 			if (!env.code || !env.grammar) {
 				if (env.code) {
 					env.element.textContent = env.code;
@@ -7327,24 +7327,24 @@
 				_.hooks.run('complete', env);
 				return;
 			}
-	
+
 			_.hooks.run('before-highlight', env);
-	
+
 			if (async && _self.Worker) {
 				var worker = new Worker(_.filename);
-	
+
 				worker.onmessage = function(evt) {
 					env.highlightedCode = evt.data;
-	
+
 					_.hooks.run('before-insert', env);
-	
+
 					env.element.innerHTML = env.highlightedCode;
-	
+
 					callback && callback.call(env.element);
 					_.hooks.run('after-highlight', env);
 					_.hooks.run('complete', env);
 				};
-	
+
 				worker.postMessage(JSON.stringify({
 					language: env.language,
 					code: env.code,
@@ -7353,46 +7353,46 @@
 			}
 			else {
 				env.highlightedCode = _.highlight(env.code, env.grammar, env.language);
-	
+
 				_.hooks.run('before-insert', env);
-	
+
 				env.element.innerHTML = env.highlightedCode;
-	
+
 				callback && callback.call(element);
-	
+
 				_.hooks.run('after-highlight', env);
 				_.hooks.run('complete', env);
 			}
 		},
-	
+
 		highlight: function (text, grammar, language) {
 			var tokens = _.tokenize(text, grammar);
 			return Token.stringify(_.util.encode(tokens), language);
 		},
-	
+
 		tokenize: function(text, grammar, language) {
 			var Token = _.Token;
-	
+
 			var strarr = [text];
-	
+
 			var rest = grammar.rest;
-	
+
 			if (rest) {
 				for (var token in rest) {
 					grammar[token] = rest[token];
 				}
-	
+
 				delete grammar.rest;
 			}
-	
+
 			tokenloop: for (var token in grammar) {
 				if(!grammar.hasOwnProperty(token) || !grammar[token]) {
 					continue;
 				}
-	
+
 				var patterns = grammar[token];
 				patterns = (_.util.type(patterns) === "Array") ? patterns : [patterns];
-	
+
 				for (var j = 0; j < patterns.length; ++j) {
 					var pattern = patterns[j],
 						inside = pattern.inside,
@@ -7400,34 +7400,34 @@
 						greedy = !!pattern.greedy,
 						lookbehindLength = 0,
 						alias = pattern.alias;
-	
+
 					if (greedy && !pattern.pattern.global) {
 						// Without the global flag, lastIndex won't work
 						var flags = pattern.pattern.toString().match(/[imuy]*$/)[0];
 						pattern.pattern = RegExp(pattern.pattern.source, flags + "g");
 					}
-	
+
 					pattern = pattern.pattern || pattern;
-	
+
 					// Don’t cache length as it changes during the loop
 					for (var i=0, pos = 0; i<strarr.length; pos += strarr[i].length, ++i) {
-	
+
 						var str = strarr[i];
-	
+
 						if (strarr.length > text.length) {
 							// Something went terribly wrong, ABORT, ABORT!
 							break tokenloop;
 						}
-	
+
 						if (str instanceof Token) {
 							continue;
 						}
-	
+
 						pattern.lastIndex = 0;
-	
+
 						var match = pattern.exec(str),
 						    delNum = 1;
-	
+
 						// Greedy patterns can override/remove up to two previously matched tokens
 						if (!match && greedy && i != strarr.length - 1) {
 							pattern.lastIndex = pos;
@@ -7435,12 +7435,12 @@
 							if (!match) {
 								break;
 							}
-	
+
 							var from = match.index + (lookbehind ? match[1].length : 0),
 							    to = match.index + match[0].length,
 							    k = i,
 							    p = pos;
-	
+
 							for (var len = strarr.length; k < len && p < to; ++k) {
 								p += strarr[k].length;
 								// Move the index i to the element in strarr that is closest to from
@@ -7449,7 +7449,7 @@
 									pos = p;
 								}
 							}
-	
+
 							/*
 							 * If strarr[i] is a Token, then the match starts inside another Token, which is invalid
 							 * If strarr[k - 1] is greedy we are in conflict with another greedy pattern
@@ -7457,74 +7457,74 @@
 							if (strarr[i] instanceof Token || strarr[k - 1].greedy) {
 								continue;
 							}
-	
+
 							// Number of tokens to delete and replace with the new match
 							delNum = k - i;
 							str = text.slice(pos, p);
 							match.index -= pos;
 						}
-	
+
 						if (!match) {
 							continue;
 						}
-	
+
 						if(lookbehind) {
 							lookbehindLength = match[1].length;
 						}
-	
+
 						var from = match.index + lookbehindLength,
 						    match = match[0].slice(lookbehindLength),
 						    to = from + match.length,
 						    before = str.slice(0, from),
 						    after = str.slice(to);
-	
+
 						var args = [i, delNum];
-	
+
 						if (before) {
 							args.push(before);
 						}
-	
+
 						var wrapped = new Token(token, inside? _.tokenize(match, inside) : match, alias, match, greedy);
-	
+
 						args.push(wrapped);
-	
+
 						if (after) {
 							args.push(after);
 						}
-	
+
 						Array.prototype.splice.apply(strarr, args);
 					}
 				}
 			}
-	
+
 			return strarr;
 		},
-	
+
 		hooks: {
 			all: {},
-	
+
 			add: function (name, callback) {
 				var hooks = _.hooks.all;
-	
+
 				hooks[name] = hooks[name] || [];
-	
+
 				hooks[name].push(callback);
 			},
-	
+
 			run: function (name, env) {
 				var callbacks = _.hooks.all[name];
-	
+
 				if (!callbacks || !callbacks.length) {
 					return;
 				}
-	
+
 				for (var i=0, callback; callback = callbacks[i++];) {
 					callback(env);
 				}
 			}
 		}
 	};
-	
+
 	var Token = _.Token = function(type, content, alias, matchedStr, greedy) {
 		this.type = type;
 		this.content = content;
@@ -7533,18 +7533,18 @@
 		this.length = (matchedStr || "").length|0;
 		this.greedy = !!greedy;
 	};
-	
+
 	Token.stringify = function(o, language, parent) {
 		if (typeof o == 'string') {
 			return o;
 		}
-	
+
 		if (_.util.type(o) === 'Array') {
 			return o.map(function(element) {
 				return Token.stringify(element, language, o);
 			}).join('');
 		}
-	
+
 		var env = {
 			type: o.type,
 			content: Token.stringify(o.content, language, parent),
@@ -7554,26 +7554,26 @@
 			language: language,
 			parent: parent
 		};
-	
+
 		if (env.type == 'comment') {
 			env.attributes['spellcheck'] = 'true';
 		}
-	
+
 		if (o.alias) {
 			var aliases = _.util.type(o.alias) === 'Array' ? o.alias : [o.alias];
 			Array.prototype.push.apply(env.classes, aliases);
 		}
-	
+
 		_.hooks.run('wrap', env);
-	
+
 		var attributes = Object.keys(env.attributes).map(function(name) {
 			return name + '="' + (env.attributes[name] || '').replace(/"/g, '&quot;') + '"';
 		}).join(' ');
-	
+
 		return '<' + env.tag + ' class="' + env.classes.join(' ') + '"' + (attributes ? ' ' + attributes : '') + '>' + env.content + '</' + env.tag + '>';
-	
+
 	};
-	
+
 	if (!_self.document) {
 		if (!_self.addEventListener) {
 			// in Node.js
@@ -7585,22 +7585,22 @@
 			    lang = message.language,
 			    code = message.code,
 			    immediateClose = message.immediateClose;
-	
+
 			_self.postMessage(_.highlight(code, _.languages[lang], lang));
 			if (immediateClose) {
 				_self.close();
 			}
 		}, false);
-	
+
 		return _self.Prism;
 	}
-	
+
 	//Get current script and highlight
 	var script = document.currentScript || [].slice.call(document.getElementsByTagName("script")).pop();
-	
+
 	if (script) {
 		_.filename = script.src;
-	
+
 		if (document.addEventListener && !script.hasAttribute('data-manual')) {
 			if(document.readyState !== "loading") {
 				if (window.requestAnimationFrame) {
@@ -7614,25 +7614,25 @@
 			}
 		}
 	}
-	
+
 	return _self.Prism;
-	
+
 	})();
-	
+
 	if (typeof module !== 'undefined' && module.exports) {
 		module.exports = Prism;
 	}
-	
+
 	// hack for components to work correctly in node.js
 	if (typeof global !== 'undefined') {
 		global.Prism = Prism;
 	}
-	
-	
+
+
 	/* **********************************************
 	     Begin prism-markup.js
 	********************************************** */
-	
+
 	Prism.languages.markup = {
 		'comment': /<!--[\w\W]*?-->/,
 		'prolog': /<\?[\w\W]+?\?>/,
@@ -7661,30 +7661,30 @@
 						'namespace': /^[^\s>\/:]+:/
 					}
 				}
-	
+
 			}
 		},
 		'entity': /&#?[\da-z]{1,8};/i
 	};
-	
+
 	// Plugin to make entity title show the real entity, idea by Roman Komarov
 	Prism.hooks.add('wrap', function(env) {
-	
+
 		if (env.type === 'entity') {
 			env.attributes['title'] = env.content.replace(/&amp;/, '&');
 		}
 	});
-	
+
 	Prism.languages.xml = Prism.languages.markup;
 	Prism.languages.html = Prism.languages.markup;
 	Prism.languages.mathml = Prism.languages.markup;
 	Prism.languages.svg = Prism.languages.markup;
-	
-	
+
+
 	/* **********************************************
 	     Begin prism-css.js
 	********************************************** */
-	
+
 	Prism.languages.css = {
 		'comment': /\/\*[\w\W]*?\*\//,
 		'atrule': {
@@ -7705,9 +7705,9 @@
 		'function': /[-a-z0-9]+(?=\()/i,
 		'punctuation': /[(){};:]/
 	};
-	
+
 	Prism.languages.css['atrule'].inside.rest = Prism.util.clone(Prism.languages.css);
-	
+
 	if (Prism.languages.markup) {
 		Prism.languages.insertBefore('markup', 'tag', {
 			'style': {
@@ -7717,7 +7717,7 @@
 				alias: 'language-css'
 			}
 		});
-		
+
 		Prism.languages.insertBefore('inside', 'attr-value', {
 			'style-attr': {
 				pattern: /\s*style=("|').*?\1/i,
@@ -7736,11 +7736,11 @@
 			}
 		}, Prism.languages.markup.tag);
 	}
-	
+
 	/* **********************************************
 	     Begin prism-clike.js
 	********************************************** */
-	
+
 	Prism.languages.clike = {
 		'comment': [
 			{
@@ -7770,12 +7770,12 @@
 		'operator': /--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,
 		'punctuation': /[{}[\];(),.:]/
 	};
-	
-	
+
+
 	/* **********************************************
 	     Begin prism-javascript.js
 	********************************************** */
-	
+
 	Prism.languages.javascript = Prism.languages.extend('clike', {
 		'keyword': /\b(as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/,
 		'number': /\b-?(0x[\dA-Fa-f]+|0b[01]+|0o[0-7]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|Infinity)\b/,
@@ -7783,7 +7783,7 @@
 		'function': /[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*(?=\()/i,
 		'operator': /--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*\*?|\/|~|\^|%|\.{3}/
 	});
-	
+
 	Prism.languages.insertBefore('javascript', 'keyword', {
 		'regex': {
 			pattern: /(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\\\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})]))/,
@@ -7791,7 +7791,7 @@
 			greedy: true
 		}
 	});
-	
+
 	Prism.languages.insertBefore('javascript', 'string', {
 		'template-string': {
 			pattern: /`(?:\\\\|\\?[^\\])*?`/,
@@ -7811,7 +7811,7 @@
 			}
 		}
 	});
-	
+
 	if (Prism.languages.markup) {
 		Prism.languages.insertBefore('markup', 'tag', {
 			'script': {
@@ -7822,20 +7822,20 @@
 			}
 		});
 	}
-	
+
 	Prism.languages.js = Prism.languages.javascript;
-	
+
 	/* **********************************************
 	     Begin prism-file-highlight.js
 	********************************************** */
-	
+
 	(function () {
 		if (typeof self === 'undefined' || !self.Prism || !self.document || !document.querySelector) {
 			return;
 		}
-	
+
 		self.Prism.fileHighlight = function() {
-	
+
 			var Extensions = {
 				'js': 'javascript',
 				'py': 'python',
@@ -7847,45 +7847,45 @@
 				'h': 'c',
 				'tex': 'latex'
 			};
-	
+
 			if(Array.prototype.forEach) { // Check to prevent error in IE8
 				Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
 					var src = pre.getAttribute('data-src');
-	
+
 					var language, parent = pre;
 					var lang = /\blang(?:uage)?-(?!\*)(\w+)\b/i;
 					while (parent && !lang.test(parent.className)) {
 						parent = parent.parentNode;
 					}
-	
+
 					if (parent) {
 						language = (pre.className.match(lang) || [, ''])[1];
 					}
-	
+
 					if (!language) {
 						var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
 						language = Extensions[extension] || extension;
 					}
-	
+
 					var code = document.createElement('code');
 					code.className = 'language-' + language;
-	
+
 					pre.textContent = '';
-	
+
 					code.textContent = 'Loading…';
-	
+
 					pre.appendChild(code);
-	
+
 					var xhr = new XMLHttpRequest();
-	
+
 					xhr.open('GET', src, true);
-	
+
 					xhr.onreadystatechange = function () {
 						if (xhr.readyState == 4) {
-	
+
 							if (xhr.status < 400 && xhr.responseText) {
 								code.textContent = xhr.responseText;
-	
+
 								Prism.highlightElement(code);
 							}
 							else if (xhr.status >= 400) {
@@ -7896,17 +7896,17 @@
 							}
 						}
 					};
-	
+
 					xhr.send(null);
 				});
 			}
-	
+
 		};
-	
+
 		document.addEventListener('DOMContentLoaded', self.Prism.fileHighlight);
-	
+
 	})();
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
@@ -7921,7 +7921,7 @@
 			lookbehind: true
 		}
 	});
-	
+
 	Prism.languages.insertBefore('java','function', {
 		'annotation': {
 			alias: 'punctuation',
@@ -7943,7 +7943,7 @@
 		],
 		'number': /\b-?(0x[\da-f]+|\d*\.?\d+f?)\b/i
 	});
-	
+
 	Prism.languages.insertBefore('csharp', 'keyword', {
 		'generic-method': {
 			pattern: /[a-z0-9_]+\s*<[^>\r\n]+?>\s*(?=\()/i,
@@ -7985,7 +7985,7 @@
 	 * Adds the following new token classes:
 	 * 		constant, delimiter, variable, function, package
 	 */
-	
+
 	Prism.languages.php = Prism.languages.extend('clike', {
 		'keyword': /\b(and|or|xor|array|as|break|case|cfunction|class|const|continue|declare|default|die|do|else|elseif|enddeclare|endfor|endforeach|endif|endswitch|endwhile|extends|for|foreach|function|include|include_once|global|if|new|return|static|switch|use|require|require_once|var|while|abstract|interface|public|implements|private|protected|parent|throw|null|echo|print|trait|namespace|final|yield|goto|instanceof|finally|try|catch)\b/i,
 		'constant': /\b[A-Z0-9_]{2,}\b/,
@@ -7995,7 +7995,7 @@
 			greedy: true
 		}
 	});
-	
+
 	// Shell-like comments are matched after strings, because they are less
 	// common than strings containing hashes...
 	Prism.languages.insertBefore('php', 'class-name', {
@@ -8005,7 +8005,7 @@
 			alias: 'comment'
 		}
 	});
-	
+
 	Prism.languages.insertBefore('php', 'keyword', {
 		'delimiter': /\?>|<\?(?:php)?/i,
 		'variable': /\$\w+\b/i,
@@ -8017,7 +8017,7 @@
 			}
 		}
 	});
-	
+
 	// Must be defined after the function pattern
 	Prism.languages.insertBefore('php', 'operator', {
 		'property': {
@@ -8025,27 +8025,27 @@
 			lookbehind: true
 		}
 	});
-	
+
 	// Add HTML support of the markup language exists
 	if (Prism.languages.markup) {
-	
+
 		// Tokenize all inline PHP blocks that are wrapped in <?php ?>
 		// This allows for easy PHP + markup highlighting
 		Prism.hooks.add('before-highlight', function(env) {
 			if (env.language !== 'php') {
 				return;
 			}
-	
+
 			env.tokenStack = [];
-	
+
 			env.backupCode = env.code;
 			env.code = env.code.replace(/(?:<\?php|<\?)[\w\W]*?(?:\?>)/ig, function(match) {
 				env.tokenStack.push(match);
-	
+
 				return '{{{PHP' + env.tokenStack.length + '}}}';
 			});
 		});
-	
+
 		// Restore env.code for other plugins (e.g. line-numbers)
 		Prism.hooks.add('before-insert', function(env) {
 			if (env.language === 'php') {
@@ -8053,28 +8053,28 @@
 				delete env.backupCode;
 			}
 		});
-	
+
 		// Re-insert the tokens after highlighting
 		Prism.hooks.add('after-highlight', function(env) {
 			if (env.language !== 'php') {
 				return;
 			}
-	
+
 			for (var i = 0, t; t = env.tokenStack[i]; i++) {
 				// The replace prevents $$, $&, $`, $', $n, $nn from being interpreted as special patterns
 				env.highlightedCode = env.highlightedCode.replace('{{{PHP' + (i + 1) + '}}}', Prism.highlight(t, env.grammar, 'php').replace(/\$/g, '$$$$'));
 			}
-	
+
 			env.element.innerHTML = env.highlightedCode;
 		});
-	
+
 		// Wrap tokens in classes that are missing them
 		Prism.hooks.add('wrap', function(env) {
 			if (env.language === 'php' && env.type === 'markup') {
 				env.content = env.content.replace(/(\{\{\{PHP[0-9]+\}\}\})/g, "<span class=\"token php\">$1</span>");
 			}
 		});
-	
+
 		// Add the rules before all others
 		Prism.languages.insertBefore('php', 'comment', {
 			'markup': {
@@ -8132,7 +8132,7 @@
 	    'boolean': /\b(true|false)\b/gi,
 	    'null': /\bnull\b/gi
 	};
-	
+
 	Prism.languages.jsonp = Prism.languages.json;
 
 
@@ -8148,17 +8148,17 @@
 		// - Add support for tag interpolation #[]
 		// - Add explicit support for plain text using |
 		// - Add support for markup embedded in plain text
-	
+
 		Prism.languages.jade = {
-	
+
 			// Multiline stuff should appear before the rest
-	
+
 			// This handles both single-line and multi-line comments
 			'comment': {
 				pattern: /(^([\t ]*))\/\/.*((?:\r?\n|\r)\2[\t ]+.+)*/m,
 				lookbehind: true
 			},
-	
+
 			// All the tag-related part is in lookbehind
 			// so that it can be highlighted by the "tag" pattern
 			'multiline-script': {
@@ -8168,7 +8168,7 @@
 					rest: Prism.languages.javascript
 				}
 			},
-	
+
 			// See at the end of the file for known filters
 			'filter': {
 				pattern: /(^([\t ]*)):.+((?:\r?\n|\r(?!\n))(?:\2[\t ]+.+|\s*?(?=\r?\n|\r)))+/m,
@@ -8180,7 +8180,7 @@
 					}
 				}
 			},
-	
+
 			'multiline-plain-text': {
 				pattern: /(^([\t ]*)[\w\-#.]+\.[\t ]*)((?:\r?\n|\r(?!\n))(?:\2[\t ]+.+|\s*?(?=\r?\n|\r)))+/m,
 				lookbehind: true
@@ -8196,7 +8196,7 @@
 				pattern: /((?:^|\n)[\t ]*)doctype(?: .+)?/,
 				lookbehind: true
 			},
-	
+
 			// This handle all conditional and loop keywords
 			'flow-control': {
 				pattern: /(^[\t ]*)(?:if|unless|else|case|when|default|each|while)\b(?: .+)?/m,
@@ -8251,7 +8251,7 @@
 					rest: Prism.languages.javascript
 				}
 			},
-	
+
 			'plain-text': {
 				pattern: /(^[\t ]*(?!-)[\w\-#.]*[\w\-](?:(?:&[^(]+)?\([^)]+\))*\/?[\t ]+).+/m,
 				lookbehind: true
@@ -8296,9 +8296,9 @@
 			],
 			'punctuation': /[.\-!=|]+/
 		};
-	
+
 		var filter_pattern = '(^([\\t ]*)):{{filter_name}}((?:\\r?\\n|\\r(?!\\n))(?:\\2[\\t ]+.+|\\s*?(?=\\r?\\n|\\r)))+';
-	
+
 		// Non exhaustive list of available filters and associated languages
 		var filters = [
 			{filter:'atpl',language:'twig'},
@@ -8314,7 +8314,7 @@
 			{filter:'sass',language:'scss'},
 			'stylus',
 			'swig'
-	
+
 		];
 		var all_filters = {};
 		for (var i = 0, l = filters.length; i < l; i++) {
@@ -8334,9 +8334,9 @@
 				}
 			}
 		}
-	
+
 		Prism.languages.insertBefore('jade', 'filter', all_filters);
-	
+
 	}(Prism));
 
 /***/ },
@@ -8365,25 +8365,25 @@
 		'string': [
 			// q/.../
 			/\b(?:q|qq|qx|qw)\s*([^a-zA-Z0-9\s\{\(\[<])(?:[^\\]|\\[\s\S])*?\1/,
-		
+
 			// q a...a
 			/\b(?:q|qq|qx|qw)\s+([a-zA-Z0-9])(?:[^\\]|\\[\s\S])*?\1/,
-		
+
 			// q(...)
 			/\b(?:q|qq|qx|qw)\s*\((?:[^()\\]|\\[\s\S])*\)/,
-		
+
 			// q{...}
 			/\b(?:q|qq|qx|qw)\s*\{(?:[^{}\\]|\\[\s\S])*\}/,
-		
+
 			// q[...]
 			/\b(?:q|qq|qx|qw)\s*\[(?:[^[\]\\]|\\[\s\S])*\]/,
-		
+
 			// q<...>
 			/\b(?:q|qq|qx|qw)\s*<(?:[^<>\\]|\\[\s\S])*>/,
-	
+
 			// "...", `...`
 			/("|`)(?:[^\\]|\\[\s\S])*?\1/,
-	
+
 			// '...'
 			// FIXME Multi-line single-quoted strings are not supported as they would break variables containing '
 			/'(?:[^'\\\r\n]|\\.)*'/
@@ -8391,22 +8391,22 @@
 		'regex': [
 			// m/.../
 			/\b(?:m|qr)\s*([^a-zA-Z0-9\s\{\(\[<])(?:[^\\]|\\[\s\S])*?\1[msixpodualngc]*/,
-		
+
 			// m a...a
 			/\b(?:m|qr)\s+([a-zA-Z0-9])(?:[^\\]|\\.)*?\1[msixpodualngc]*/,
-		
+
 			// m(...)
 			/\b(?:m|qr)\s*\((?:[^()\\]|\\[\s\S])*\)[msixpodualngc]*/,
-		
+
 			// m{...}
 			/\b(?:m|qr)\s*\{(?:[^{}\\]|\\[\s\S])*\}[msixpodualngc]*/,
-		
+
 			// m[...]
 			/\b(?:m|qr)\s*\[(?:[^[\]\\]|\\[\s\S])*\][msixpodualngc]*/,
-		
+
 			// m<...>
 			/\b(?:m|qr)\s*<(?:[^<>\\]|\\[\s\S])*>[msixpodualngc]*/,
-	
+
 			// The lookbehinds prevent -s from breaking
 			// FIXME We don't handle change of separator like s(...)[...]
 			// s/.../.../
@@ -8414,44 +8414,44 @@
 				pattern: /(^|[^-]\b)(?:s|tr|y)\s*([^a-zA-Z0-9\s\{\(\[<])(?:[^\\]|\\[\s\S])*?\2(?:[^\\]|\\[\s\S])*?\2[msixpodualngcer]*/,
 				lookbehind: true
 			},
-		
+
 			// s a...a...a
 			{
 				pattern: /(^|[^-]\b)(?:s|tr|y)\s+([a-zA-Z0-9])(?:[^\\]|\\[\s\S])*?\2(?:[^\\]|\\[\s\S])*?\2[msixpodualngcer]*/,
 				lookbehind: true
 			},
-		
+
 			// s(...)(...)
 			{
 				pattern: /(^|[^-]\b)(?:s|tr|y)\s*\((?:[^()\\]|\\[\s\S])*\)\s*\((?:[^()\\]|\\[\s\S])*\)[msixpodualngcer]*/,
 				lookbehind: true
 			},
-		
+
 			// s{...}{...}
 			{
 				pattern: /(^|[^-]\b)(?:s|tr|y)\s*\{(?:[^{}\\]|\\[\s\S])*\}\s*\{(?:[^{}\\]|\\[\s\S])*\}[msixpodualngcer]*/,
 				lookbehind: true
 			},
-		
+
 			// s[...][...]
 			{
 				pattern: /(^|[^-]\b)(?:s|tr|y)\s*\[(?:[^[\]\\]|\\[\s\S])*\]\s*\[(?:[^[\]\\]|\\[\s\S])*\][msixpodualngcer]*/,
 				lookbehind: true
 			},
-		
+
 			// s<...><...>
 			{
 				pattern: /(^|[^-]\b)(?:s|tr|y)\s*<(?:[^<>\\]|\\[\s\S])*>\s*<(?:[^<>\\]|\\[\s\S])*>[msixpodualngcer]*/,
 				lookbehind: true
 			},
-		
+
 			// /.../
 			// The look-ahead tries to prevent two divisions on
 			// the same line from being highlighted as regex.
 			// This does not support multi-line regex.
 			/\/(?:[^\/\\\r\n]|\\.)*\/[msixpodualngc]*(?=\s*(?:$|[\r\n,.;})&|\-+*~<>!?^]|(lt|gt|le|ge|eq|ne|cmp|not|and|or|xor|x)\b))/
 		],
-	
+
 		// FIXME Not sure about the handling of ::, ', and #
 		'variable': [
 			// ${^POSTMATCH}
@@ -8541,7 +8541,7 @@
 				/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i
 			],
 		};
-	
+
 		Prism.languages.bash = {
 			'shebang': {
 				pattern: /^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,
@@ -8582,7 +8582,7 @@
 			'operator': /&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,
 			'punctuation': /\$?\(\(?|\)\)?|\.\.|[{}[\];]/
 		};
-	
+
 		var inside = insideString.variable[1].inside;
 		inside['function'] = Prism.languages.bash['function'];
 		inside.keyword = Prism.languages.bash.keyword;
@@ -8638,7 +8638,7 @@
 	Prism.languages.typescript = Prism.languages.extend('javascript', {
 		'keyword': /\b(break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|package|private|protected|public|return|set|static|super|switch|this|throw|true|try|typeof|var|void|while|with|yield|module|declare|constructor|string|Function|any|number|boolean|Array|enum)\b/
 	});
-	
+
 	Prism.languages.ts = Prism.languages.typescript;
 
 /***/ },
@@ -8666,7 +8666,7 @@
 			],
 			'punctuation': /[{}()\[\];:,]/
 		};
-	
+
 		inside['interpolation'] = {
 			pattern: /\{[^\r\n}:]+\}/,
 			alias: 'variable',
@@ -8679,7 +8679,7 @@
 				rest: Prism.util.clone(inside)
 			}
 		};
-	
+
 		Prism.languages.stylus = {
 			'comment': {
 				pattern: /(^|[^\\])(\/\*[\w\W]*?\*\/|\/\/.*)/,
@@ -8701,7 +8701,7 @@
 					rest: inside
 				}
 			},
-	
+
 			'statement': {
 				pattern: /(^[ \t]*)(?:if|else|for|return|unless)[ \t]+.+/m,
 				lookbehind: true,
@@ -8710,7 +8710,7 @@
 					rest: inside
 				}
 			},
-	
+
 			// A property/value pair cannot end with a comma or a brace
 			// It cannot have indented content unless it ended with a semicolon
 			'property-declaration': {
@@ -8726,9 +8726,9 @@
 					rest: inside
 				}
 			},
-	
-	
-	
+
+
+
 			// A selector can contain parentheses only as part of a pseudo-element
 			// It can span multiple lines.
 			// It must end with a comma or an accolade or have indented content.
@@ -8740,7 +8740,7 @@
 					'punctuation': /[{},]/
 				}
 			},
-	
+
 			'func': inside.func,
 			'string': inside.string,
 			'interpolation': inside.interpolation,
@@ -8759,7 +8759,7 @@
 	 Detached rulesets are highlighted as at-rules.
 	 A comment before a mixin usage prevents the latter to be properly highlighted.
 	 */
-	
+
 	Prism.languages.less = Prism.languages.extend('css', {
 		'comment': [
 			/\/\*[\w\W]*?\*\//,
@@ -8782,17 +8782,17 @@
 				'variable': /@+[\w-]+/
 			}
 		},
-	
+
 		'property': /(?:@\{[\w-]+\}|[\w-])+(?:\+_?)?(?=\s*:)/i,
 		'punctuation': /[{}();:,]/,
 		'operator': /[+\-*\/]/
 	});
-	
+
 	// Invert function and punctuation positions
 	Prism.languages.insertBefore('less', 'punctuation', {
 		'function': Prism.languages.less.function
 	});
-	
+
 	Prism.languages.insertBefore('less', 'property', {
 		'variable': [
 			// Variable declaration (the colon must be consumed!)
@@ -8802,7 +8802,7 @@
 					"punctuation": /:/
 				}
 			},
-	
+
 			// Variable usage
 			/@@?[\w-]+/
 		],
@@ -8826,7 +8826,7 @@
 				lookbehind: true
 			}
 		});
-	
+
 		Prism.languages.insertBefore('sass', 'atrule', {
 			// We want to consume the whole line
 			'atrule-line': {
@@ -8838,8 +8838,8 @@
 			}
 		});
 		delete Prism.languages.sass.atrule;
-	
-	
+
+
 		var variable = /((\$[-_\w]+)|(#\{\$[-_\w]+\}))/i;
 		var operator = [
 			/[+*\/%]|[=!]=|<=?|>=?|\b(?:and|or|not)\b/,
@@ -8848,7 +8848,7 @@
 				lookbehind: true
 			}
 		];
-	
+
 		Prism.languages.insertBefore('sass', 'property', {
 			// We want to consume the whole line
 			'variable-line': {
@@ -8879,7 +8879,7 @@
 		});
 		delete Prism.languages.sass.property;
 		delete Prism.languages.sass.important;
-	
+
 		// Now that whole lines for other patterns are consumed,
 		// what's left should be selectors
 		delete Prism.languages.sass.selector;
@@ -8889,7 +8889,7 @@
 				lookbehind: true
 			}
 		});
-	
+
 	}(Prism));
 
 /***/ },
@@ -8897,9 +8897,9 @@
 /***/ function(module, exports) {
 
 	(function(Prism) {
-	
+
 		var handlebars_pattern = /\{\{\{[\w\W]+?\}\}\}|\{\{[\w\W]+?\}\}/g;
-	
+
 		Prism.languages.handlebars = Prism.languages.extend('markup', {
 			'handlebars': {
 				pattern: handlebars_pattern,
@@ -8928,7 +8928,7 @@
 				}
 			}
 		});
-	
+
 		// Comments are inserted at top so that they can
 		// surround markup
 		Prism.languages.insertBefore('handlebars', 'tag', {
@@ -8937,24 +8937,24 @@
 				alias: ['handlebars','comment']
 			}
 		});
-	
+
 		// Tokenize all inline Handlebars expressions that are wrapped in {{ }} or {{{ }}}
 		// This allows for easy Handlebars + markup highlighting
 		Prism.hooks.add('before-highlight', function(env) {
 			if (env.language !== 'handlebars') {
 				return;
 			}
-	
+
 			env.tokenStack = [];
-	
+
 			env.backupCode = env.code;
 			env.code = env.code.replace(handlebars_pattern, function(match) {
 				env.tokenStack.push(match);
-	
+
 				return '___HANDLEBARS' + env.tokenStack.length + '___';
 			});
 		});
-	
+
 		// Restore env.code for other plugins (e.g. line-numbers)
 		Prism.hooks.add('before-insert', function(env) {
 			if (env.language === 'handlebars') {
@@ -8962,22 +8962,22 @@
 				delete env.backupCode;
 			}
 		});
-	
+
 		// Re-insert the tokens after highlighting
 		// and highlight them with defined grammar
 		Prism.hooks.add('after-highlight', function(env) {
 			if (env.language !== 'handlebars') {
 				return;
 			}
-	
+
 			for (var i = 0, t; t = env.tokenStack[i]; i++) {
 				// The replace prevents $$, $&, $`, $', $n, $nn from being interpreted as special patterns
 				env.highlightedCode = env.highlightedCode.replace('___HANDLEBARS' + (i + 1) + '___', Prism.highlight(t, env.grammar, 'handlebars').replace(/\$/g, '$$$$'));
 			}
-	
+
 			env.element.innerHTML = env.highlightedCode;
 		});
-	
+
 	}(Prism));
 
 
@@ -9015,7 +9015,7 @@
 		'operator': /\+\+|--|(?:[+\-*\/%^]|&&?|\|\|?|<<?|>>?>?|[!=]=?)=?|[~?@]/
 	});
 	Prism.languages.actionscript['class-name'].alias = 'function';
-	
+
 	if (Prism.languages.markup) {
 		Prism.languages.insertBefore('actionscript', 'string', {
 			'xml': {
@@ -9050,16 +9050,16 @@
 	});
 	// Regexp copied from prism-markup, with a negative look-ahead added
 	Prism.languages.aspnet.tag.pattern = /<(?!%)\/?[^\s>\/]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'">=]+))?)*\s*\/?>/i;
-	
+
 	// match directives of attribute value foo="<% Bar %>"
 	Prism.languages.insertBefore('inside', 'punctuation', {
 		'directive tag': Prism.languages.aspnet['directive tag']
 	}, Prism.languages.aspnet.tag.inside["attr-value"]);
-	
+
 	Prism.languages.insertBefore('aspnet', 'comment', {
 		'asp comment': /<%--[\w\W]*?--%>/
 	});
-	
+
 	// script runat="server" contains csharp, not javascript
 	Prism.languages.insertBefore('aspnet', Prism.languages.javascript ? 'script' : 'tag', {
 		'asp script': {
@@ -9097,7 +9097,7 @@
 		'operator': /\-[>-]?|\+\+?|!=?|<<?=?|>>?=?|==?|&&?|\|?\||[~^%?*\/]/,
 		'number': /\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)[ful]*\b/i
 	});
-	
+
 	Prism.languages.insertBefore('c', 'string', {
 		'macro': {
 			// allow for multiline macro definitions
@@ -9122,7 +9122,7 @@
 		// highlight predefined macros as constants
 		'constant': /\b(__FILE__|__LINE__|__DATE__|__TIME__|__TIMESTAMP__|__func__|EOF|NULL|stdin|stdout|stderr)\b/
 	});
-	
+
 	delete Prism.languages.c['class-name'];
 	delete Prism.languages.c['boolean'];
 
@@ -9132,11 +9132,11 @@
 /***/ function(module, exports) {
 
 	// Based on Free Pascal
-	
+
 	/* TODO
 		Support inline asm ?
 	*/
-	
+
 	Prism.languages.pascal = {
 		'comment': [
 			/\(\*[\s\S]+?\*\)/,
@@ -9306,7 +9306,7 @@
 			'comment': /#(?!\{[^\r\n]*?\}).*/,
 			'keyword': /\b(alias|and|BEGIN|begin|break|case|class|def|define_method|defined|do|each|else|elsif|END|end|ensure|false|for|if|in|module|new|next|nil|not|or|raise|redo|require|rescue|retry|return|self|super|then|throw|true|undef|unless|until|when|while|yield)\b/
 		});
-	
+
 		var interpolation = {
 			pattern: /#\{[^}]+\}/,
 			inside: {
@@ -9317,7 +9317,7 @@
 				rest: Prism.util.clone(Prism.languages.ruby)
 			}
 		};
-	
+
 		Prism.languages.insertBefore('ruby', 'keyword', {
 			'regex': [
 				{
@@ -9359,12 +9359,12 @@
 			'variable': /[@$]+[a-zA-Z_][a-zA-Z_0-9]*(?:[?!]|\b)/,
 			'symbol': /:[a-zA-Z_][a-zA-Z_0-9]*(?:[?!]|\b)/
 		});
-	
+
 		Prism.languages.insertBefore('ruby', 'number', {
 			'builtin': /\b(Array|Bignum|Binding|Class|Continuation|Dir|Exception|FalseClass|File|Stat|File|Fixnum|Float|Hash|Integer|IO|MatchData|Method|Module|NilClass|Numeric|Object|Proc|Range|Regexp|String|Struct|TMS|Symbol|ThreadGroup|Thread|Time|TrueClass)\b/,
 			'constant': /\b[A-Z][a-zA-Z_0-9]*(?:[?!]|\b)/
 		});
-	
+
 		Prism.languages.ruby.string = [
 			{
 				pattern: /%[qQiIwWxs]?([^a-zA-Z0-9\s\{\(\[<])(?:[^\\]|\\[\s\S])*?\1/,
@@ -9420,14 +9420,14 @@
 		Add support for variables inside double quoted strings
 		Add support for {php}
 	*/
-	
+
 	(function(Prism) {
-	
+
 		var smarty_pattern = /\{\*[\w\W]+?\*\}|\{[\w\W]+?\}/g;
 		var smarty_litteral_start = '{literal}';
 		var smarty_litteral_end = '{/literal}';
 		var smarty_litteral_mode = false;
-		
+
 		Prism.languages.smarty = Prism.languages.extend('markup', {
 			'smarty': {
 				pattern: smarty_pattern,
@@ -9481,7 +9481,7 @@
 				}
 			}
 		});
-	
+
 		// Comments are inserted at top so that they can
 		// surround markup
 		Prism.languages.insertBefore('smarty', 'tag', {
@@ -9490,35 +9490,35 @@
 				alias: ['smarty','comment']
 			}
 		});
-	
+
 		// Tokenize all inline Smarty expressions
 		Prism.hooks.add('before-highlight', function(env) {
 			if (env.language !== 'smarty') {
 				return;
 			}
-	
+
 			env.tokenStack = [];
-	
+
 			env.backupCode = env.code;
 			env.code = env.code.replace(smarty_pattern, function(match) {
-	
+
 				// Smarty tags inside {literal} block are ignored
 				if(match === smarty_litteral_end) {
 					smarty_litteral_mode = false;
 				}
-	
+
 				if(!smarty_litteral_mode) {
 					if(match === smarty_litteral_start) {
 						smarty_litteral_mode = true;
 					}
 					env.tokenStack.push(match);
-	
+
 					return '___SMARTY' + env.tokenStack.length + '___';
 				}
 				return match;
 			});
 		});
-	
+
 		// Restore env.code for other plugins (e.g. line-numbers)
 		Prism.hooks.add('before-insert', function(env) {
 			if (env.language === 'smarty') {
@@ -9526,22 +9526,22 @@
 				delete env.backupCode;
 			}
 		});
-	
+
 		// Re-insert the tokens after highlighting
 		// and highlight them with defined grammar
 		Prism.hooks.add('after-highlight', function(env) {
 			if (env.language !== 'smarty') {
 				return;
 			}
-	
+
 			for (var i = 0, t; t = env.tokenStack[i]; i++) {
 				// The replace prevents $$, $&, $`, $', $n, $nn from being interpreted as special patterns
 				env.highlightedCode = env.highlightedCode.replace('___SMARTY' + (i + 1) + '___', Prism.highlight(t, env.grammar, 'smarty').replace(/\$/g, '$$$$'));
 			}
-	
+
 			env.element.innerHTML = env.highlightedCode;
 		});
-	
+
 	}(Prism));
 
 /***/ },
@@ -9590,7 +9590,7 @@
 		Match closure params even when not followed by dash or brace
 		Add better support for macro definition
 	*/
-	
+
 	Prism.languages.rust = {
 		'comment': [
 			{
@@ -9607,12 +9607,12 @@
 			/b?("|')(?:\\?.)*?\1/
 		],
 		'keyword': /\b(?:abstract|alignof|as|be|box|break|const|continue|crate|do|else|enum|extern|false|final|fn|for|if|impl|in|let|loop|match|mod|move|mut|offsetof|once|override|priv|pub|pure|ref|return|sizeof|static|self|struct|super|true|trait|type|typeof|unsafe|unsized|use|virtual|where|while|yield)\b/,
-	
+
 		'attribute': {
 			pattern: /#!?\[.+?\]/,
 			alias: 'attr-name'
 		},
-	
+
 		'function': [
 			/[a-z0-9_]+(?=\s*\()/i,
 			// Macros can use parens or brackets
@@ -9622,10 +9622,10 @@
 			pattern: /[a-z0-9_]+!/i,
 			alias: 'function'
 		},
-	
+
 		// Hex, oct, bin, dec numbers with visual separators and type suffix
 		'number': /\b-?(?:0x[\dA-Fa-f](?:_?[\dA-Fa-f])*|0o[0-7](?:_?[0-7])*|0b[01](?:_?[01])*|(\d(_?\d)*)?\.?\d(_?\d)*([Ee][+-]?\d+)?)(?:_?(?:[iu](?:8|16|32|64)?|f32|f64))?\b/,
-	
+
 		// Closure params should not be confused with bitwise OR |
 		'closure-params': {
 			pattern: /\|[^|]*\|(?=\s*[{-])/,
@@ -9680,10 +9680,10 @@
 			/\bq"(.)[\s\S]*?\1"/,
 			// Characters
 			/'(?:\\'|\\?[^']+)'/,
-	
+
 			/(["`])(\\.|(?!\1)[^\\])*\1[cwd]?/
 		],
-	
+
 		'number': [
 			// The lookbehind and the negative look-ahead try to prevent bad highlighting of the .. operator
 			// Hexadecimal numbers must be handled separately to avoid problems with exponent "e"
@@ -9693,13 +9693,13 @@
 				lookbehind: true
 			}
 		],
-	
+
 		// In order: $, keywords and special tokens, globally defined symbols
 		'keyword': /\$|\b(?:abstract|alias|align|asm|assert|auto|body|bool|break|byte|case|cast|catch|cdouble|cent|cfloat|char|class|const|continue|creal|dchar|debug|default|delegate|delete|deprecated|do|double|else|enum|export|extern|false|final|finally|float|for|foreach|foreach_reverse|function|goto|idouble|if|ifloat|immutable|import|inout|int|interface|invariant|ireal|lazy|long|macro|mixin|module|new|nothrow|null|out|override|package|pragma|private|protected|public|pure|real|ref|return|scope|shared|short|static|struct|super|switch|synchronized|template|this|throw|true|try|typedef|typeid|typeof|ubyte|ucent|uint|ulong|union|unittest|ushort|version|void|volatile|wchar|while|with|__(?:(?:FILE|MODULE|LINE|FUNCTION|PRETTY_FUNCTION|DATE|EOF|TIME|TIMESTAMP|VENDOR|VERSION)__|gshared|traits|vector|parameters)|string|wstring|dstring|size_t|ptrdiff_t)\b/,
 		'operator': /\|[|=]?|&[&=]?|\+[+=]?|-[-=]?|\.?\.\.|=[>=]?|!(?:i[ns]\b|<>?=?|>=?|=)?|\bi[ns]\b|(?:<[<>]?|>>?>?|\^\^|[*\/%^~])=?/
 	});
-	
-	
+
+
 	Prism.languages.d.comment = [
 		// Shebang
 		/^\s*#!.+/,
@@ -9710,7 +9710,7 @@
 			lookbehind: true
 		}
 	].concat(Prism.languages.d.comment);
-	
+
 	Prism.languages.insertBefore('d', 'comment', {
 		'token-string': {
 			// Allow one level of nesting
@@ -9718,11 +9718,11 @@
 			alias: 'string'
 		}
 	});
-	
+
 	Prism.languages.insertBefore('d', 'keyword', {
 		'property': /\B@\w*/
 	});
-	
+
 	Prism.languages.insertBefore('d', 'function', {
 		'register': {
 			// Iasm registers
@@ -9746,7 +9746,7 @@
 		],
 		'operator': /\bis!|\b(?:as|is)\b|\+\+|--|&&|\|\||<<=?|>>=?|~(?:\/=?)?|[+\-*\/%&^|=!<>]=?|\?/
 	});
-	
+
 	Prism.languages.insertBefore('dart','function',{
 		'metadata': {
 			pattern: /@\w+/,
@@ -9759,24 +9759,24 @@
 /***/ function(module, exports) {
 
 	(function(Prism) {
-	
+
 	// Ignore comments starting with { to privilege string interpolation highlighting
 	var comment = /#(?!\{).+/,
 	    interpolation = {
 	    	pattern: /#\{[^}]+\}/,
 	    	alias: 'variable'
 	    };
-	
+
 	Prism.languages.coffeescript = Prism.languages.extend('javascript', {
 		'comment': comment,
 		'string': [
-	
+
 			// Strings are multiline
 			{
 				pattern: /'(?:\\?[^\\])*?'/,
 				greedy: true,
 			},
-	
+
 			{
 				// Strings are multiline
 				pattern: /"(?:\\?[^\\])*?"/,
@@ -9792,13 +9792,13 @@
 			alias: 'variable'
 		}
 	});
-	
+
 	Prism.languages.insertBefore('coffeescript', 'comment', {
 		'multiline-comment': {
 			pattern: /###[\s\S]+?###/,
 			alias: 'comment'
 		},
-	
+
 		// Block regexp can contain comments and interpolation
 		'block-regex': {
 			pattern: /\/{3}[\s\S]*?\/{3}/,
@@ -9809,7 +9809,7 @@
 			}
 		}
 	});
-	
+
 	Prism.languages.insertBefore('coffeescript', 'string', {
 		'inline-javascript': {
 			pattern: /`(?:\\?[\s\S])*?`/,
@@ -9821,7 +9821,7 @@
 				rest: Prism.languages.javascript
 			}
 		},
-	
+
 		// Block strings
 		'multiline-string': [
 			{
@@ -9838,16 +9838,16 @@
 				}
 			}
 		]
-	
+
 	});
-	
+
 	Prism.languages.insertBefore('coffeescript', 'keyword', {
 		// Object property
 		'property': /(?!\d)\w+(?=\s*:(?!:))/
 	});
-	
+
 	delete Prism.languages.coffeescript['template-string'];
-	
+
 	}(Prism));
 
 /***/ },
@@ -9865,7 +9865,7 @@
 		};
 		var string = /"[^"]*"/;
 		var number = /(?:\b|-)\d+\b/;
-	
+
 		Prism.languages.batch = {
 			'comment': [
 				/^::.*/m,
@@ -9963,7 +9963,7 @@
 		'boolean': /\b(true|false)\b/,
 		'operator': /[-+]{1,2}|!=?|<{1,2}=?|>{1,2}=?|\->|:{1,2}|={1,2}|\^|~|%|&{1,2}|\|?\||\?|\*|\/|\b(and|and_eq|bitand|bitor|not|not_eq|or|or_eq|xor|xor_eq)\b/
 	});
-	
+
 	Prism.languages.insertBefore('cpp', 'keyword', {
 		'class-name': {
 			pattern: /(class\s+)[a-z0-9_]+/i,
@@ -10116,7 +10116,7 @@
 		],
 		'punctuation': /[(){}\[\]|.,:;`]/
 	};
-	
+
 	Prism.languages.livescript['interpolated-string'].inside['interpolation'].inside.rest = Prism.languages.livescript;
 
 /***/ },
@@ -10131,7 +10131,7 @@
 				    alias: 'regex'
 			    }
 		    };
-	
+
 		Prism.languages.latex = {
 			'comment': /%.*/m,
 			// the verbatim environment prints whitespace to the document
@@ -10209,18 +10209,18 @@
 		},
 		'punctuation': /\.+|[{}[\];(),:$]/
 	});
-	
+
 	Prism.languages.insertBefore('groovy', 'string', {
 		'shebang': {
 			pattern: /#!.+/,
 			alias: 'comment'
 		}
 	});
-	
+
 	Prism.languages.insertBefore('groovy', 'punctuation', {
 		'spock-block': /\b(setup|given|when|then|and|cleanup|expect|where):/
 	});
-	
+
 	Prism.languages.insertBefore('groovy', 'function', {
 		'annotation': {
 			alias: 'punctuation',
@@ -10228,21 +10228,21 @@
 			lookbehind: true
 		}
 	});
-	
+
 	// Handle string interpolation
 	Prism.hooks.add('wrap', function(env) {
 		if (env.language === 'groovy' && env.type === 'string') {
 			var delimiter = env.content[0];
-	
+
 			if (delimiter != "'") {
 				var pattern = /([^\\])(\$(\{.*?\}|[\w\.]+))/;
 				if (delimiter === '$') {
 					pattern = /([^\$])(\$(\{.*?\}|[\w\.]+))/;
 				}
-	
+
 				// To prevent double HTML-encoding we have to decode env.content first
 				env.content = env.content.replace(/&lt;/g, '<').replace(/&amp;/g, '&');
-	
+
 				env.content = Prism.highlight(env.content, {
 					'expression': {
 						pattern: pattern,
@@ -10250,7 +10250,7 @@
 						inside: Prism.languages.groovy
 					}
 				});
-	
+
 				env.classes.push(delimiter === '/' ? 'regex' : 'gstring');
 			}
 		}
@@ -10297,7 +10297,7 @@
 	        },
 	        'keyword': /\b(?:CONTENT_|DOCUMENT_|GATEWAY_|HTTP_|HTTPS|if_not_empty|PATH_|QUERY_|REDIRECT_|REMOTE_|REQUEST_|SCGI|SCRIPT_|SERVER_|http|server|events|location|include|accept_mutex|accept_mutex_delay|access_log|add_after_body|add_before_body|add_header|addition_types|aio|alias|allow|ancient_browser|ancient_browser_value|auth|auth_basic|auth_basic_user_file|auth_http|auth_http_header|auth_http_timeout|autoindex|autoindex_exact_size|autoindex_localtime|break|charset|charset_map|charset_types|chunked_transfer_encoding|client_body_buffer_size|client_body_in_file_only|client_body_in_single_buffer|client_body_temp_path|client_body_timeout|client_header_buffer_size|client_header_timeout|client_max_body_size|connection_pool_size|create_full_put_path|daemon|dav_access|dav_methods|debug_connection|debug_points|default_type|deny|devpoll_changes|devpoll_events|directio|directio_alignment|disable_symlinks|empty_gif|env|epoll_events|error_log|error_page|expires|fastcgi_buffer_size|fastcgi_buffers|fastcgi_busy_buffers_size|fastcgi_cache|fastcgi_cache_bypass|fastcgi_cache_key|fastcgi_cache_lock|fastcgi_cache_lock_timeout|fastcgi_cache_methods|fastcgi_cache_min_uses|fastcgi_cache_path|fastcgi_cache_purge|fastcgi_cache_use_stale|fastcgi_cache_valid|fastcgi_connect_timeout|fastcgi_hide_header|fastcgi_ignore_client_abort|fastcgi_ignore_headers|fastcgi_index|fastcgi_intercept_errors|fastcgi_keep_conn|fastcgi_max_temp_file_size|fastcgi_next_upstream|fastcgi_no_cache|fastcgi_param|fastcgi_pass|fastcgi_pass_header|fastcgi_read_timeout|fastcgi_redirect_errors|fastcgi_send_timeout|fastcgi_split_path_info|fastcgi_store|fastcgi_store_access|fastcgi_temp_file_write_size|fastcgi_temp_path|flv|geo|geoip_city|geoip_country|google_perftools_profiles|gzip|gzip_buffers|gzip_comp_level|gzip_disable|gzip_http_version|gzip_min_length|gzip_proxied|gzip_static|gzip_types|gzip_vary|if|if_modified_since|ignore_invalid_headers|image_filter|image_filter_buffer|image_filter_jpeg_quality|image_filter_sharpen|image_filter_transparency|imap_capabilities|imap_client_buffer|include|index|internal|ip_hash|keepalive|keepalive_disable|keepalive_requests|keepalive_timeout|kqueue_changes|kqueue_events|large_client_header_buffers|limit_conn|limit_conn_log_level|limit_conn_zone|limit_except|limit_rate|limit_rate_after|limit_req|limit_req_log_level|limit_req_zone|limit_zone|lingering_close|lingering_time|lingering_timeout|listen|location|lock_file|log_format|log_format_combined|log_not_found|log_subrequest|map|map_hash_bucket_size|map_hash_max_size|master_process|max_ranges|memcached_buffer_size|memcached_connect_timeout|memcached_next_upstream|memcached_pass|memcached_read_timeout|memcached_send_timeout|merge_slashes|min_delete_depth|modern_browser|modern_browser_value|mp4|mp4_buffer_size|mp4_max_buffer_size|msie_padding|msie_refresh|multi_accept|open_file_cache|open_file_cache_errors|open_file_cache_min_uses|open_file_cache_valid|open_log_file_cache|optimize_server_names|override_charset|pcre_jit|perl|perl_modules|perl_require|perl_set|pid|pop3_auth|pop3_capabilities|port_in_redirect|post_action|postpone_output|protocol|proxy|proxy_buffer|proxy_buffer_size|proxy_buffering|proxy_buffers|proxy_busy_buffers_size|proxy_cache|proxy_cache_bypass|proxy_cache_key|proxy_cache_lock|proxy_cache_lock_timeout|proxy_cache_methods|proxy_cache_min_uses|proxy_cache_path|proxy_cache_use_stale|proxy_cache_valid|proxy_connect_timeout|proxy_cookie_domain|proxy_cookie_path|proxy_headers_hash_bucket_size|proxy_headers_hash_max_size|proxy_hide_header|proxy_http_version|proxy_ignore_client_abort|proxy_ignore_headers|proxy_intercept_errors|proxy_max_temp_file_size|proxy_method|proxy_next_upstream|proxy_no_cache|proxy_pass|proxy_pass_error_message|proxy_pass_header|proxy_pass_request_body|proxy_pass_request_headers|proxy_read_timeout|proxy_redirect|proxy_redirect_errors|proxy_send_lowat|proxy_send_timeout|proxy_set_body|proxy_set_header|proxy_ssl_session_reuse|proxy_store|proxy_store_access|proxy_temp_file_write_size|proxy_temp_path|proxy_timeout|proxy_upstream_fail_timeout|proxy_upstream_max_fails|random_index|read_ahead|real_ip_header|recursive_error_pages|request_pool_size|reset_timedout_connection|resolver|resolver_timeout|return|rewrite|root|rtsig_overflow_events|rtsig_overflow_test|rtsig_overflow_threshold|rtsig_signo|satisfy|satisfy_any|secure_link_secret|send_lowat|send_timeout|sendfile|sendfile_max_chunk|server|server_name|server_name_in_redirect|server_names_hash_bucket_size|server_names_hash_max_size|server_tokens|set|set_real_ip_from|smtp_auth|smtp_capabilities|so_keepalive|source_charset|split_clients|ssi|ssi_silent_errors|ssi_types|ssi_value_length|ssl|ssl_certificate|ssl_certificate_key|ssl_ciphers|ssl_client_certificate|ssl_crl|ssl_dhparam|ssl_engine|ssl_prefer_server_ciphers|ssl_protocols|ssl_session_cache|ssl_session_timeout|ssl_verify_client|ssl_verify_depth|starttls|stub_status|sub_filter|sub_filter_once|sub_filter_types|tcp_nodelay|tcp_nopush|timeout|timer_resolution|try_files|types|types_hash_bucket_size|types_hash_max_size|underscores_in_headers|uninitialized_variable_warn|upstream|use|user|userid|userid_domain|userid_expires|userid_name|userid_p3p|userid_path|userid_service|valid_referers|variables_hash_bucket_size|variables_hash_max_size|worker_connections|worker_cpu_affinity|worker_priority|worker_processes|worker_rlimit_core|worker_rlimit_nofile|worker_rlimit_sigpending|working_directory|xclient|xml_entities|xslt_entities|xslt_stylesheet|xslt_types)\b/i,
 	});
-	
+
 	Prism.languages.insertBefore('nginx', 'keyword', {
 	        'variable': /\$[a-z_]+/i
 	});
@@ -10345,7 +10345,7 @@
 		],
 		'atom': /\b[a-z][\w@]*/,
 		'punctuation': /[()[\]{}:;,.#|]|<<|>>/
-	
+
 	};
 
 /***/ },
@@ -10399,7 +10399,7 @@
 		},
 		'punctuation': /[|{}[\];(),.]/
 	};
-	
+
 	// Variable interpolation inside strings, and nested expressions
 	Prism.languages.powershell.string[0].inside.boolean = Prism.languages.powershell.boolean;
 	Prism.languages.powershell.string[0].inside.variable = Prism.languages.powershell.variable;
@@ -10416,10 +10416,10 @@
 			lookbehind: true
 		},
 		'string': /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
-	
+
 		// Built-in target names
 		'builtin': /\.[A-Z][^:#=\s]+(?=\s*:(?!=))/,
-	
+
 		// Targets
 		'symbol': {
 			pattern: /^[^:=\r\n]+(?=\s*:(?!=))/m,
@@ -10428,7 +10428,7 @@
 			}
 		},
 		'variable': /\$+(?:[^(){}:#=\s]+|\([@*%<^+?][DF]\)|(?=[({]))/,
-	
+
 		'keyword': [
 			// Directives
 			/-include\b|\b(?:define|else|endef|endif|export|ifn?def|ifn?eq|include|override|private|sinclude|undefine|unexport|vpath)\b/,
@@ -10470,7 +10470,7 @@
 			{
 				// title 1
 				// =======
-	
+
 				// title 2
 				// -------
 				pattern: /\w+.*(?:\r?\n|\r)(?:==+|--+)/,
@@ -10527,7 +10527,7 @@
 		'bold': {
 			// **strong**
 			// __strong__
-	
+
 			// Allow only one line break
 			pattern: /(^|[^\\])(\*\*|__)(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\2/,
 			lookbehind: true,
@@ -10538,7 +10538,7 @@
 		'italic': {
 			// *em*
 			// _em_
-	
+
 			// Allow only one line break
 			pattern: /(^|[^\\])([*_])(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\2/,
 			lookbehind: true,
@@ -10561,7 +10561,7 @@
 			}
 		}
 	});
-	
+
 	Prism.languages.markdown['bold'].inside['url'] = Prism.util.clone(Prism.languages.markdown['url']);
 	Prism.languages.markdown['italic'].inside['url'] = Prism.util.clone(Prism.languages.markdown['url']);
 	Prism.languages.markdown['bold'].inside['italic'] = Prism.util.clone(Prism.languages.markdown['italic']);
