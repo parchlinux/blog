@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Parch os - parchplasma</title><link href="https://parchlinux.ir/blog/" rel="alternate"></link><link href="https://parchlinux.ir/blog/feeds/tags/parchplasma.atom.xml" rel="self"></link><id>https://parchlinux.ir/blog/</id><updated>2022-02-04T00:00:00+03:30</updated><entry><title>Install Parch plasma Edition</title><link href="https://parchlinux.ir/blog/blog/2022/Feb/04/install-parch-plasma-edition/" rel="alternate"></link><published>2022-02-04T00:00:00+03:30</published><updated>2022-02-04T00:00:00+03:30</updated><author><name>mmdbalkhi</name></author><id>tag:parchlinux.ir,2022-02-04:/blog/blog/2022/Feb/04/install-parch-plasma-edition/</id><summary type="html">&lt;p&gt;Parch plasma version installation tutorial&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Parch os plasma Edition&lt;/h1&gt;
-&lt;p&gt;&lt;img alt="screenshot" src="https://parchlinux.ir/blog/images/parch_logo256x256.png"&gt;&lt;/p&gt;
+&lt;!--
+![screenshot](#)
+--&gt;
+
 &lt;h2&gt;Installation&lt;/h2&gt;
 &lt;p&gt;first your need to download the parch iso file from &lt;a href="https://parchlinux.ir/releases"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;burning and booting the parch iso&lt;/h3&gt;
