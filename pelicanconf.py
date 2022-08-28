@@ -21,6 +21,9 @@ FEED_ALL_ATOM = "feeds/all.atom.xml"
 TAG_FEED_ATOM = "feeds/tags/{slug}.atom.xml"
 CATEGORY_FEED_ATOM = "feeds/categories/{slug}.atom.xml"
 
+# comment handlere
+UTTERANC_REPO = "parchlinux/blog"
+
 # Blogroll
 LINKS = (
     ("Pelican", "https://getpelican.com/"),
@@ -42,7 +45,7 @@ DEFAULT_PAGINATION = False
 RELATIVE_URLS = True
 
 # Theme Setting
-THEME = "blue-penguin"
+THEME = "blue-parch"
 # all the following settings are *optional*
 
 # HTML metadata
