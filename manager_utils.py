@@ -2,10 +2,15 @@ import os
 import shutil
 
 import markdown
+from pathlib import Path
 
 
 def get_posts():
     """Get blog and faq post"""
+
+    for path in ("content/blog", "content/blog/faq"):
+        if not Path(path).exists():
+            Path(path).mkdir(parents=True)
     blogs_dir = os.listdir("content/blog")
     faqs = os.listdir("content/blog/faq")
 
@@ -39,7 +44,7 @@ def format_authors_tags(items):
             # More than one author
             s += f"{item}"
             if item != items[-1]:
-                s+= ","
+                s += ","
         else:
             s += f"{item}"
 
@@ -106,13 +111,18 @@ def save_md_file(post_type, data):
             slug,
             data["post_content"],
         )
-
-        with open(f"content/blog/{category}/{slug}.md", "w") as f:
+        path = Path(f"content/blog/{category}/{slug}.md")
+        with open(path.as_posix(), "w") as f:
+            if not path.parent.exists():
+                path.parent.mkdir(parents=True)
             f.write(post)
     else:
         post = template.format(
             data["title"], format_authors_tags(data["tags"]), slug, data["post_content"]
         )
 
-        with open(f"content/blog/faq/{slug}.md", "w") as f:
+        path = Path(f"content/blog/faq/{slug}.md")
+        with open(path.as_posix(), "w") as f:
+            if not path.parent.exists():
+                path.parent.mkdir(parents=True)
             f.write(post)

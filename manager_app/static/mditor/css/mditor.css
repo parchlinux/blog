@@ -3183,7 +3183,7 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-	color: black;
+	color: #0D0D0D;
 	background: none;
 	text-shadow: 0 1px white;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
