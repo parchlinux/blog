@@ -30,7 +30,7 @@
   border-radius: 20px;
   top: calc(50% - 20vh);
   bottom: unset;
-  box-shadow: 0 10px 20px -15px black;
+  box-shadow: 0 10px 20px -15px #0D0D0D;
   font-family: var(--font);
   left: calc(50% - 20vw);
   opacity: 0;

@@ -21,12 +21,10 @@ app.config.update(
 @app.route("/")
 def index():
     posts = get_posts()
-    current_day = datetime.date.today()
-    today = datetime.date.strftime(current_day, "%B %d, %Y")
-
+    time = datetime.datetime.now().strftime("%B %d, %Y %H:%M:%S")
     return render_template(
         "index.html",
-        today=today,
+        today=time,
         b_categories=BLOG_CATEGORIES,
         posts=posts,
     )

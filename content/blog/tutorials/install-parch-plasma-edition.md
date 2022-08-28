@@ -8,11 +8,13 @@ slug: install-parch-plasma-edition
 
 # Parch os plasma Edition
 
-![screenshot](https://parchlinux.ir/blog/img/plasma_screenshot.png)
+<!--
+![screenshot](#)
+-->
 
 ## Installation
 
-first your need to download the parch iso file from [here]()
+first your need to download the parch iso file from [here](https://parchlinux.ir/releases)
 
 ### burning and booting the parch iso
 

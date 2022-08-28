@@ -8,6 +8,6 @@ slug: readme
 
 # Parch os
 
-![logo](https://raw.githubusercontent.com/parchlinux/parch-plasma-iso/main/artwork/Parch.png)
+![logo](https://parchlinux.ir/blog/images/parch_logo256x256.png)
 
 The **parch** operating system is an Arch-based operating system that utilizes graphical installers and graphical desktops. Our goal is a **light**, **beautiful**, and **stable** operating system.
