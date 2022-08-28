@@ -70,7 +70,7 @@ header, #wrapper {
 
 a {
     text-decoration: none;
-    color: #15A9DB;
+    color: #41AED9;
 }
 
 ul {
@@ -109,7 +109,7 @@ table {
     margin: 1em 0;
 }
 thead {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #0D0D0D;
 }
 
 .date {
@@ -259,7 +259,7 @@ nav a:hover {
     color: #FFF;
 }
 nav li.selected a {
-    background-color: #15A9DB;
+    background-color: #049DD9;
     color: #FFF;
 }
 
