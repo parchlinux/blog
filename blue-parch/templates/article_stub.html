@@ -21,6 +21,9 @@
                 {% endif %}
                 <div class="info">
                     <a href="{{ SITEURL }}/{{ article.url }}">posted at {{ article.date.strftime("%H:%M") }}</a>
+                    {% if article.author %}
+                    <a href="{{ SITEURL }}/{{ article.author.url }}">by {{ article.author }}</a>
+                    {% endif %}
                     {% if article.category.name != "misc" %}
                     &nbsp;&middot;&nbsp;<a href="{{ SITEURL }}/{{ article.category.url }}" rel="tag">{{ article.category }}</a>
                     {% endif %}
