@@ -1,4 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Parch os - blog</title><link href="https://parchlinux.ir/blog/" rel="alternate"></link><link href="https://parchlinux.ir/blog/feeds/blog.atom.xml" rel="self"></link><id>https://parchlinux.ir/blog/</id><updated>2022-01-29T00:00:00+03:30</updated><entry><title>README</title><link href="https://parchlinux.ir/blog/blog/2022/Jan/29/readme/" rel="alternate"></link><published>2022-01-29T00:00:00+03:30</published><updated>2022-01-29T00:00:00+03:30</updated><author><name>mmdbalkhi</name></author><id>tag:parchlinux.ir,2022-01-29:/blog/blog/2022/Jan/29/readme/</id><summary type="html">&lt;p&gt;Information about the project&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Parch os&lt;/h1&gt;
-&lt;p&gt;&lt;img alt="logo" src="https://parchlinux.ir/blog/images/parch_logo256x256.png"&gt;&lt;/p&gt;
-&lt;p&gt;The &lt;strong&gt;parch&lt;/strong&gt; operating system is an Arch-based operating system that utilizes graphical installers and graphical desktops. Our goal is a &lt;strong&gt;light&lt;/strong&gt;, &lt;strong&gt;beautiful&lt;/strong&gt;, and &lt;strong&gt;stable&lt;/strong&gt; operating system.&lt;/p&gt;</content><category term="blog"></category><category term="arch"></category><category term="parch"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ParchLinux Blog - blog</title><link href="https://parchlinux.ir/blog/" rel="alternate"></link><link href="https://parchlinux.ir/blog/feeds/blog.atom.xml" rel="self"></link><id>https://parchlinux.ir/blog/</id><updated>2022-08-29T16:05:12+04:30</updated><entry><title>README</title><link href="https://parchlinux.ir/blog/blog/2022/Aug/29/readme/" rel="alternate"></link><published>2022-08-29T16:05:12+04:30</published><updated>2022-08-29T16:05:12+04:30</updated><author><name>mmdbalkhi</name></author><id>tag:parchlinux.ir,2022-08-29:/blog/blog/2022/Aug/29/readme/</id><summary type="html">&lt;p&gt;first post in Parchlinux blog&lt;/p&gt;</summary><content type="html">&lt;h1&gt;ParchLinux blog&lt;/h1&gt;
+&lt;h2&gt;how Contribute&lt;/h2&gt;
+&lt;h3&gt;code&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;first fork this project from &lt;a href="https://github.com/parchlinux/blog/fork"&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;then clone your fork&lt;/li&gt;
+&lt;li&gt;install requirements&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; blog
+pip install requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;install pre-commit(we use pre-commit for lint/fix code before committing)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install pre-commit
+pre-commit install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;work on your feature! and create a PR!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;for preview of changes your can use this command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;make devserver
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;write a Post&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;first fork this project from &lt;a href="https://github.com/parchlinux/blog/fork"&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;then clone your fork&lt;/li&gt;
+&lt;li&gt;install requirements&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; blog
+pip install requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Run markdown manager:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;make manager
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;and write your own post then create a PR.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;useful links:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request"&gt;Creating a pull request&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;discussion&lt;/h2&gt;
+&lt;p&gt;on discord: &lt;a href="https://discord.gg/dRvDBDstnV"&gt;Join&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;note&lt;/h2&gt;
+&lt;p&gt;The markdown file manager is based on flaskcwg(&lt;a href="https://github.com/flaskcwg/flaskcwg.github.io/blob/master/README.md"&gt;+&lt;/a&gt;)&lt;/p&gt;</content><category term="blog"></category><category term="readmeparchlinux"></category><category term="first"></category></entry></feed>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Parch os</title>
+    <title>ParchLinux Blog</title>
     <link rel="shortcut icon" type="image/png" href="https://parchlinux.ir/blog/extra/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="https://parchlinux.ir/blog/extra/favicon.ico">
-    <link href="https://parchlinux.ir/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Parch os Full Atom Feed" />
+    <link href="https://parchlinux.ir/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ParchLinux Blog Full Atom Feed" />
     <link rel="stylesheet" href="https://parchlinux.ir/blog/theme/css/main.css" type="text/css" />
     <link rel="stylesheet" href="https://parchlinux.ir/blog/theme/css/pygments.css" type="text/css" />
     <meta name="generator" content="Pelican" />
@@ -27,56 +27,71 @@
             </ul>
         </nav>
         <div class="header_box">
-            <h1><a href="https://parchlinux.ir/blog/">Parch os</a></h1>
+            <h1><a href="https://parchlinux.ir/blog/">ParchLinux Blog</a></h1>
         </div>
     </header>
     <div id="wrapper">
-        <div id="content">            <h4 class="date">Feb 04, 2022</h4>
+        <div id="content">            <h4 class="date">Aug 29, 2022</h4>
 
             <article class="post">
                 <h2 class="title">
-                    <a href="https://parchlinux.ir/blog/blog/2022/Feb/04/install-parch-plasma-edition/" rel="bookmark" title="Permanent Link to &quot;Install Parch plasma Edition&quot;">Install Parch plasma Edition</a>
+                    <a href="https://parchlinux.ir/blog/blog/2022/Aug/29/readme/" rel="bookmark" title="Permanent Link to &quot;README&quot;">README</a>
                 </h2>
 
 
-                <h1>Parch os plasma Edition</h1>
-<!--
-![screenshot](#)
--->
+                <h1>ParchLinux blog</h1>
+<h2>how Contribute</h2>
+<h3>code</h3>
+<ul>
+<li>first fork this project from <a href="https://github.com/parchlinux/blog/fork">here</a></li>
+<li>then clone your fork</li>
+<li>install requirements</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> blog
+pip install requirements.txt
+</code></pre></div>
 
-<h2>Installation</h2>
-<p>first your need to download the parch iso file from <a href="https://parchlinux.ir/releases">here</a></p>
-<h3>burning and booting the parch iso</h3>
-<blockquote>
-<p>If you want to install it on a virtual machine, you can skip this section.</p>
-</blockquote>
 <ul>
-<li>
-<p>Then you need to burn the ISO to your USB/CD/DVD.</p>
-</li>
-<li>
-<p>You can use the open-source <a href="https://etcher.io/">etcher</a> program to do this.</p>
-</li>
-<li>
-<p>After burning the ISO on your USB/CD/DVD, you need to boot the USB/CD/DVD. Reboot the system. boot the USB/CD/DVD in any way you can when the motherboard logo appears (usually the del or f2 keys can do it)</p>
-</li>
+<li>install pre-commit(we use pre-commit for lint/fix code before committing)</li>
 </ul>
-<h3>installing</h3>
-<blockquote>
-<p>Continue training for installation on real systems and virtual machines</p>
-</blockquote>
+<div class="highlight"><pre><span></span><code>pip install pre-commit
+pre-commit install
+</code></pre></div>
+
 <ul>
-<li>
-<p>After livecd is booted, click on the <code>install parch</code> icon and continue the installation!</p>
-</li>
-<li>
-<p>Here the <a href="https://calamares.io/about/">calaremas</a> will help you.</p>
-</li>
-<li>
-<p>After installing calaremas, it will tell you that it wants to reboot the system. You can reboot the system or stay on the live CD.</p>
-</li>
+<li>work on your feature! and create a PR!</li>
 </ul>
-<p>congratulations! You have installed parch! Hope you enjoy the parch!</p>
+<p>for preview of changes your can use this command:</p>
+<div class="highlight"><pre><span></span><code>make devserver
+</code></pre></div>
+
+<h3>write a Post</h3>
+<ul>
+<li>first fork this project from <a href="https://github.com/parchlinux/blog/fork">here</a></li>
+<li>then clone your fork</li>
+<li>install requirements</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> blog
+pip install requirements.txt
+</code></pre></div>
+
+<ul>
+<li>Run markdown manager:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>make manager
+</code></pre></div>
+
+<ul>
+<li>and write your own post then create a PR.</li>
+</ul>
+<p><strong>useful links:</strong></p>
+<ul>
+<li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">Creating a pull request</a></li>
+</ul>
+<h2>discussion</h2>
+<p>on discord: <a href="https://discord.gg/dRvDBDstnV">Join</a></p>
+<h2>note</h2>
+<p>The markdown file manager is based on flaskcwg(<a href="https://github.com/flaskcwg/flaskcwg.github.io/blob/master/README.md">+</a>)</p>
                 <div class="clear"></div>
 
     <script
@@ -89,45 +104,12 @@
     ></script>
     <noscript>Please enable JavaScript to view the Comments</noscript>
                 <div class="info">
-                    <a href="https://parchlinux.ir/blog/blog/2022/Feb/04/install-parch-plasma-edition/">posted at 00:00</a>
-                    <a href="https://parchlinux.ir/blog/author/mmdbalkhi.html">by mmdbalkhi</a>
-                    &nbsp;&middot;&nbsp;<a href="https://parchlinux.ir/blog/categories/tutorials/" rel="tag">tutorials</a>
-                    &nbsp;&middot;
-                    &nbsp;<a href="https://parchlinux.ir/blog/tags/parchplasma/" class="tags">parchplasma</a>
-                    &nbsp;<a href="https://parchlinux.ir/blog/tags/install/" class="tags">install</a>
-                    &nbsp;<a href="https://parchlinux.ir/blog/tags/arch/" class="tags">arch</a>
-                    &nbsp;<a href="https://parchlinux.ir/blog/tags/kde/" class="tags">kde</a>
-                    &nbsp;<a href="https://parchlinux.ir/blog/tags/gui/" class="tags">gui</a>
-                </div>
-            </article>            <h4 class="date">Jan 29, 2022</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="https://parchlinux.ir/blog/blog/2022/Jan/29/readme/" rel="bookmark" title="Permanent Link to &quot;README&quot;">README</a>
-                </h2>
-
-
-                <h1>Parch os</h1>
-<p><img alt="logo" src="https://parchlinux.ir/blog/images/parch_logo256x256.png"></p>
-<p>The <strong>parch</strong> operating system is an Arch-based operating system that utilizes graphical installers and graphical desktops. Our goal is a <strong>light</strong>, <strong>beautiful</strong>, and <strong>stable</strong> operating system.</p>
-                <div class="clear"></div>
-
-    <script
-    src="https://utteranc.es/client.js"
-    repo="parchlinux/blog"
-    issue-term="pathname"
-    theme="github-light"
-    crossorigin="anonymous"
-    async
-    ></script>
-    <noscript>Please enable JavaScript to view the Comments</noscript>
-                <div class="info">
-                    <a href="https://parchlinux.ir/blog/blog/2022/Jan/29/readme/">posted at 00:00</a>
+                    <a href="https://parchlinux.ir/blog/blog/2022/Aug/29/readme/">posted at 16:05</a>
                     <a href="https://parchlinux.ir/blog/author/mmdbalkhi.html">by mmdbalkhi</a>
                     &nbsp;&middot;&nbsp;<a href="https://parchlinux.ir/blog/categories/blog/" rel="tag">blog</a>
                     &nbsp;&middot;
-                    &nbsp;<a href="https://parchlinux.ir/blog/tags/arch/" class="tags">arch</a>
-                    &nbsp;<a href="https://parchlinux.ir/blog/tags/parch/" class="tags">parch</a>
+                    &nbsp;<a href="https://parchlinux.ir/blog/tags/readmeparchlinux/" class="tags">readmeparchlinux</a>
+                    &nbsp;<a href="https://parchlinux.ir/blog/tags/first/" class="tags">first</a>
                 </div>
             </article>
 
