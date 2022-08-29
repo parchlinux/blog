@@ -1,13 +1,68 @@
 title: README
-summary: Information about the project
+summary: first post in Parchlinux blog
 authors: mmdbalkhi
-date: January 29, 2022
-tags: arch,parch
+date: August 29, 2022 16:05:12
+tags: readmeparchlinux,first
 slug: readme
 
 
-# Parch os
+# ParchLinux blog
 
-![logo](https://parchlinux.ir/blog/images/parch_logo256x256.png)
+## how Contribute
 
-The **parch** operating system is an Arch-based operating system that utilizes graphical installers and graphical desktops. Our goal is a **light**, **beautiful**, and **stable** operating system.
+### code
+
+* first fork this project from [here](https://github.com/parchlinux/blog/fork)
+* then clone your fork
+* install requirements
+
+```sh
+cd blog
+pip install requirements.txt
+```
+
+* install pre-commit(we use pre-commit for lint/fix code before committing)
+
+```sh
+pip install pre-commit
+pre-commit install
+```
+
+* work on your feature! and create a PR!
+
+for preview of changes your can use this command:
+
+```sh
+make devserver
+```
+
+### write a Post
+
+* first fork this project from [here](https://github.com/parchlinux/blog/fork)
+* then clone your fork
+* install requirements
+
+```sh
+cd blog
+pip install requirements.txt
+```
+
+* Run markdown manager:
+
+```sh
+make manager
+```
+
+* and write your own post then create a PR.
+
+**useful links:**
+
+* [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+
+## discussion
+
+on discord: [Join](https://discord.gg/dRvDBDstnV)
+
+## note
+
+The markdown file manager is based on flaskcwg([+](https://github.com/flaskcwg/flaskcwg.github.io/blob/master/README.md))

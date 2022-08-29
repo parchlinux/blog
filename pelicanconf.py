@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- #
 
 AUTHOR = "Parch Foundation"
-SITENAME = "Parch os"
+SITENAME = "ParchLinux Blog"
 SITEURL = "https://parchlinux.ir/blog"
 
 PATH = "content/blog"
