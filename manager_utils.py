@@ -1,8 +1,8 @@
 import os
 import shutil
+from pathlib import Path
 
 import markdown
-from pathlib import Path
 
 
 def get_posts():

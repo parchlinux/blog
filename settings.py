@@ -2,4 +2,4 @@
 
 OUTPUT_FOLDER = "docs/"
 
-BLOG_CATEGORIES = ["faq", "blog", "tutorials", "news"]
+BLOG_CATEGORIES = ["faq", "blog", "news", "wiki"]
