@@ -2,7 +2,7 @@ title: faq
 summary: faq about Parchlinux
 authors: mmdbalkhi
 date: February 16, 2023 23:09:59
-tags: parchlinuxinfofaq
+tags: parch,linux,info,faq
 slug: faq
 
 
