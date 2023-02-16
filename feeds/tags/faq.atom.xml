@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>ParchLinux Blog - faq</title><link href="https://parchlinux.ir/blog/" rel="alternate"></link><link href="https://parchlinux.ir/blog/feeds/tags/faq.atom.xml" rel="self"></link><id>https://parchlinux.ir/blog/</id><updated>2023-02-16T23:09:59+00:00</updated><entry><title>faq</title><link href="https://parchlinux.ir/blog/blog/2023/Feb/16/faq/" rel="alternate"></link><published>2023-02-16T23:09:59+00:00</published><updated>2023-02-16T23:09:59+00:00</updated><author><name>mmdbalkhi</name></author><id>tag:parchlinux.ir,2023-02-16:/blog/blog/2023/Feb/16/faq/</id><summary type="html">&lt;p&gt;faq about Parchlinux&lt;/p&gt;</summary><content type="html">&lt;h1&gt;FAQ&lt;/h1&gt;
-&lt;p&gt;&lt;img alt="logo" src="/images/parchlinux_logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="logo" src="/blog/images/parchlinux_logo.png"&gt;&lt;/p&gt;
 &lt;p&gt;Many people ask us &lt;strong&gt;what is&lt;/strong&gt; Parch, &lt;strong&gt;why we call this&lt;/strong&gt; Parch, etc. In this article, we answer these frequently asked questions.&lt;/p&gt;
 &lt;h3&gt;What is the Parch&lt;/h3&gt;
 &lt;p&gt;The Parchlinux is a Linux distro based on &lt;strong&gt;&lt;a href="https://archlinux.org"&gt;Arch&lt;/a&gt;&lt;/strong&gt;, that tried to be &lt;strong&gt;pretty&lt;/strong&gt;, &lt;strong&gt;easy to use&lt;/strong&gt;, &lt;strong&gt;light&lt;/strong&gt;, &lt;strong&gt;fast&lt;/strong&gt; and &lt;strong&gt;stable&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3&gt;Why do we call this Parch?&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="persian arch" src="/images/persian_arch.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="persian arch" src="/blog/images/persian_arch.png"&gt;&lt;/p&gt;
 &lt;p&gt;At the beginning of our work, we planned to make Parch a platform for &lt;strong&gt;Persian-speaking&lt;/strong&gt; users, that's why we named it &lt;strong&gt;Parch&lt;/strong&gt;(&lt;strong&gt;Persian Arch&lt;/strong&gt;). But now we have more &lt;strong&gt;comprehensive&lt;/strong&gt; goals than before.&lt;/p&gt;
 &lt;!-- in progress --&gt;</content><category term="faq"></category><category term="parch"></category><category term="linux"></category><category term="info"></category><category term="faq"></category></entry></feed>
