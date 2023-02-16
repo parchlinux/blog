@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env pythoN
 # -*- coding: utf-8 -*- #
 
 AUTHOR = "Parch Foundation"
@@ -49,7 +49,7 @@ THEME = "blue-parch"
 # all the following settings are *optional*
 
 # HTML metadata
-SITEDESCRIPTION = "A blog for writing anything related to technology"
+SITEDESCRIPTION = "Parch Linux blog"
 
 # all defaults to True.
 DISPLAY_HEADER = True
