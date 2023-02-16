@@ -10,7 +10,7 @@ slug: faq
 
 # FAQ
 
-![logo](/images/parchlinux_logo.png)
+![logo](/blog/images/parchlinux_logo.png)
 
 Many people ask us **what is** Parch, **why we call this** Parch, etc. In this article, we answer these frequently asked questions.
 
@@ -20,7 +20,7 @@ The Parchlinux is a Linux distro based on **[Arch](https://archlinux.org)**, tha
 
 ### Why do we call this Parch?
 
-![persian arch](/images/persian_arch.png)
+![persian arch](/blog/images/persian_arch.png)
 
 At the beginning of our work, we planned to make Parch a platform for **Persian-speaking** users, that's why we named it **Parch**(**Persian Arch**). But now we have more **comprehensive** goals than before.
 
