@@ -360,7 +360,6 @@ footer {
     text-align: center;
     color: var(--Text);
     margin: 3em 0;
-    border: 1px solid var(--other);
     border-radius: 5px;
 }
 footer p { margin: 0; }
@@ -455,4 +454,5 @@ footer p { margin: 0; }
 }
 .darkModeSwicher #darkThemeBtn {
 display: none;
+fill: var(--Sky);
 }
