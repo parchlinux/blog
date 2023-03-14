@@ -447,7 +447,9 @@ footer p { margin: 0; }
     transform: rotate(180deg);
     transition: 500ms all ease;
 }
-
+.darkModeSwicher #lightThemeBtn {
+fill: var(--Sky);
+}
 .darkModeSwicher #darkThemeBtn:hover {
     fill: var(--other);
     transition: 500ms all ease;
