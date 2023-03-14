@@ -6,6 +6,25 @@ License: none (public domain)
 /* Modified by Jody Frankowski */
 /* Modified by ix5 */
 
+
+/*** Light Mode Theme ***/
+:root, [data-theme="default"] {
+    --Base: #eff1f5;
+    --Text: #4c4f69;
+    --Sky : #04a5e5;
+    --other : #7287fd;
+    
+  }
+  /* Dark Mode Theme */
+  [data-theme="dark"] {
+    --Base: #1e1e2e;
+    --Text: #cdd6f4;
+    --Sky : #89b4fa;
+    --other : #7287fd;
+  }
+
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -60,6 +79,8 @@ body {
     font-family: Georgia, serif;
     font-size: 16px;
     line-height: 1.5em;
+    background-color: var(--Base) !important;
+    color: var(--Text) !important;
 }
 
 header, #wrapper {
@@ -70,7 +91,7 @@ header, #wrapper {
 
 a {
     text-decoration: none;
-    color: #41AED9;
+    color: var(--Sky) !important;
 }
 
 ul {
@@ -101,7 +122,7 @@ img + em {
 blockquote {
     margin: 1.5em 1.5em 1.5em .75em;
     padding-left: .75em;
-    border-left: 1px solid #EEE;
+    border-left: 1px solid var(--other);
 }
 
 table {
@@ -109,11 +130,11 @@ table {
     margin: 1em 0;
 }
 thead {
-    border-bottom: 1px solid #0D0D0D;
+    border-bottom: 1px solid var(--other);
 }
 
 .date {
-    color: #CCC;
+    color: var(--Text);
     float: left;
     clear: both;
     width: 130px;
@@ -126,14 +147,14 @@ thead {
     margin-top: 1.3em;
     font-family: sans-serif;
     text-align: right;
-    color: #BBB;
+    color: var(--Text);
 }
 .info a {
     color: inherit;
 }
 .info a.tags {
-    background: #CCC;
-    color: #FFF;
+    background: var(--Base);
+    color: var(--Text);
     display: inline-block;
     padding: 0 .3em;
     border: 1px transparent solid;
@@ -145,7 +166,7 @@ thead {
     color: inherit;
 }
 .info a.tags.selected {
-    border: 1px #999 solid;
+    border: 1px var(--Text) solid;
 }
 
 .post {
@@ -171,10 +192,10 @@ thead {
 }
 .linenos {
     border-radius: 3px 0px 0px 3px;
-    background-color: #073642;
-    border-right: 1px solid #00232C;
-    color: #586E75;
-    text-shadow: 0px -1px #021014;
+    background-color: var(--Base);
+    border-right: 1px solid var(--other);
+    color: var(--Text);
+    text-shadow: 0px -1px var(--Base);
     font-size: 12.6px;
 }
 td.code {
@@ -182,7 +203,7 @@ td.code {
     max-width: 100px;
 }
 .linenos a {
-    color: #586E75;
+    color:var(--Text);
 }
 
 img {
@@ -221,13 +242,13 @@ sub {
 form.inline_edit {
     clear: both;
     margin: 4.5em 0;
-    background-color: #DDD;
-    color: #000;
+    background-color: var(--Base);
+    color: var(--Text);
     padding: 20px;
     border-radius: 5px;
 }
 .inline_edit .sub {
-    color: #888;
+    color: var(--Text);
     white-space: nowrap;
 }
 .inline_edit label {
@@ -255,12 +276,12 @@ nav a {
     padding: 4.5em 10px 10px 10px;
 }
 nav a:hover {
-    background-color: #d3d3d3;
-    color: #FFF;
+    background-color: var(--Sky);
+    color:var(--Base) !important;
 }
 nav li.selected a {
-    background-color: #049DD9;
-    color: #FFF;
+    background-color: var(--Sky) !important;
+    color:var(--Base) !important;
 }
 
 header .header_box {
@@ -274,7 +295,7 @@ header h1 {
 header h2 {
     font-size: 1em;
     margin: .3em 0;
-    color: #DDD;
+    color: var(--Text);
 }
 
 #content {
@@ -285,7 +306,7 @@ header h2 {
     font-family: sans-serif;
     line-height: 2.5em;
     margin: 4.5em 0 3em;
-    background-color: #F9F9F9;
+    background-color: var(--Base);
     border-radius: 5px;
 }
 .pages a.next_page {
@@ -294,7 +315,7 @@ header h2 {
     text-align: center;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: #EEE;
+    background-color: var(--Base);
 }
 .pages a.prev_page {
     float: left;
@@ -302,14 +323,14 @@ header h2 {
     text-align: center;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    background-color: #EEE;
+    background-color: var(--Base);
 }
 .pages a {
     color: inherit;
     border: none;
 }
 .pages a:hover {
-    background-color: #DDD;
+    background-color: var(--Sky);
 }
 .pages span {
     display: block;
@@ -337,9 +358,9 @@ footer {
     font-family: sans-serif;
     line-height: 2.5em;
     text-align: center;
-    color: #BBB;
+    color: var(--Text);
     margin: 3em 0;
-    border: 1px solid #EEE;
+    border: 1px solid var(--other);
     border-radius: 5px;
 }
 footer p { margin: 0; }
@@ -380,7 +401,7 @@ footer p { margin: 0; }
 }
 @media print {
     * {
-        background: #fff;
+        background: var(--Base);
     }
     #wrapper, #content {
         margin: 0;
@@ -411,4 +432,27 @@ footer p { margin: 0; }
 }
 @page {
     margin: 1.5cm;
+}
+
+
+.darkModeSwicher{
+    display: block;
+    padding: 4.5em 10px 10px 10px;
+}
+
+.darkModeSwicher svg {
+    cursor: pointer;
+}
+.darkModeSwicher #lightThemeBtn:hover {
+    fill: var(--other);
+    transform: rotate(180deg);
+    transition: 500ms all ease;
+}
+
+.darkModeSwicher #darkThemeBtn:hover {
+    fill: var(--other);
+    transition: 500ms all ease;
+}
+.darkModeSwicher #darkThemeBtn {
+display: none;
 }
