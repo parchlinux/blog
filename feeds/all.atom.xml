@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ParchLinux Blog</title><link href="https://parchlinux.ir/blog/" rel="alternate"></link><link href="https://parchlinux.ir/blog/feeds/all.atom.xml" rel="self"></link><id>https://parchlinux.ir/blog/</id><updated>2023-02-16T23:09:59+00:00</updated><entry><title>faq</title><link href="https://parchlinux.ir/blog/blog/2023/Feb/16/faq/" rel="alternate"></link><published>2023-02-16T23:09:59+00:00</published><updated>2023-02-16T23:09:59+00:00</updated><author><name>mmdbalkhi</name></author><id>tag:parchlinux.ir,2023-02-16:/blog/blog/2023/Feb/16/faq/</id><summary type="html">&lt;p&gt;faq about Parchlinux&lt;/p&gt;</summary><content type="html">&lt;h1&gt;FAQ&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ParchLinux Blog</title><link href="https://parchlinux.ir/blog/" rel="alternate"></link><link href="https://parchlinux.ir/blog/feeds/all.atom.xml" rel="self"></link><id>https://parchlinux.ir/blog/</id><updated>2023-04-17T20:02:07+04:30</updated><entry><title>Parch Linux new releases</title><link href="https://parchlinux.ir/blog/blog/2023/Apr/17/parch-linux-new-releases/" rel="alternate"></link><published>2023-04-17T20:02:07+04:30</published><updated>2023-04-17T20:02:07+04:30</updated><author><name>behdanisohrab</name></author><id>tag:parchlinux.ir,2023-04-17:/blog/blog/2023/Apr/17/parch-linux-new-releases/</id><summary type="html">&lt;p&gt;parch linux new releases&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hello everyone,
+We are proud to offer you the new releases of the Parch Linux.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important changes to these releases&lt;/strong&gt;:
+  + Adds:
+    - Added &lt;strong&gt;Ibus&lt;/strong&gt; to the &lt;strong&gt;&lt;em&gt;CuteFish&lt;/em&gt;&lt;/strong&gt; version to solve the problem of changing the &lt;strong&gt;keyboard layouts&lt;/strong&gt;
+  + Fixes:
+    - Fixes &lt;strong&gt;slow boot&lt;/strong&gt; problem
+    - Fixes &lt;strong&gt;network manager&lt;/strong&gt; problem in the &lt;strong&gt;&lt;em&gt;GNOME&lt;/em&gt;&lt;/strong&gt; version
+    - Fixes the sudden closing of the installer in the &lt;strong&gt;&lt;em&gt;Xfce&lt;/em&gt;&lt;/strong&gt; version
+    - Fixes other reported problems.
+  + Changes:
+    - Removing &lt;strong&gt;Kde Falkon&lt;/strong&gt; and changing the default browser to &lt;strong&gt;Firefox&lt;/strong&gt; (in the version of &lt;strong&gt;&lt;em&gt;CuteFish&lt;/em&gt;&lt;/strong&gt;, the default browser is &lt;strong&gt;Chromium&lt;/strong&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Our editions:&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/parchlinux/parch-iso-cinnamon"&gt;cinnamon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/parchlinux/parch-iso-cutefish"&gt;CuteFish&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/parchlinux/parch-iso-gnome/"&gt;Gnome&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/parchlinux/parch-iso-plasma"&gt;Plasma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/parchlinux/parch-iso-xfce/"&gt;Xfce&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;you can download them from the &lt;a href="https://mirror.parchlinux.ir/?dir=iso"&gt;mirror&lt;/a&gt;.&lt;/p&gt;</content><category term="news"></category><category term="archparch"></category><category term="linux"></category><category term="bssfoundation"></category></entry><entry><title>faq</title><link href="https://parchlinux.ir/blog/blog/2023/Feb/16/faq/" rel="alternate"></link><published>2023-02-16T23:09:59+03:30</published><updated>2023-02-16T23:09:59+03:30</updated><author><name>mmdbalkhi</name></author><id>tag:parchlinux.ir,2023-02-16:/blog/blog/2023/Feb/16/faq/</id><summary type="html">&lt;p&gt;faq about Parchlinux&lt;/p&gt;</summary><content type="html">&lt;h1&gt;FAQ&lt;/h1&gt;
 &lt;p&gt;&lt;img alt="logo" src="/blog/images/parchlinux_logo.png"&gt;&lt;/p&gt;
 &lt;p&gt;Many people ask us &lt;strong&gt;what is&lt;/strong&gt; Parch, &lt;strong&gt;why we call this&lt;/strong&gt; Parch, etc. In this article, we answer these frequently asked questions.&lt;/p&gt;
 &lt;h3&gt;What is the Parch&lt;/h3&gt;
@@ -7,7 +27,7 @@
 &lt;h3&gt;Why do we call this Parch?&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="persian arch" src="/blog/images/persian_arch.png"&gt;&lt;/p&gt;
 &lt;p&gt;At the beginning of our work, we planned to make Parch a platform for &lt;strong&gt;Persian-speaking&lt;/strong&gt; users, that's why we named it &lt;strong&gt;Parch&lt;/strong&gt;(&lt;strong&gt;Persian Arch&lt;/strong&gt;). But now we have more &lt;strong&gt;comprehensive&lt;/strong&gt; goals than before.&lt;/p&gt;
-&lt;!-- in progress --&gt;</content><category term="faq"></category><category term="parch"></category><category term="linux"></category><category term="info"></category><category term="faq"></category></entry><entry><title>README</title><link href="https://parchlinux.ir/blog/blog/2022/Aug/29/readme/" rel="alternate"></link><published>2022-08-29T16:05:12+00:00</published><updated>2022-08-29T16:05:12+00:00</updated><author><name>mmdbalkhi</name></author><id>tag:parchlinux.ir,2022-08-29:/blog/blog/2022/Aug/29/readme/</id><summary type="html">&lt;p&gt;first post in Parchlinux blog&lt;/p&gt;</summary><content type="html">&lt;h1&gt;ParchLinux blog&lt;/h1&gt;
+&lt;!-- in progress --&gt;</content><category term="faq"></category><category term="parch"></category><category term="linux"></category><category term="info"></category><category term="faq"></category></entry><entry><title>README</title><link href="https://parchlinux.ir/blog/blog/2022/Aug/29/readme/" rel="alternate"></link><published>2022-08-29T16:05:12+04:30</published><updated>2022-08-29T16:05:12+04:30</updated><author><name>mmdbalkhi</name></author><id>tag:parchlinux.ir,2022-08-29:/blog/blog/2022/Aug/29/readme/</id><summary type="html">&lt;p&gt;first post in Parchlinux blog&lt;/p&gt;</summary><content type="html">&lt;h1&gt;ParchLinux blog&lt;/h1&gt;
 &lt;h2&gt;how Contribute&lt;/h2&gt;
 &lt;h3&gt;code&lt;/h3&gt;
 &lt;ul&gt;
