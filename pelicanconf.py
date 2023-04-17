@@ -10,7 +10,7 @@ STATIC_PATHS = [
     "images",
     "extra",
 ]
-# TIMEZONE = "Asia/Tehran"
+TIMEZONE = "Asia/Tehran"
 
 DEFAULT_LANG = "en"
 
