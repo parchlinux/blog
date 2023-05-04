@@ -10,13 +10,16 @@ Hello everyone,
 We are proud to offer you the new releases of the Parch Linux.
 
 **Important changes to these releases**:
+
   + Adds:
     - Added **Ibus** to the **_CuteFish_** version to solve the problem of changing the **keyboard layouts**
+
   + Fixes:
     - Fixes **slow boot** problem
     - Fixes **network manager** problem in the **_GNOME_** version
     - Fixes the sudden closing of the installer in the **_Xfce_** version
     - Fixes other reported problems.
+
   + Changes:
     - Removing **Kde Falkon** and changing the default browser to **Firefox** (in the version of **_CuteFish_**, the default browser is **Chromium**)
 
