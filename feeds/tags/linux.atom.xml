@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>ParchLinux Blog - linux</title><link href="https://parchlinux.ir/blog/" rel="alternate"></link><link href="https://parchlinux.ir/blog/feeds/tags/linux.atom.xml" rel="self"></link><id>https://parchlinux.ir/blog/</id><updated>2023-04-17T20:02:07+04:30</updated><entry><title>Parch Linux new releases</title><link href="https://parchlinux.ir/blog/blog/2023/Apr/17/parch-linux-new-releases/" rel="alternate"></link><published>2023-04-17T20:02:07+04:30</published><updated>2023-04-17T20:02:07+04:30</updated><author><name>behdanisohrab</name></author><id>tag:parchlinux.ir,2023-04-17:/blog/blog/2023/Apr/17/parch-linux-new-releases/</id><summary type="html">&lt;p&gt;parch linux new releases&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hello everyone,
 We are proud to offer you the new releases of the Parch Linux.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Important changes to these releases&lt;/strong&gt;:
-  + Adds:
-    - Added &lt;strong&gt;Ibus&lt;/strong&gt; to the &lt;strong&gt;&lt;em&gt;CuteFish&lt;/em&gt;&lt;/strong&gt; version to solve the problem of changing the &lt;strong&gt;keyboard layouts&lt;/strong&gt;
-  + Fixes:
-    - Fixes &lt;strong&gt;slow boot&lt;/strong&gt; problem
-    - Fixes &lt;strong&gt;network manager&lt;/strong&gt; problem in the &lt;strong&gt;&lt;em&gt;GNOME&lt;/em&gt;&lt;/strong&gt; version
-    - Fixes the sudden closing of the installer in the &lt;strong&gt;&lt;em&gt;Xfce&lt;/em&gt;&lt;/strong&gt; version
-    - Fixes other reported problems.
-  + Changes:
-    - Removing &lt;strong&gt;Kde Falkon&lt;/strong&gt; and changing the default browser to &lt;strong&gt;Firefox&lt;/strong&gt; (in the version of &lt;strong&gt;&lt;em&gt;CuteFish&lt;/em&gt;&lt;/strong&gt;, the default browser is &lt;strong&gt;Chromium&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important changes to these releases&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Our editions:&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Adds:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Added &lt;strong&gt;Ibus&lt;/strong&gt; to the &lt;strong&gt;&lt;em&gt;CuteFish&lt;/em&gt;&lt;/strong&gt; version to solve the problem of changing the &lt;strong&gt;keyboard layouts&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fixes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixes &lt;strong&gt;slow boot&lt;/strong&gt; problem&lt;/li&gt;
+&lt;li&gt;Fixes &lt;strong&gt;network manager&lt;/strong&gt; problem in the &lt;strong&gt;&lt;em&gt;GNOME&lt;/em&gt;&lt;/strong&gt; version&lt;/li&gt;
+&lt;li&gt;Fixes the sudden closing of the installer in the &lt;strong&gt;&lt;em&gt;Xfce&lt;/em&gt;&lt;/strong&gt; version&lt;/li&gt;
+&lt;li&gt;Fixes other reported problems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Changes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Removing &lt;strong&gt;Kde Falkon&lt;/strong&gt; and changing the default browser to &lt;strong&gt;Firefox&lt;/strong&gt; (in the version of &lt;strong&gt;&lt;em&gt;CuteFish&lt;/em&gt;&lt;/strong&gt;, the default browser is &lt;strong&gt;Chromium&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Our editions:&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/parchlinux/parch-iso-cinnamon"&gt;cinnamon&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/parchlinux/parch-iso-cutefish"&gt;CuteFish&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/parchlinux/parch-iso-gnome/"&gt;Gnome&lt;/a&gt;&lt;/li&gt;
