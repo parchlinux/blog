@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ParchLinux Blog - bssfoundation</title><link href="https://parchlinux.ir/blog/" rel="alternate"></link><link href="https://parchlinux.ir/blog/feeds/tags/bssfoundation.atom.xml" rel="self"></link><id>https://parchlinux.ir/blog/</id><updated>2023-04-17T20:02:07+04:30</updated><entry><title>Parch Linux new releases</title><link href="https://parchlinux.ir/blog/blog/2023/Apr/17/parch-linux-new-releases/" rel="alternate"></link><published>2023-04-17T20:02:07+04:30</published><updated>2023-04-17T20:02:07+04:30</updated><author><name>behdanisohrab</name></author><id>tag:parchlinux.ir,2023-04-17:/blog/blog/2023/Apr/17/parch-linux-new-releases/</id><summary type="html">&lt;p&gt;parch linux new releases&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hello everyone,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ParchLinux Blog - bssfoundation</title><link href="https://parchlinux.ir/blog/" rel="alternate"></link><link href="https://parchlinux.ir/blog/feeds/tags/bssfoundation.atom.xml" rel="self"></link><id>https://parchlinux.ir/blog/</id><updated>2023-06-09T21:26:07+04:30</updated><entry><title>Parch Linux Release 2023/06/08</title><link href="https://parchlinux.ir/blog/blog/2023/Jun/09/parch-linux-release-20230608/" rel="alternate"></link><published>2023-06-09T21:26:07+04:30</published><updated>2023-06-09T21:26:07+04:30</updated><author><name>behdanisohrab</name></author><id>tag:parchlinux.ir,2023-06-09:/blog/blog/2023/Jun/09/parch-linux-release-20230608/</id><summary type="html">&lt;p&gt;New releases of Parch Linux&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hello everyone, 
+we are proud to introduce Parch Linux 2023/06/08 releases.&lt;/p&gt;
+&lt;h1&gt;New website design&lt;/h1&gt;
+&lt;p&gt;recently we have had redesigned our website. you can check it from &lt;a href="https://parchlinux.ir"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now its more &lt;strong&gt; Faster &lt;/strong&gt; and &lt;strong&gt; Responsive &lt;/strong&gt; .&lt;/p&gt;
+&lt;h1&gt;changes in this release:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixes:&lt;ul&gt;
+&lt;li&gt;Fixed Calamares problem.&lt;/li&gt;
+&lt;li&gt;Fixed Problem with pacman config.&lt;/li&gt;
+&lt;li&gt;Fixed persian font problem.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What`s new?&lt;ul&gt;
+&lt;li&gt;Added mtp support.&lt;/li&gt;
+&lt;li&gt;Added Firefox config.&lt;/li&gt;
+&lt;li&gt;Added Motrix download manager.&lt;/li&gt;
+&lt;li&gt;Added Broadcom drivers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;community releases?&lt;/h1&gt;
+&lt;h2&gt;What are the community releases?&lt;/h2&gt;
+&lt;p&gt;community releases are the releases which has been developed by the parchlinux community.&lt;/p&gt;
+&lt;h2&gt;Difference with team releases&lt;/h2&gt;
+&lt;p&gt;community releases are maintained by the community not team so they have the support from our community.&lt;/p&gt;
+&lt;h2&gt;Can we develop a community release of parch?&lt;/h2&gt;
+&lt;p&gt;Yes! you can develop your own version of Parch Linux and release it under community name.&lt;/p&gt;
+&lt;p&gt;community releases have their own repository names PCP. Pcp stands for Parch Community Packages, you can put your own package there and release it for parchlinux.&lt;/p&gt;
+&lt;h2&gt;which releases are now under Community support?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;cutefish, maintained by Sohrab Behdani&lt;/li&gt;
+&lt;li&gt;lxqt, maintained by Sohrab Behdani&lt;/li&gt;
+&lt;li&gt;mate, maintained by HosseinPJ&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;Download:&lt;/h1&gt;
+&lt;p&gt;You can download ParchLinux from our &lt;a href="https://parchlinux.ir"&gt;website&lt;/a&gt;&lt;/p&gt;</content><category term="news"></category><category term="archparch"></category><category term="linux"></category><category term="bssfoundation"></category></entry><entry><title>Parch Linux new releases</title><link href="https://parchlinux.ir/blog/blog/2023/Apr/17/parch-linux-new-releases/" rel="alternate"></link><published>2023-04-17T20:02:07+04:30</published><updated>2023-04-17T20:02:07+04:30</updated><author><name>behdanisohrab</name></author><id>tag:parchlinux.ir,2023-04-17:/blog/blog/2023/Apr/17/parch-linux-new-releases/</id><summary type="html">&lt;p&gt;parch linux new releases&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hello everyone,
 We are proud to offer you the new releases of the Parch Linux.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Important changes to these releases&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
