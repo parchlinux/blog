@@ -1,60 +1,57 @@
-# ParchLinux blog
+# Alpine Starter
 
-## how Contribute
+Starter template for [Alpine](https://alpine.nuxt.space).
 
-### code
+## Clone
 
-* first fork this project from [here](https://github.com/parchlinux/blog/fork)
-* then clone your fork
-* install requirements
+Clone the repository (using `nuxi`):
 
-```sh
-cd blog
-pip install requirements.txt
+```bash
+npx nuxi init -t themes/alpine
 ```
 
-* install pre-commit(we use pre-commit for lint/fix code before committing)
+## Setup
 
-```sh
-pip install pre-commit
-pre-commit install
+Install dependencies:
+
+```bash
+pnpm install
 ```
 
-* work on your feature! and create a PR!
+## Development
 
-for preview of changes your can use this command:
-
-```sh
-make devserver
+```bash
+pnpm dev
 ```
 
-### write a Post
+## Edge Side Rendering
 
-* first fork this project from [here](https://github.com/parchlinux/blog/fork)
-* then clone your fork
-* install requirements
+Can be deployed to Vercel Functions, Netlify Functions, AWS, and most Node-compatible environments.
 
-```sh
-cd blog
-pip install requirements.txt
+Look at all the available presets [here](https://v3.nuxtjs.org/guide/deploy/presets).
+
+```bash
+pnpm build
 ```
 
-* Run markdown manager:
+## Static Generation
 
-```sh
-make manager
+Use the `generate` command to build your application.
+
+The HTML files will be generated in the .output/public directory and ready to be deployed to any static compatible hosting.
+
+```bash
+pnpm generate
 ```
 
-* and write your own post then create a PR.
+## Preview build
 
-**useful links:**
+You might want to preview the result of your build locally, to do so, run the following command:
 
-* [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+```bash
+pnpm preview
+```
 
-## discussion
+---
 
-on discord: [Join](https://discord.gg/dRvDBDstnV)
-
-## note
-
-The markdown file manager is based on flaskcwg([+](https://github.com/flaskcwg/flaskcwg.github.io/blob/master/README.md))
+For a detailed explanation of how things work, check out [Alpine](https://alpine.nuxt.space).
